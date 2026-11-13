@@ -4,7 +4,8 @@ Solo hace falta correrlo para cambiar de zona: los mapas guardados están en el 
 así todos entrenan con los mismos y no hace falta internet. La manzana de la primera etapa
 no se descarga: sale del 3x3 (ver manzana() en mapa.py).
 
-Los mapas candioti y guadalupe no salen de este script.
+Los mapas candioti y guadalupe no salen de este script: se bajaron aparte y quedaron guardados
+en mapas/. Guadalupe es el barrio de prueba de la red base en el informe.
 
 Se corre desde la carpeta del proyecto: python -m conduccion.mapa.descargar_mapa
 """

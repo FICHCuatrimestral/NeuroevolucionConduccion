@@ -4,14 +4,13 @@ Uso, parado en la carpeta del proyecto:
     python presentacion/figuras_antecedentes.py
 
 Cada figura copia una figura de un paper, con sus mismos números, en castellano y con
-los colores de la presentación. En la diapositiva va "Basado en <autor> (<año>), fig. <n>".
+los colores de la presentación. En la diapositiva va "<autor> (<año>), fig. <n>".
   - kong_bicicleta.png      Kong et al. (2015), fig. 1: el modelo cinemático de bicicleta
-  - togelius_pista.png      Togelius y Lucas (2006), figs. 1 y 2: pista, puntos de control y sensores
+  - togelius_pista.png      Togelius y Lucas (2005), p. 1911: pista, puntos de control y sensores
   - montana_red.png         Montana y Davis (1989), fig. 1: una red escrita como cromosoma
-  - montana_operadores.png  Montana y Davis (1989), fig. 2: mutación y cruce
   - yao_permutacion.png     Yao (1999), figs. 3 y 4: dos redes iguales con cromosomas distintos
   - gomez_etapas.png        Gomez y Miikkulainen (1996), sección 5.3: tareas cada vez más difíciles
-  - nelson_aptitud.png      Nelson et al. (2009), fig. 1: clases de funciones de aptitud
+  - nelson_aptitud.png      Nelson et al. (2009), tabla 1: clases de funciones de aptitud
 """
 import math
 from pathlib import Path
@@ -216,7 +215,7 @@ def togelius_pista():
 
 
 # =========================================================================
-# MONTANA Y DAVIS (1989), FIGS. 1 Y 2
+# MONTANA Y DAVIS (1989), FIG. 1
 # =========================================================================
 
 # -------------------------------------------------------------------------
@@ -287,32 +286,6 @@ def montana_red():
     ax.set_xlim(-2, 10.5)
     ax.set_ylim(-3.4, 5.7)
     guardar(fig, "montana_red.png")
-
-
-# -------------------------------------------------------------------------
-# La mutación cambia algunos genes de un padre. El cruce arma un hijo con
-# genes de dos padres, cada gen en su misma posición.
-# -------------------------------------------------------------------------
-def montana_operadores():
-    fig, ax = lienzo(11, 5.6)
-    padre = [0.3, -0.4, 1.2, 0.8, -0.3, -0.1, 0.7, -6.3]
-    madre = [-0.7, -0.9, 1.3, 0.4, 1.8, 2.1, -0.2, -1.2]
-    mutado = [0.3, -0.4, 1.2, -2.2, -0.3, -0.1, 1.2, -6.3]
-    hijo = [-0.7, -0.4, 1.3, 0.4, 1.8, 2.1, 0.7, -6.3]
-
-    # 1. Mutación: los genes que cambian, en naranja
-    ax.text(-4.8, 7.0, "Mutación", fontsize=16, weight="bold", va="center")
-    casillas(ax, padre, 0, 6.6, [AZ] * 8, "padre")
-    casillas(ax, mutado, 0, 5.4, [NA if a != b else AZ for a, b in zip(padre, mutado)], "hijo")
-
-    # 2. Cruce: cada gen del hijo viene de uno de los dos padres
-    ax.text(-4.8, 3.4, "Cruce", fontsize=16, weight="bold", va="center")
-    casillas(ax, padre, 0, 3.0, [AZ] * 8, "padre 1")
-    casillas(ax, madre, 0, 1.8, [GRIS] * 8, "padre 2")
-    casillas(ax, hijo, 0, 0.3, [AZ if a == b else GRIS for a, b in zip(padre, hijo)], "hijo")
-    ax.set_xlim(-5, 8.5)
-    ax.set_ylim(0, 7.8)
-    guardar(fig, "montana_operadores.png")
 
 
 # =========================================================================
@@ -449,7 +422,6 @@ if __name__ == "__main__":
     kong_bicicleta()
     togelius_pista()
     montana_red()
-    montana_operadores()
     yao_permutacion()
     gomez_etapas()
     nelson_aptitud()

@@ -19,7 +19,7 @@ Todas las corridas entrenan por etapas, en ETAPAS, con cada una de las SEMILLAS.
       evaluacion.json       se escribe al terminar de probar: una fila por ruta de prueba en el centro
 y resultados/comparaciones/indice.json e indice.xlsx tienen una fila por corrida terminada.
 
-Cada corrida tiene un número al azar de 4 cifras, para nombrarla en el informe.
+Cada corrida tiene un número al azar de 4 cifras, para nombrarla en la presentación.
 
 El nombre de la carpeta de una combinación solo depende de sus valores: si una combinación aparece
 en las dos formas, se corre una sola vez.
@@ -232,6 +232,7 @@ def correr_corrida(combinacion, semilla):
 # su registro: así los mensajes de corridas en paralelo no se mezclan.
 # -------------------------------------------------------------------------
 def registro_en(archivo):
+    # Recibe lo mismo que print y lo agrega al registro
     def mostrar(*partes):
         with open(archivo, "a", encoding="utf-8") as registro:
             print(*partes, file=registro)
@@ -373,8 +374,8 @@ def actualizar_indice():
                                                        encoding="utf-8")
     try:
         pd.DataFrame(filas).to_excel(CARPETA_COMPARACIONES / "indice.xlsx", index=False)
-    except PermissionError:
-        return "no se pudo escribir indice.xlsx: ¿está abierto en Excel? Se escribe de nuevo con la próxima corrida."
+    except (PermissionError, ModuleNotFoundError):
+        return "no se pudo escribir indice.xlsx: ¿está abierto en Excel o falta openpyxl? Se escribe de nuevo con la próxima corrida."
     return None
 
 

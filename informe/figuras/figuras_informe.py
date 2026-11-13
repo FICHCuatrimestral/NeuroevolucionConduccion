@@ -5,10 +5,13 @@ Uso, parado en la carpeta del proyecto:
     python informe/figuras/figuras_informe.py mapas auto      solo esas
 
 Cada figura se guarda en PDF (para el informe) y en PNG (para mirarla rápido).
+"presentacion" guarda en presentacion/img/ las versiones para las diapositivas: red_entradas.png,
+red_capas.png, permutaciones.png y copias de fig_mapas.png y fig_auto.png.
 Las figuras de métodos no dependen de ninguna red entrenada: usan redes al azar o la física del auto.
 """
 import itertools
 import math
+import shutil
 import sys
 from pathlib import Path
 
@@ -589,7 +592,85 @@ def operadores():
     guardar(fig, "fig_operadores")
 
 
+# =========================================================================
+# PRESENTACIÓN: las mismas figuras, en PNG para las diapositivas
+# =========================================================================
+
+# Carpeta de las imágenes de la presentación
+IMAGENES_PRESENTACION = RAIZ / "presentacion" / "img"
+
+
+# -------------------------------------------------------------------------
+# Guarda una figura en PNG en la carpeta de la presentación y la cierra.
+# -------------------------------------------------------------------------
+def guardar_para_presentacion(fig, nombre):
+    fig.savefig(IMAGENES_PRESENTACION / f"{nombre}.png", dpi=300, bbox_inches="tight", pad_inches=0.02)
+    plt.close(fig)
+    print("->", f"presentacion/img/{nombre}.png")
+
+
+# -------------------------------------------------------------------------
+# Una red chica de la figura de las permutaciones: 2 entradas, 2 neuronas
+# ocultas y 1 salida. Cada neurona oculta tiene su color y el signo de su
+# peso de salida.
+# -------------------------------------------------------------------------
+def red_chica(ax, x0, titulo, colores, signos):
+    entradas = [(x0, 1.0), (x0, 0.0)]
+    ocultas = [(x0 + 1.2, 1.0), (x0 + 1.2, 0.0)]
+    salida = (x0 + 2.4, 0.5)
+    for (xo, yo), color, signo, nombre in zip(ocultas, colores, signos, ("$n_1$", "$n_2$")):
+        for xe, ye in entradas:
+            ax.plot([xe, xo], [ye, yo], color=color, lw=1.2, zorder=1)
+        ax.plot([xo, salida[0]], [yo, salida[1]], color=color, lw=1.2, zorder=1)
+        ax.text((xo + salida[0]) / 2, (yo + salida[1]) / 2 + (0.12 if yo > 0.5 else -0.12),
+                f"{signo:+d}".replace("-", "−"), ha="center", va="center", fontsize=8)
+        ax.scatter([xo], [yo], s=110, c=color, edgecolors=TINTA, linewidths=0.5, zorder=3)
+        ax.text(xo, yo, nombre, ha="center", va="center", fontsize=7, color="white", zorder=4)
+    for x, y in entradas + [salida]:
+        ax.scatter([x], [y], s=110, c="white", edgecolors=TINTA, linewidths=0.8, zorder=3)
+    ax.text(x0 + 1.2, 1.45, titulo, ha="center", va="bottom", fontsize=8)
+
+
+# -------------------------------------------------------------------------
+# Las permutaciones: el padre y la madre son la misma red con las neuronas en
+# otro orden, y el hijo del cruce por neurona recibe dos veces la misma neurona.
+# -------------------------------------------------------------------------
+def permutaciones():
+    fig, ax = plt.subplots(figsize=(ANCHO, 0.95))
+    red_chica(ax, 0.0, "padre", (AZ, NA), (1, -1))
+    red_chica(ax, 4.2, "madre (la misma red)", (NA, AZ), (-1, 1))
+    red_chica(ax, 8.4, "hijo: $n_1$ del padre,\n$n_2$ de la madre", (AZ, AZ), (1, 1))
+    ax.text(11.8, 0.5, "La misma red se puede escribir de\n"
+                      r"$16!\cdot 2^{16} \approx 1{,}4\cdot 10^{18}$" "\n"
+                      "maneras distintas (orden y signo\nde las neuronas ocultas).",
+            ha="left", va="center", fontsize=8, linespacing=1.5)
+    ax.set_xlim(-0.3, 16.0)
+    ax.set_ylim(-0.25, 2.0)
+    ax.axis("off")
+    guardar_para_presentacion(fig, "permutaciones")
+
+
+# -------------------------------------------------------------------------
+# Las imágenes de la presentación que salen de las figuras del informe: los
+# dos paneles de la red por separado, las permutaciones y las copias en PNG
+# de los mapas y del auto. Usa los PNG de mapas y auto que ya estén hechos.
+# -------------------------------------------------------------------------
+def presentacion():
+    mapa = santa_fe("2x2")
+    ruta = ruta_de_ejemplo(mapa)
+    fig, ax = plt.subplots(figsize=(0.36 * ANCHO, 1.8))
+    panel_sensores(ax, mapa, ruta, auto_de_ejemplo(ruta))
+    guardar_para_presentacion(fig, "red_entradas")
+    fig, ax = plt.subplots(figsize=(0.6 * ANCHO, 1.67))
+    panel_red(ax)
+    guardar_para_presentacion(fig, "red_capas")
+    permutaciones()
+    for nombre in ("fig_mapas", "fig_auto"):
+        shutil.copy(SALIDA / f"{nombre}.png", IMAGENES_PRESENTACION / f"{nombre}.png")
+        print("->", f"presentacion/img/{nombre}.png")
+
+
 if __name__ == "__main__":
-    todas = {"mapas": mapas, "auto": auto, "red": red, "operadores": operadores}
+    todas = {"mapas": mapas, "auto": auto, "red": red, "operadores": operadores, "presentacion": presentacion}
     for nombre in (sys.argv[1:] or todas):
         todas[nombre]()

@@ -9,8 +9,11 @@ Un auto simulado aprende a ir de una esquina A a una esquina B por calles reales
 - **Vehículo:** modelo de bicicleta cinemático (Kong et al., 2015), con un límite de aceleración lateral.
 - **Controlador:** perceptrón 16 → 16 → 2 con tanh. Entradas: 7 rayos al borde de la calle, velocidad, brújula al próximo punto, distancia al punto, desvío del carril y la dirección del carril 3 m y 6 m adelante. Salidas: volante y acelerador.
 - **Algoritmo genético:** torneo de 3, élite de 2, cruce por neurona, por pesos o BLX-α, y mutación gaussiana o por neurona.
-- **Entrenamiento:** directo en un mapa, o por etapas de dificultad creciente: manzana → 2×2 → 3×3 → centro.
-- **Evaluación:** 58 recortes de 1 km de toda la ciudad, en 4 niveles de dificultad. 10 de ellos son de prueba: la red nunca entrena ahí.
+- **Entrenamiento:** directo en un mapa, o por etapas: manzana → 2×2 → 3×3. Desde el notebook también se puede sumar el centro como etapa.
+- **Evaluación:** las 20 rutas fijas del centro y las de seis barrios de prueba, donde la red nunca entrena.
+  Los barrios salen de 58 recortes de 1 km de toda la ciudad (`mapas/recortes.json`), salvo Guadalupe, que se bajó aparte.
+  Los recortes tienen un nivel de dificultad según la entropía de orientación de sus calles (Boeing, 2019, *Urban spatial order*);
+  sirvió para elegirlos, pero el informe no lo usa.
 
 ## Estructura
 
@@ -27,11 +30,13 @@ notebooks/
 ├── 1_componentes.ipynb     cada parte por separado, sin entrenar
 ├── 2_entrenamiento.ipynb   elegir parámetros y entrenar
 └── 3_evaluacion.ipynb      analizar una red entrenada
-scripts/simulador.py        menú para ver manejar una red o entrenar viendo a la población
+scripts/
+├── simulador.py            menú para ver manejar una red o entrenar viendo a la población
+└── correr_comparaciones.py las seis corridas del informe
 mapas/                      mapas ya descargados (no hace falta internet)
-resultados/                 un subdirectorio por entrenamiento
-informe/                    informe en LaTeX y el script de sus figuras
-presentacion/               presentación (Quarto) y el script de sus videos
+resultados/comparaciones/   las seis corridas del informe, con sus redes y evaluaciones
+informe/                    informe en LaTeX (main.tex, Informe.pdf y el zip para Overleaf) y los scripts de sus figuras
+presentacion/               presentación (Quarto), su guion y los scripts de sus figuras y videos
 docs/                       los artículos citados en el informe, con el nombre de su clave en refs.bib
 ```
 
@@ -76,6 +81,16 @@ Cada entrenamiento se guarda en `resultados/<fecha>_semilla<n>/` después de cad
 
 Con 50 individuos, un entrenamiento por etapas tarda varias horas.
 
+### Reproducir las corridas del informe
+
+```bash
+python scripts/correr_comparaciones.py uno_por_vez          # las 6 corridas a la vez, unas 4 horas y media
+```
+
+Cada corrida queda en `resultados/comparaciones/<combinación>/semilla0/`, con una carpeta por etapa.
+En las corridas guardadas, la carpeta que empieza a las 06:38 es el comienzo de la manzana: ese primer
+intento se cortó a las pocas generaciones y la manzana siguió desde ahí (ver `origen` en su `config.json`).
+
 ### Evaluar en los recortes de la ciudad
 
 ```bash
@@ -92,9 +107,16 @@ Sin `--red` se usa el entrenamiento más reciente. El resumen se guarda en `resu
 ### Reproducir las figuras
 
 ```bash
-python informe/figuras/figuras_informe.py
-python presentacion/figuras_presentacion.py      # necesita ffmpeg y las redes de REDES
+python informe/figuras/figuras_informe.py          # métodos del informe y algunas imágenes de la presentación
+python presentacion/video_comparaciones.py         # video de los barrios y img/barrios.json
+python informe/figuras/figuras_resultados.py       # números de las tablas y figuras de resultados
+python presentacion/figuras_metodo.py              # problema, etapas, esquina, algoritmo y cromosoma
+python presentacion/figuras_antecedentes.py        # figuras de los papers, redibujadas
+python presentacion/figuras_presentacion.py        # videos de manejo y velocidad
+quarto render presentacion/presentacion.qmd        # la presentación en HTML
 ```
+
+Los de resultados necesitan las corridas de `resultados/comparaciones/`, y los videos, ffmpeg (por ejemplo, el de `imageio-ffmpeg`).
 
 ### Volver a descargar los mapas
 
@@ -104,6 +126,8 @@ No hace falta: los mapas están en `mapas/`. Para regenerarlos se necesita inter
 python -m conduccion.mapa.descargar_mapa         # 2x2, 3x3 y centro (la manzana sale del 3x3)
 python -m conduccion.mapa.descargar_ciudad       # los 58 recortes; tarda unos 20 minutos
 ```
+
+Los mapas de Guadalupe y Candioti no salen de estos scripts: se bajaron aparte y quedaron en `mapas/`.
 
 ## Referencias principales
 

@@ -1,10 +1,10 @@
 """Entrenamiento por etapas: de lo simple a lo complejo (evolución incremental, Gomez y Miikkulainen 1996).
 
-Las etapas de etapas_santa_fe son:
+Las etapas de etapas_santa_fe salen de un diccionario de ajustes, en su orden. Las posibles son:
   1. manzana: vueltas a la manzana del medio del 3x3, una doblando siempre a la izquierda y otra a la derecha
   2. la grilla de 2 × 2 manzanas
   3. la grilla de 3 × 3 manzanas
-  4. el centro de Santa Fe, con curvas, diagonales y ramales
+  4. el centro de Santa Fe, con curvas, diagonales y ramales (el informe no lo usa como etapa)
 
 En cada etapa, entrenar_por_etapas hace esto:
   1. La población sigue de la etapa anterior: lo aprendido no se pierde
@@ -131,7 +131,8 @@ class Estado:
                               "llegadas_referencia": self.llegadas_mejor})
 
 
-# Los ajustes de cada etapa: los de la configuración de base del informe
+# Los ajustes de cada etapa para entrenar desde el notebook, hasta el centro. Los del
+# informe (100, 50 y 50 generaciones, sin el centro) están en ETAPAS, en comparaciones.py.
 AJUSTES_ETAPAS = {
     "manzana": {"sigma": 0.3, "umbral": 1.0, "minimo_generaciones": 10, "maximo_generaciones": 150},
     "2x2": {"sigma": 0.2, "umbral": 0.9, "minimo_generaciones": 10, "maximo_generaciones": 250},
@@ -166,6 +167,7 @@ def etapas_santa_fe(semilla=0, ajustes=AJUSTES_ETAPAS):
 # hacia cada lado, cada una desde una esquina al azar.
 # -------------------------------------------------------------------------
 def vueltas_de(izquierda, derecha):
+    # Recibe el generador al azar y devuelve las dos vueltas de la generación
     def elegir(rng):
         return [izquierda[rng.integers(len(izquierda))], derecha[rng.integers(len(derecha))]]
     return elegir
@@ -175,6 +177,7 @@ def vueltas_de(izquierda, derecha):
 # Cómo eligen sus rutas las demás etapas: RUTAS_POR_GENERACION rutas al azar del mapa.
 # -------------------------------------------------------------------------
 def rutas_al_azar_de(mapa):
+    # Recibe el generador al azar y devuelve las rutas de la generación
     def elegir(rng):
         return [ruta_al_azar(mapa, rng) for _ in range(config.RUTAS_POR_GENERACION)]
     return elegir

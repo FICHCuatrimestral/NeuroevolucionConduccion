@@ -8,7 +8,8 @@ RUTAS_REFERENCIA rutas de referencia. Se maneja sin ruido en los sensores, así 
 se comparan igual.
 
 Los mapas salen de mapas/recortes.json: 58 recortes de 1 km de Santa Fe, con su nivel de dificultad (1 a 4)
-y su uso ("entrenamiento" o "prueba"). Los de prueba son barrios donde la red no entrena nunca.
+y su uso ("entrenamiento" o "prueba"). Las redes del informe no entrenan en ningún recorte: entrenan en
+la manzana, el 2x2 y el 3x3. Los niveles sirvieron para elegir los recortes; el informe no los usa.
 También se pueden agregar otros mapas: "2x2", "3x3", "centro", "candioti" o "guadalupe".
 
 Cada mapa se evalúa en un proceso aparte: el proceso abre el mapa, maneja las rutas y lo suelta.

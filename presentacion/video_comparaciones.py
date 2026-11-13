@@ -6,7 +6,7 @@ Uso, parado en la carpeta del proyecto (hacen falta las corridas de resultados/c
 Ningún barrio se usó para entrenar ni para la prueba del centro. Para cada red:
   1. Maneja, sin ruido en los sensores, las 20 rutas fijas de su barrio, con la física con la que
      se entrenó (con o sin límite de agarre). Los resultados se guardan en img/barrios.json.
-  2. Se elige, de las rutas a las que llega, la que tiene más giros sin pasar de TIEMPO_MAXIMO.
+  2. Se elige, de las rutas a las que llega en hasta TIEMPO_MAXIMO, la más larga; si empatan, la de más giros.
 El video muestra las seis a la vez, en una grilla de 2 × 3, y debajo de cada una cuántas de las
 20 rutas de su barrio termina. Sale img/comparaciones.mp4. Hace falta ffmpeg (por ejemplo, el del
 paquete imageio-ffmpeg).

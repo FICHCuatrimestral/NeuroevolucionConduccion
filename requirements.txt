@@ -6,3 +6,6 @@ osmnx>=2
 shapely>=2.1
 pygame>=2.5,<3
 jupyter
+scipy
+openpyxl
+imageio-ffmpeg

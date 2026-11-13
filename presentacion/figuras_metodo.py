@@ -7,6 +7,7 @@ Uso, parado en la carpeta del proyecto:
   - mapas_etapas.png   los mapas de las etapas: manzana, 2x2, 3x3 y el centro
   - esquina.png        la curva más amplia que entra en un cruce, doblando a la izquierda y a la derecha
   - algoritmo.png      el diagrama de flujo del entrenamiento por etapas
+  - cromosoma.png      la red en fila y la matriz de pesos de entrada a la capa oculta
 """
 import math
 import sys

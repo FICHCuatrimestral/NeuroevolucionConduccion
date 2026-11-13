@@ -4,7 +4,8 @@ Todos los módulos leen los parámetros como config.NOMBRE en el momento de usar
 cambiar un valor en config alcanza para que todo el paquete use el valor nuevo.
 
 Solo se pueden cambiar los parámetros de CAMBIABLES. Los demás quedan fijos porque se usan para
-calcular otros valores al importar (como ALCANCE_RAYOS) o son valores por defecto de una función (como ALFA_BLX).
+calcular otros valores al importar (como ALCANCE_RAYOS) o son valores por defecto de una función
+(como TIPO_CRUCE o TAMANO_POBLACION).
 
 CAPAS se elige antes de crear una población o al cargar una red guardada: cambiarla no transforma
 las redes que ya existen.

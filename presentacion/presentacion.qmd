@@ -9,7 +9,7 @@
 #           python presentacion/figuras_antecedentes.py  (figuras de los papers, redibujadas)
 #           python presentacion/figuras_presentacion.py  (videos y velocidad; necesita las redes guardadas)
 #           python presentacion/video_comparaciones.py   (video de las 6 redes en sus barrios)
-#           python informe/figuras/figuras_informe.py    (mapas, auto, red, operadores)
+#           python informe/figuras/figuras_informe.py mapas auto presentacion   (red, permutaciones, mapas y auto)
 # Generar el HTML:   quarto render presentacion/presentacion.qmd
 title: "Conducción autónoma en calles de Santa Fe mediante neuroevolución"
 author: "M. Bertona, A. Greminger y A. Nanzer"
