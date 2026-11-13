@@ -121,7 +121,7 @@ def tablas():
         print(f"{titulo:26} llega {len(llegadas):2d}/20 [{bajo}-{alto} %]  "
               f"choca {sum(r['motivo'] == 'choque' for r in rutas)}  sin tiempo {sum(r['motivo'] == 'tiempo' for r in rutas)}  "
               f"t medio {np.mean([r['tiempo'] for r in llegadas]):.0f} s  "
-              f"v cerca/lejos {np.mean(cerca):.0f}/{np.mean(lejos):.0f} km/h  "
+              f"v cerca/lejos {np.mean(cerca) / 3.6:.1f}/{np.mean(lejos) / 3.6:.1f} m/s  "
               f"a_y max {max(r['lateral_maxima'] for r in rutas):.1f}  "
               f"fuera {100 * np.mean([r['fuera_del_carril'] for r in rutas]):.1f} %  "
               f"generaciones {generaciones}")
@@ -160,7 +160,7 @@ def fig_entrenamiento():
 
 # -------------------------------------------------------------------------
 # Una red guardada maneja una ruta sin ruido, con la física con la que se entrenó.
-# Devuelve: metros recorridos, velocidad (km/h) y aceleración lateral (m/s²) en
+# Devuelve: metros recorridos, velocidad (m/s) y aceleración lateral (m/s²) en
 # cada paso, y cómo terminó.
 # -------------------------------------------------------------------------
 def manejar(identificador, mapa, ruta):
@@ -177,7 +177,7 @@ def manejar(identificador, mapa, ruta):
         recorrido += math.dist((x, y), (auto.x, auto.y))
         beta = math.atan(config.L_R / (config.L_F + config.L_R) * math.tan(auto.volante))
         metros.append(recorrido)
-        velocidad.append(3.6 * auto.velocidad)
+        velocidad.append(auto.velocidad)
         lateral.append(auto.velocidad ** 2 * abs(math.sin(beta)) / config.L_R)
     return metros, velocidad, lateral, episodio.motivo
 
@@ -212,7 +212,7 @@ def fig_velocidad():
             ax.axvline(d, color=GRIS, lw=0.5, ls=":")
     abajo.axhline(6, color=TINTA, lw=0.6, ls="--")
     abajo.text(ruta.largo, 6.6, "6 m/s²", ha="right", va="bottom", fontsize=7)
-    arriba.set_ylabel("velocidad (km/h)")
+    arriba.set_ylabel("velocidad (m/s)")
     abajo.set_ylabel("aceleración\nlateral (m/s²)")
     abajo.set_xlabel("metros recorridos (líneas punteadas: giros)")
     arriba.legend(frameon=False, ncol=2, loc="lower center", bbox_to_anchor=(0.5, 1.0))
