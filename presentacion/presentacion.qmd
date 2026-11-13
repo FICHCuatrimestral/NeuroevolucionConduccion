@@ -8,6 +8,7 @@
 # Figuras:  python presentacion/figuras_metodo.py        (problema, mapas de las etapas, esquina)
 #           python presentacion/figuras_antecedentes.py  (figuras de los papers, redibujadas)
 #           python presentacion/figuras_presentacion.py  (videos y velocidad; necesita las redes guardadas)
+#           python presentacion/video_comparaciones.py   (video de las 6 redes en sus barrios)
 #           python informe/figuras/figuras_informe.py    (mapas, auto, red, operadores)
 # Generar el HTML:   quarto render presentacion/presentacion.qmd
 title: "Conducción autónoma en calles de Santa Fe mediante neuroevolución"
@@ -117,12 +118,12 @@ Junta las dos ruedas de cada eje en una. El estado es la posición, el rumbo y l
 ![](img/antecedentes/togelius_pista.png){width="100%"}
 
 ::: cita
-Togelius y Lucas (2006), figs. 1 y 2
+Togelius y Lucas (2005), p. 1911
 :::
 :::
 ::: {.column width="50%"}
 - Autos de juguete, en pistas con paredes
-- **Red:** una capa oculta (5 o 7), 2 salidas, tanh
+- **Red:** una capa oculta, 2 salidas, tanh
 - **Ve:** velocidad, paredes y próximo punto
 - **Nota:** puntos de control pasados
 - **Algoritmo:** estrategia evolutiva, solo mutación
@@ -131,7 +132,7 @@ Togelius y Lucas (2006), figs. 1 y 2
 ::::
 
 ::: notes
-Evolucionan redes que manejan autos de juguete simulados. La red es un perceptrón multicapa con una capa oculta, dos salidas y tangente hiperbólica; en sus pruebas la capa oculta tiene 5 o 7 neuronas. Nuestra red tiene la misma forma. Ve la velocidad, la distancia a las paredes y el ángulo al próximo punto de control, todo medido desde el auto. La nota cuenta cuántos puntos de control pasó en orden. El algoritmo es una estrategia evolutiva que solo muta: 50 redes, cada una tiene un hijo mutado y de las 100 quedan las 50 mejores. Entrenan en unas pistas y prueban en otras.
+Evolucionan redes que manejan autos de juguete simulados. La red es un perceptrón multicapa con una capa oculta, dos salidas y tangente hiperbólica. Nuestra red tiene la misma forma. Ve la velocidad, la distancia a las paredes y el ángulo al próximo punto de control, todo medido desde el auto. La nota cuenta cuántos puntos de control pasó en orden. El algoritmo es una estrategia evolutiva que solo muta: 50 redes, cada una tiene un hijo mutado y de las 100 quedan las 50 mejores. Entrenan en unas pistas y prueban en otras.
 :::
 
 ## Montana y Davis (1989)
@@ -159,20 +160,6 @@ Montana y Davis (1989), fig. 1
 
 ::: notes
 Ponen todos los pesos de la red en fila, como números reales, y los buscan con un algoritmo genético. Les va mejor que con retropropagación. La razón: la retropropagación necesita la respuesta correcta en cada paso y una nota derivable. Al manejar no hay volante correcto, solo una nota al final del viaje, y la nota salta cuando el auto choca. El genético solo necesita saber qué red salió mejor.
-:::
-
-## Montana y Davis (1989): mutar y cruzar
-
-![](img/antecedentes/montana_operadores.png){fig-align="center" width="58%"}
-
-::: cita
-Montana y Davis (1989), fig. 2
-:::
-
-La mutación cambia algunos genes de un padre. El cruce arma un hijo con genes de los dos padres, cada uno en su misma posición.
-
-::: notes
-Así operan sobre el cromosoma. La mutación cambia algunos genes de un padre. El cruce arma un hijo con genes de los dos padres, cada gen en su misma posición.
 :::
 
 ## Yao (1999)
@@ -258,10 +245,10 @@ Revisan las notas que se usan en robótica evolutiva y las ordenan según cuánt
 Gomez y Miikkulainen (1996), sección 5.3
 :::
 
-Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco, sin reiniciar la población.
+Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco.
 
 ::: notes
-Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco, sin reiniciar la población: primero escapar de un enemigo lento, después de dos, cada vez más rápidos.
+Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco: primero escapar de un enemigo lento, después de dos, cada vez más rápidos.
 :::
 
 # Nuestro trabajo
@@ -341,7 +328,7 @@ $$
 $$
 
 ::: chico
-$\mathbf{w}$: los 306 pesos de la red. $F_r(\mathbf{w})$: la nota que saca en la ruta $r$. Cada generación son 50 · 3 + 20 = 170 viajes simulados.
+$\mathbf{w}$: los 306 pesos de la red. $F_r(\mathbf{w})$: la nota que saca en la ruta $r$. Cada generación son 50 · (3 + 1) + 20 = 220 viajes simulados; en la manzana, 50 · 2 + 8 = 108.
 :::
 
 ::: notes
@@ -397,11 +384,11 @@ Los valores de la configuración de base.
 - **Un descuento en la nota** por andar fuera del carril
 
 ::: chico
-Togelius maneja en pistas de juguete con paredes, sin carriles y siempre en el mismo circuito. El modelo de Kong supone que las ruedas nunca patinan.
+Togelius maneja en pistas de juguete con paredes, sin carriles y sin cruces de calles. El modelo de Kong supone que las ruedas nunca patinan.
 :::
 
 ::: notes
-Lo que no tenían los antecedentes: Togelius maneja en pistas de juguete con paredes, sin carriles y siempre en el mismo circuito. El modelo de Kong supone que las ruedas nunca patinan: deja doblar a fondo a cualquier velocidad. Nosotros usamos calles reales de OpenStreetMap, A* para elegir el camino y puntos de control sobre el carril derecho, con un descuento en la nota por andar fuera del carril. Y cuatro cambios para que doble bien.
+Lo que no tenían los antecedentes: Togelius maneja en pistas de juguete con paredes, sin carriles y sin cruces de calles. El modelo de Kong supone que las ruedas nunca patinan: deja doblar a fondo a cualquier velocidad. Nosotros usamos calles reales de OpenStreetMap, A* para elegir el camino y puntos de control sobre el carril derecho, con un descuento en la nota por andar fuera del carril. Y cuatro cambios para que doble bien.
 :::
 
 ## Para que doble bien: la esquina y el agarre
@@ -411,7 +398,7 @@ Lo que no tenían los antecedentes: Togelius maneja en pistas de juguete con par
 ![](img/esquina.png){width="90%"}
 :::
 ::: {.column width="56%"}
-- **El problema:** la primera versión doblaba mal, sobre todo a la derecha, la curva más cerrada
+- **El problema:** la primera versión llegaba rápido a las esquinas y se salía
 - **En una esquina** de calles de 7 m, la curva más amplia tiene 17,9 m a la izquierda y 6,0 m a la derecha: con 6 m/s², hasta 37 y 22 km/h. A 40 km/h no entra ninguna
 - **Límite de agarre:** Kong deja doblar a fondo a cualquier velocidad. Ahora la aceleración lateral no pasa de 6 m/s²: a más velocidad, menos volante
 - **El límite no frena:** si llega rápido, se sale. Frenar antes lo tiene que aprender la red
@@ -419,7 +406,7 @@ Lo que no tenían los antecedentes: Togelius maneja en pistas de juguete con par
 ::::
 
 ::: notes
-La primera versión doblaba mal, sobre todo a la derecha, que es la curva más cerrada: llegaba rápido a la esquina y se salía. En un cruce de calles de 7 m, la curva más amplia que entra tiene 17,9 m de radio doblando a la izquierda y 6,0 m a la derecha. Con 6 m/s² de aceleración lateral, eso da unos 37 km/h y unos 22 km/h. A 40 km/h no entra ninguna esquina. La red sin límite aprovechaba el modelo de Kong: doblaba a 40 km/h con 27,6 m/s², casi 3 g; un auto real patina cerca de 8 m/s².
+La primera versión llegaba rápido a las esquinas y se salía. En un cruce de calles de 7 m, la curva más amplia que entra tiene 17,9 m de radio doblando a la izquierda y 6,0 m a la derecha. Con 6 m/s² de aceleración lateral, eso da unos 37 km/h y unos 22 km/h. A 40 km/h no entra ninguna esquina. Pero el modelo de Kong deja doblar a fondo a cualquier velocidad, y eso ningún auto real lo puede hacer. Kong mismo propone limitar la velocidad para que la aceleración lateral no pase de cierto valor.
 :::
 
 ## El límite de agarre, en cuentas
@@ -443,10 +430,6 @@ La aceleración lateral es v al cuadrado sobre el radio, y en el modelo de Kong 
 - **Puntos de control en cada giro.** Antes había uno cada 15 m sin mirar la forma de la ruta, y a veces la esquina quedaba entre dos puntos: el auto la cortaba y la nota no se enteraba. Pasaba en el 11 % de los giros del 2×2, el 16 % del 3×3 y el 18 % del centro. Ahora hay uno cada 10 m y siempre uno justo en el giro
 - **Mirar el carril adelante.** El próximo punto, a hasta 15 m, en una esquina quedaba en diagonal y no decía cómo era la curva. Dos entradas miran el carril 3 y 6 m adelante: hacia dónde va y cuánto dobla
 - **Puntos que se pueden saltear.** Si al abrirse en un giro alcanza uno de los 2 puntos siguientes, los salteados cuentan como pasados y no queda trabado
-
-::: chico
-Falta confirmar cuándo y por qué se agregaron los puntos salteables: están en el código, pero no en el apunte.
-:::
 
 ::: notes
 Antes había un punto cada 15 m, repartidos sin mirar la forma de la ruta, y a veces la esquina quedaba entre dos puntos, lejos de los dos. Ahora el carril se corta en cada giro y se reparten puntos cada unos 10 m dentro de cada tramo. Además, dos entradas miran el carril 3 y 6 m adelante del auto, y los puntos se pueden saltear para no quedar trabado al abrirse en un giro.
@@ -512,11 +495,11 @@ Sin límite llega siempre y en la mitad del tiempo, porque aprovecha una física
 ![](img/velocidad.png){fig-align="center" width="58%"}
 
 ::: chico
-La misma ruta de los videos. En pruebas preliminares con premio por tiempo (λ = 0,1), una de dos redes aprendió a bajar la velocidad antes de cada giro.
+La misma ruta de los videos. En pruebas preliminares con premio por tiempo (λ = 0,1), una red aprendió a frenar antes de cada punto de control, no antes de cada giro.
 :::
 
 ::: notes
-Arriba, la velocidad; abajo, la aceleración lateral, con los giros marcados. Sin límite va a 40 km/h todo el viaje y en cada giro llega a 25 o 27 m/s². Con límite va a unos 19 km/h todo el viaje y nunca pasa de los 6 m/s²: no frena en las esquinas, va lenta siempre. En pruebas preliminares con premio por tiempo, una de dos redes sí aprendió a bajar la velocidad antes de cada giro: frenar es posible, pero esta nota no lo pide.
+Arriba, la velocidad; abajo, la aceleración lateral, con los giros marcados. Sin límite va a 40 km/h todo el viaje y en los giros llega hasta 27,6 m/s². Con límite va a unos 19 km/h todo el viaje y nunca pasa de 6,3 m/s²: no frena en las esquinas, va lenta siempre. En pruebas preliminares con premio por tiempo, una red aprendió a frenar antes de cada punto de control, no antes de cada giro: premiar el tiempo cambia cómo maneja, y diseñar bien ese premio es lo que sigue.
 :::
 
 ## P2 y P3: operadores y calles nuevas
@@ -533,7 +516,7 @@ Arriba, la velocidad; abajo, la aceleración lateral, con los giros marcados. Si
 - **P2:** con una sola semilla, esas diferencias pueden ser suerte. Todos los operadores aprenden; para ordenarlos hacen falta más semillas
 
 ::: notes
-Todas aprendieron en recortes chicos y manejan en el centro, que contiene a esos recortes pero suma diagonales, una avenida curva y cruces de más de cuatro calles. Con una semilla no se pueden ordenar los operadores.
+Todas aprendieron en recortes chicos y manejan en el centro, que contiene a esos recortes pero suma diagonales, una avenida curva y un cruce de siete calles. Con una semilla no se pueden ordenar los operadores.
 :::
 
 ## P3: cada red en un barrio que nunca vio
@@ -545,7 +528,7 @@ Abajo de cada red, cómo le fue en las 20 rutas fijas de su barrio. Los barrios 
 :::
 
 ::: notes
-Cada red, en un barrio que nunca vio. Todas manejan; en los barrios más difíciles, como La Guardia o Arenales, chocan más. Ojo: como cada una está en un barrio distinto, esto muestra que generalizan, no cuál operador es mejor.
+Cada red, en un barrio que nunca vio. Todas manejan. Ojo: como cada una está en un barrio distinto, esto muestra que generalizan, no cuál operador es mejor.
 :::
 
 # Cierre
@@ -556,12 +539,12 @@ Cada red, en un barrio que nunca vio. Todas manejan; en los barrios más difíci
 2. Todos los operadores aprenden; con una semilla no alcanza para ordenarlos.
 3. Lo aprendido en recortes chicos sirve en el centro.
 
-**Lo nuestro:** juntar las piezas de estos trabajos en calles reales, agregar el límite de agarre y medir qué aporta cada una.
+**Lo nuestro:** juntar las piezas de estos trabajos en calles reales y agregar el límite de agarre.
 
 ::: chico
 Lo que sigue: más semillas, premio por tiempo para que aprenda a frenar antes de las esquinas, tráfico y semáforos.
 :::
 
 ::: notes
-Lo nuestro fue juntar las piezas de estos trabajos en calles reales, agregar el límite de agarre y medir qué aporta cada una.
+Lo nuestro fue juntar las piezas de estos trabajos en calles reales y agregar el límite de agarre. Las redes manejan en calles que nunca vieron, y el límite las obliga a manejar dentro de lo que un auto real puede hacer.
 :::
