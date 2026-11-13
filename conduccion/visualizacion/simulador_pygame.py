@@ -5,6 +5,11 @@ ver_simulacion:     una red maneja en tiempo real.
                     R = reiniciar la ruta, N = volver a rutas al azar, S = rayos, Esc = salir.
 ver_entrenamiento:  toda la población maneja a la vez mientras el algoritmo genético la va evolucionando.
                     Teclas: Espacio = pausa, flechas arriba/abajo = más o menos rápido, Esc = terminar.
+ver_entrenamiento_por_etapas: lo mismo, por etapas (manzana → 2x2 → 3x3), como en el informe.
+
+Al entrenar con ventana, todos los autos manejan a la vez, así que el ruido de los sensores se
+sortea en otro orden que sin ventana: con la misma semilla, los números no son exactamente los
+mismos. Sin ruido en los sensores, las notas son idénticas.
 
 En las dos ventanas, en pausa, se puede elegir una ruta con dos clics: la esquina de inicio y la de destino.
 Al ver manejar una red, la red sigue en esa ruta hasta que N vuelve a las rutas al azar. En el entrenamiento,
@@ -18,6 +23,7 @@ import numpy as np
 import pygame
 
 from ..aprendizaje.entrenamiento import entrenar
+from ..aprendizaje.etapas import entrenar_por_etapas
 from ..aprendizaje.fitness import contar_llegadas, nota, nota_de_ruta
 from ..aprendizaje.guardado import cargar
 from ..aprendizaje.perceptron_multicapa import Perceptron
@@ -208,19 +214,28 @@ class SelectorRuta:
 class Ventana:
 
     def __init__(self, mapa):
+        pygame.init()
+        pygame.display.set_caption("Conducción autónoma por neuroevolución")
+        self.fuente = pygame.font.SysFont("arial", 18)
+        self.fuente_grande = pygame.font.SysFont("arial", 24, bold=True)
+        self.fuente_ayuda = pygame.font.SysFont("arial", 15)
+        self.mapa = None
+        self.usar_mapa(mapa)
+
+    # ---------------------------------------------------------------------
+    # Pasa a dibujar otro mapa: escala, tamaño de la ventana, fondo y selector
+    # de rutas. En el entrenamiento por etapas se llama cada vez que cambia el mapa.
+    # ---------------------------------------------------------------------
+    def usar_mapa(self, mapa):
+        if mapa is self.mapa:
+            return
         self.mapa = mapa
 
         # El mapa ocupa ALTO_MAPA píxeles de alto; el ancho mantiene la proporción
         filas, columnas = mapa.matriz.shape
         self.escala = ALTO_MAPA / (filas * config.RESOLUCION_MAPA)
         self.ancho_mapa = round(columnas * config.RESOLUCION_MAPA * self.escala)
-
-        pygame.init()
         self.pantalla = pygame.display.set_mode((self.ancho_mapa + ANCHO_PANEL, ALTO_MAPA))
-        pygame.display.set_caption("Conducción autónoma por neuroevolución")
-        self.fuente = pygame.font.SysFont("arial", 18)
-        self.fuente_grande = pygame.font.SysFont("arial", 24, bold=True)
-        self.fuente_ayuda = pygame.font.SysFont("arial", 15)
         self.fondo = self.dibujar_fondo()
         self.selector = SelectorRuta(self)
 
@@ -528,16 +543,20 @@ def ver_simulacion(mapa, red, semilla=0):
 #   pasos_por_cuadro  cuántos pasos de simulación se hacen antes de dibujar
 #   pausa             True mientras está en pausa
 #   anterior          (mejor nota, llegadas del mejor, rutas) de la generación anterior
+#   etapas            en el entrenamiento por etapas, el nombre de la etapa de cada mapa
+#   etapa             la etapa que se está entrenando, o None si se entrena en un solo mapa
 # -------------------------------------------------------------------------
 class VentanaEntrenamiento(Ventana):
 
-    def __init__(self, mapa):
+    def __init__(self, mapa, etapas=None):
         super().__init__(mapa)
         pygame.display.set_caption("Conducción autónoma por neuroevolución - entrenamiento")
         self.generacion = 0
         self.pasos_por_cuadro = 2
         self.pausa = False
         self.anterior = None
+        self.etapas = {id(etapa.mapa): etapa.nombre for etapa in etapas or []}
+        self.etapa = None
 
     # ---------------------------------------------------------------------
     # Atiende teclas y clics.
@@ -577,9 +596,13 @@ class VentanaEntrenamiento(Ventana):
     # Devuelve: los resultados de cada individuo, o None si se cerró la ventana.
     # ---------------------------------------------------------------------
     def simular_poblacion(self, poblacion, casos, rng):
-        mapa = casos[0][0]
-        rutas = [ruta for _, ruta in casos]
         redes = [Perceptron(config.CAPAS, cromosoma=cromosoma) for cromosoma in poblacion]
+
+        # Por etapas, el primer caso es siempre de la etapa actual. Si cambió de etapa,
+        # la numeración de las generaciones vuelve a empezar.
+        etapa = self.etapas.get(id(casos[0][0]))
+        if etapa != self.etapa:
+            self.etapa, self.generacion, self.anterior = etapa, 0, None
 
         # El estado del azar al principio de la generación, para poder repetirla igual
         azar_inicial = rng.bit_generator.state
@@ -589,12 +612,14 @@ class VentanaEntrenamiento(Ventana):
             resultados = [[] for _ in poblacion]
             pidio_exhibicion = False
 
-            for numero_ruta, ruta in enumerate(rutas):
-                # 1. Un episodio por individuo, todos en la misma ruta
+            for numero_ruta, (mapa, ruta) in enumerate(casos):
+                # 1. Un episodio por individuo, todos en la misma ruta. Por etapas, la última
+                #    ruta puede ser de una etapa anterior: la ventana pasa a ese mapa.
+                self.usar_mapa(mapa)
                 episodios = [Episodio(mapa, ruta, rng=rng) for _ in poblacion]
 
                 # 2. Simular hasta que todos terminen
-                salida = self.correr_episodios(redes, episodios, numero_ruta, len(rutas))
+                salida = self.correr_episodios(redes, episodios, numero_ruta, len(casos))
                 if salida == "cerrada":
                     return None
                 if salida == "exhibir":
@@ -609,7 +634,7 @@ class VentanaEntrenamiento(Ventana):
                 break
 
             # Se eligió una ruta a mano: se muestra, y la generación vuelve a empezar
-            if not self.exhibir(redes, mapa):
+            if not self.exhibir(redes, self.mapa):
                 return None
 
         # 4. Lo que se muestra de esta generación en el panel de la siguiente
@@ -731,6 +756,11 @@ class VentanaEntrenamiento(Ventana):
         else:
             encabezado = [(f"GENERACIÓN {self.generacion}", self.fuente_grande),
                           (f"Ruta {numero_ruta + 1} de {cantidad_rutas}", self.fuente)]
+        if self.etapa is not None:
+            mapa_de_la_ruta = self.etapas.get(id(self.mapa), "")
+            encabezado.insert(0, (f"Etapa: {self.etapa}", self.fuente_grande))
+            if mapa_de_la_ruta != self.etapa:
+                encabezado.append((f"Repaso de una etapa anterior: {mapa_de_la_ruta}", self.fuente))
         renglones = encabezado + [
             (f"Tiempo: {episodios[0].tiempo:.1f} s", self.fuente),
             ("", self.fuente),
@@ -795,3 +825,25 @@ def ver_entrenamiento(mapa, semilla=0, generaciones=config.GENERACIONES, tamano_
     finally:
         cerrar_ventana()
     return mejor, historia
+
+
+# -------------------------------------------------------------------------
+# Entrenar por etapas mirando a toda la población, como en el informe:
+# manzana → 2x2 → 3x3. La ventana cambia de mapa con cada etapa, y también
+# para la ruta de repaso de una etapa anterior. Al cerrar la ventana, el
+# entrenamiento termina; cada etapa queda guardada como en entrenar_por_etapas().
+#
+# Recibe: las etapas (de etapas_santa_fe) y los mismos argumentos que entrenar_por_etapas().
+# Devuelve: la mejor red y los identificadores de las etapas guardadas.
+# -------------------------------------------------------------------------
+def ver_entrenamiento_por_etapas(etapas, semilla=0, tamano_poblacion=config.TAMANO_POBLACION,
+                                 tipo_cruce=config.TIPO_CRUCE, tipo_mutacion=config.TIPO_MUTACION,
+                                 continuar_desde=None):
+    ventana = VentanaEntrenamiento(etapas[0].mapa, etapas)
+    try:
+        mejor, identificadores = entrenar_por_etapas(etapas, semilla, tamano_poblacion, tipo_cruce, tipo_mutacion,
+                                                     continuar_desde=continuar_desde,
+                                                     simular_poblacion=ventana.simular_poblacion)
+    finally:
+        cerrar_ventana()
+    return mejor, identificadores

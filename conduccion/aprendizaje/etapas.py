@@ -212,6 +212,8 @@ def casos_de_la_generacion(etapas, numero_etapa, rng):
 #           continuar_desde  identificador de una etapa guardada, para seguir desde ahí
 #           desde_etapa      número de la etapa con que se sigue (0 = la primera).
 #                            None = la misma etapa donde se cortó
+#           simular_poblacion  para evaluar en la ventana de pygame; si devuelve None
+#                            (se cerró la ventana), el entrenamiento termina como con Ctrl+C
 # Devuelve: la mejor red y los identificadores de las etapas guardadas, uno por etapa.
 #
 # Continuar en la misma etapa donde se cortó da el mismo resultado que si no se hubiera
@@ -220,7 +222,8 @@ def casos_de_la_generacion(etapas, numero_etapa, rng):
 # repetir solo las últimas etapas: esa etapa empieza de cero con la población guardada.
 # -------------------------------------------------------------------------
 def entrenar_por_etapas(etapas, semilla=0, tamano_poblacion=config.TAMANO_POBLACION, tipo_cruce=config.TIPO_CRUCE,
-                        tipo_mutacion=config.TIPO_MUTACION, mostrar=print, continuar_desde=None, desde_etapa=None):
+                        tipo_mutacion=config.TIPO_MUTACION, mostrar=print, continuar_desde=None, desde_etapa=None,
+                        simular_poblacion=None):
     rng = np.random.default_rng(semilla)
 
     # Una población nueva, o la de una etapa guardada
@@ -267,7 +270,10 @@ def entrenar_por_etapas(etapas, semilla=0, tamano_poblacion=config.TAMANO_POBLAC
             for generacion in range(primera_generacion, etapa.maximo_generaciones):
                 # 2 y 3. Rutas de la etapa y una de una etapa anterior; se evalúa la población
                 casos = casos_de_la_generacion(etapas, numero_etapa, rng)
-                notas, resultados = evaluar(estado.poblacion, casos, rng)
+                evaluacion = evaluar(estado.poblacion, casos, rng, simular=simular_poblacion)
+                if evaluacion is None:
+                    raise KeyboardInterrupt
+                notas, resultados = evaluacion
 
                 # El de mayor nota es el candidato a mejor red
                 indice_mejor = int(np.argmax(notas))

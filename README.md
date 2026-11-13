@@ -31,7 +31,8 @@ notebooks/
 ├── 2_entrenamiento.ipynb   elegir parámetros y entrenar
 └── 3_evaluacion.ipynb      analizar una red entrenada
 scripts/
-├── simulador.py            menú para ver manejar una red o entrenar viendo a la población
+├── simulador.py            menú: ver manejar una red, o entrenar en un mapa o por etapas, viendo a la población
+├── Abrir simulador.bat     abre el menú con doble clic (Windows); Abrir simulador.command, en macOS
 └── correr_comparaciones.py las seis corridas del informe
 mapas/                      mapas ya descargados (no hace falta internet)
 resultados/comparaciones/   las seis corridas del informe, con sus redes y evaluaciones
@@ -62,13 +63,33 @@ jupyter notebook notebooks/
 
 Se leen en orden. El primero ya está ejecutado y muestra cómo funciona cada parte. El segundo entrena, y el tercero analiza el resultado.
 
-### Entrenar
-
-Desde `2_entrenamiento.ipynb`, o con el menú:
+### El simulador
 
 ```bash
 python scripts/simulador.py
 ```
+
+En Windows también se abre con doble clic en `scripts/Abrir simulador.bat`. El menú tiene cinco opciones:
+
+| Opción | Qué hace |
+|---|---|
+| 1 | Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde el menú, en el mapa que se elija |
+| 2 | Entrenar en un solo mapa, viendo a toda la población manejar a la vez |
+| 3 | Lo mismo, rápido y sin ventana |
+| 4 | Entrenar por etapas como en el informe (manzana → 2×2 → 3×3), viendo a toda la población; la ventana cambia de mapa con cada etapa |
+| 5 | Lo mismo, rápido y sin ventana |
+
+Al entrenar se eligen el auto y la nota (con o sin límite de agarre, con o sin premio por tiempo), el tamaño de la capa oculta
+(8, 16 o 32), la semilla, la población, el cruce y la mutación. Por etapas, además, el máximo de generaciones: el del informe
+(100, 50 y 50) o uno corto para mirar un rato (20, 10 y 10). En la ventana del entrenamiento, el panel muestra la etapa y
+la generación, y avisa cuando la ruta es el repaso de una etapa anterior.
+
+Con ventana, el ruido de los sensores se sortea en otro orden que sin ventana, así que con la misma semilla los números
+no salen exactamente iguales; sin ruido, son idénticos.
+
+### Entrenar
+
+Desde `2_entrenamiento.ipynb`, o con el simulador (opciones 2 a 5).
 
 Cada entrenamiento se guarda en `resultados/<fecha>_semilla<n>/` después de cada generación:
 

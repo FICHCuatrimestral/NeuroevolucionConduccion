@@ -1,18 +1,27 @@
 """Menú para ver manejar una red o entrenar una nueva, sin abrir notebooks.
 
+Opciones:
+  1. Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde acá.
+  2 y 3. Entrenar en un solo mapa, mirando a la población o rápido (sin ventana).
+  4 y 5. Entrenar por etapas, como en el informe: manzana → 2x2 → 3x3, mirando a la población o rápido.
+
 Los mapas son calles reales de Santa Fe. Cada entrenamiento se guarda en su carpeta de resultados/.
 
 Se corre desde la carpeta del proyecto: python scripts/simulador.py
+(en Windows también con doble clic en scripts/Abrir simulador.bat).
 """
 
+import json
 import sys
 from pathlib import Path
 
 # No se crean carpetas __pycache__, y el paquete conduccion se busca en la carpeta de arriba
 sys.dont_write_bytecode = True
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+RAIZ = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(RAIZ))
 
 from conduccion import config
+from conduccion.aprendizaje.etapas import AJUSTES_ETAPAS, entrenar_por_etapas, etapas_santa_fe
 from conduccion.aprendizaje.genetico import TIPOS_CRUCE, TIPOS_MUTACION
 from conduccion.aprendizaje.guardado import cargar, donde_se_guarda, entrenamientos_guardados
 from conduccion.aprendizaje.perceptron_multicapa import Perceptron, cantidad_de_pesos
@@ -37,6 +46,19 @@ CONFIGURACIONES = [
     ("Sin límite de agarre y sin premio",
      {"ACELERACION_LATERAL_MAXIMA": None, "PREMIO_TIEMPO": 0.0}),
 ]
+
+# Las corridas del informe: una carpeta por combinación, con la red final de cada una
+CARPETA_INFORME = RAIZ / "resultados" / "comparaciones"
+NOMBRES_INFORME = {"neurona_gaussiana_agarre": "Informe, base: cruce por neurona",
+                   "pesos_gaussiana_agarre": "Informe: cruce por pesos",
+                   "blx_gaussiana_agarre": "Informe: cruce BLX-α",
+                   "ninguna_gaussiana_agarre": "Informe: sin cruce",
+                   "neurona_neurona_agarre": "Informe: mutación por neurona",
+                   "neurona_gaussiana_sin-agarre": "Informe: sin límite de agarre"}
+
+# Máximo de generaciones de cada etapa: las del informe, o pocas para mirar un rato
+GENERACIONES_POR_ETAPA = [("Como en el informe: hasta 100, 50 y 50", {"manzana": 100, "2x2": 50, "3x3": 50}),
+                          ("Cortas, para mirar: hasta 20, 10 y 10", {"manzana": 20, "2x2": 10, "3x3": 10})]
 
 
 # =========================================================================
@@ -142,18 +164,41 @@ def describir(red):
 
 # -------------------------------------------------------------------------
 # Las redes guardadas que se pueden usar, de la más nueva a la más vieja.
+# Con del_informe=True, primero van las redes finales de las seis corridas del informe.
 # -------------------------------------------------------------------------
-def redes_disponibles():
-    redes = [leer_red(identificador) for identificador in reversed(entrenamientos_guardados())]
+def redes_disponibles(del_informe=False):
+    redes = []
+    if del_informe:
+        redes = redes_del_informe()
+    redes += [leer_red(identificador) for identificador in reversed(entrenamientos_guardados())]
     return [red for red in redes if red is not None]
 
 
 # -------------------------------------------------------------------------
-# Muestra las redes, cada una con la fecha y su descripción, y pregunta cuál.
+# Las redes finales de las corridas del informe: la última etapa de cada una,
+# según su entrenamiento.json. Cada red lleva el nombre de su corrida.
+# -------------------------------------------------------------------------
+def redes_del_informe():
+    redes = []
+    for carpeta, nombre in NOMBRES_INFORME.items():
+        corrida = CARPETA_INFORME / carpeta / "semilla0"
+        archivo = corrida / "entrenamiento.json"
+        if not archivo.exists():
+            continue
+        ultima = json.loads(archivo.read_text(encoding="utf-8"))["identificadores"][-1]
+        red = leer_red(str(corrida / ultima))
+        if red is not None:
+            red["nombre"] = nombre
+            redes.append(red)
+    return redes
+
+
+# -------------------------------------------------------------------------
+# Muestra las redes, cada una con su nombre (o la fecha) y su descripción, y pregunta cuál.
 # Devuelve: la red elegida.
 # -------------------------------------------------------------------------
 def elegir_red(titulo, redes):
-    nombres = [f"{red['identificador'][:19]}: {describir(red)}" for red in redes]
+    nombres = [f"{red.get('nombre', Path(red['identificador']).name[:19])}: {describir(red)}" for red in redes]
     return redes[elegir(titulo, nombres)]
 
 
@@ -165,13 +210,13 @@ def elegir_red(titulo, redes):
 # Opción 1: elegir una red guardada y un mapa, y verla manejar.
 # -------------------------------------------------------------------------
 def ver_auto():
-    redes = redes_disponibles()
+    redes = redes_disponibles(del_informe=True)
     if not redes:
-        print("No hay redes para ver. Entrená una con la opción 2 o 3.")
+        print("No hay redes para ver. Entrená una con las opciones 2 a 5.")
         return
 
     red = elegir_red("Red:", redes)
-    zona = elegir_zona(zona_de(red["datos"]))
+    zona = elegir_zona("centro" if "nombre" in red else zona_de(red["datos"]))
 
     # La red maneja con los mismos parámetros con los que se entrenó, como el límite de agarre
     volver_a_config()
@@ -199,12 +244,20 @@ def elegir_entrenamiento_guardado():
 
 
 # -------------------------------------------------------------------------
-# Pregunta todo lo de un entrenamiento desde cero y aplica los parámetros.
+# Pregunta todo lo de un entrenamiento desde cero en un mapa y aplica los parámetros.
 # Devuelve: la zona y las opciones para entrenar().
 # -------------------------------------------------------------------------
 def pedir_entrenamiento_nuevo():
     zona = elegir_zona()
+    return zona, {**pedir_opciones_nuevas(), "continuar_desde": None}
 
+
+# -------------------------------------------------------------------------
+# Pregunta el auto y la nota, la capa oculta, la semilla, la población, el
+# cruce y la mutación, y aplica los parámetros.
+# Devuelve: las opciones que comparten entrenar() y entrenar_por_etapas().
+# -------------------------------------------------------------------------
+def pedir_opciones_nuevas():
     # 1. El auto y la nota
     opcion = elegir("Auto y nota:", [nombre for nombre, _ in CONFIGURACIONES])
     volver_a_config()
@@ -216,12 +269,11 @@ def pedir_entrenamiento_nuevo():
     usar_parametros(CAPAS=[config.CANTIDAD_ENTRADAS, ocultas, 2])
 
     # 3. Semilla, población, cruce y mutación
-    print("Presioná Enter para usar los valores sugeridos.")
-    return zona, {"semilla": pedir_entero("Semilla", 0, 0),
-                  "tamano_poblacion": pedir_entero("Autos por generación", 20, 3),
-                  "tipo_cruce": TIPOS_CRUCE[elegir("Cruce:", TIPOS_CRUCE)],
-                  "tipo_mutacion": TIPOS_MUTACION[elegir("Mutación:", TIPOS_MUTACION)],
-                  "continuar_desde": None}
+    print("Presioná Enter para usar los valores sugeridos. En el informe se usaron 50 autos.")
+    return {"semilla": pedir_entero("Semilla", 0, 0),
+            "tamano_poblacion": pedir_entero("Autos por generación", 20, 3),
+            "tipo_cruce": TIPOS_CRUCE[elegir("Cruce:", TIPOS_CRUCE)],
+            "tipo_mutacion": TIPOS_MUTACION[elegir("Mutación:", TIPOS_MUTACION)]}
 
 
 # -------------------------------------------------------------------------
@@ -281,15 +333,44 @@ def entrenar_red(con_ventana):
 
 
 # -------------------------------------------------------------------------
+# Opciones 4 y 5: entrenar desde cero por etapas, como en el informe:
+# manzana → 2x2 → 3x3. La población pasa de etapa cuando la mejor red llega en
+# casi todas las rutas de referencia, o cuando se acaban las generaciones de la etapa.
+# -------------------------------------------------------------------------
+def entrenar_por_etapas_red(con_ventana):
+    print("Etapas: vueltas a una manzana → recorte de 2x2 manzanas → recorte de 3x3 manzanas.")
+    opciones = pedir_opciones_nuevas()
+    maximos = GENERACIONES_POR_ETAPA[elegir("Generaciones por etapa:", [nombre for nombre, _ in GENERACIONES_POR_ETAPA])][1]
+    ajustes = {nombre: {**AJUSTES_ETAPAS[nombre], "maximo_generaciones": maximo} for nombre, maximo in maximos.items()}
+
+    print("Cargando los mapas de las etapas...")
+    etapas = etapas_santa_fe(opciones["semilla"], ajustes)
+    print("Cada etapa se guarda en su carpeta de", donde_se_guarda())
+    print("Para detener: Esc en la ventana." if con_ventana else "Para detener: Ctrl+C.")
+
+    if con_ventana:
+        from conduccion.visualizacion.simulador_pygame import ver_entrenamiento_por_etapas
+        _, identificadores = ver_entrenamiento_por_etapas(etapas, **opciones)
+    else:
+        _, identificadores = entrenar_por_etapas(etapas, **opciones)
+
+    if identificadores:
+        print(f"Listo: {len(identificadores)} etapas guardadas. "
+              "La red de la última etapa (2x2 o 3x3) se puede ver con la opción 1.")
+
+
+# -------------------------------------------------------------------------
 # El menú principal. Se repite hasta elegir Salir.
 # -------------------------------------------------------------------------
 def main():
     while True:
         print("\n=== Conducción autónoma por neuroevolución ===")
-        print("1) Ver manejar una red entrenada (ventana)")
-        print("2) Entrenar viendo a toda la población (ventana)")
-        print("3) Entrenar rápido (sin ventana)")
-        print("4) Salir")
+        print("1) Ver manejar una red entrenada, incluidas las 6 del informe (ventana)")
+        print("2) Entrenar en un mapa viendo a toda la población (ventana)")
+        print("3) Entrenar en un mapa, rápido (sin ventana)")
+        print("4) Entrenar por etapas como en el informe, viendo a toda la población (ventana)")
+        print("5) Entrenar por etapas como en el informe, rápido (sin ventana)")
+        print("6) Salir")
 
         try:
             opcion = input("Elegí una opción: ").strip()
@@ -300,9 +381,13 @@ def main():
             elif opcion == "3":
                 entrenar_red(con_ventana=False)
             elif opcion == "4":
+                entrenar_por_etapas_red(con_ventana=True)
+            elif opcion == "5":
+                entrenar_por_etapas_red(con_ventana=False)
+            elif opcion == "6":
                 return
             else:
-                print("Elegí un número del 1 al 4.")
+                print("Elegí un número del 1 al 6.")
         except (EOFError, KeyboardInterrupt):
             print("\nSaliendo del menú.")
             return
