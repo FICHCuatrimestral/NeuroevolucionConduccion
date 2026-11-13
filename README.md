@@ -73,7 +73,7 @@ En Windows también se abre con doble clic en `scripts/Abrir simulador.bat`. El 
 
 | Opción | Qué hace |
 |---|---|
-| 1 | Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde el menú, en el mapa que se elija |
+| 1 | Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde el menú, en el mapa que se elija. En la manzana de la primera etapa, la red da vueltas a la izquierda y a la derecha, como al entrenar |
 | 2 | Entrenar en un solo mapa, viendo a toda la población manejar a la vez |
 | 3 | Lo mismo, rápido y sin ventana |
 | 4 | Entrenar por etapas como en el informe (manzana → 2×2 → 3×3), viendo a toda la población; la ventana cambia de mapa con cada etapa |

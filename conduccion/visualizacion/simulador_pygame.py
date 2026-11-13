@@ -340,15 +340,17 @@ class Ventana:
 # -------------------------------------------------------------------------
 class VentanaSimulacion(Ventana):
 
-    def __init__(self, mapa, red, semilla=0):
+    def __init__(self, mapa, red, semilla=0, rutas=None):
         super().__init__(mapa)
         self.red = red
         self.rng = np.random.default_rng(semilla)
+        self.rutas = rutas or []
+        self.numero_ruta = 0
         self.pausa = False
         self.ver_rayos = True
         self.indice_velocidad = 1
         self.choques = 0
-        self.empezar_episodio(ruta_al_azar(mapa, self.rng))
+        self.empezar_episodio(self.ruta_siguiente())
 
     # ---------------------------------------------------------------------
     # Empieza un episodio nuevo en la ruta dada.
@@ -359,11 +361,16 @@ class VentanaSimulacion(Ventana):
         self.espera = 0.0
 
     # ---------------------------------------------------------------------
-    # La ruta que sigue: la elegida a mano, si hay una, o una al azar.
+    # La ruta que sigue: la elegida a mano, si hay una; si no, la siguiente de
+    # la lista de rutas (por ejemplo, las vueltas a la manzana), o una al azar.
     # ---------------------------------------------------------------------
     def ruta_siguiente(self):
         if self.selector.ruta_manual is not None:
             return self.selector.ruta_manual
+        if self.rutas:
+            ruta = self.rutas[self.numero_ruta % len(self.rutas)]
+            self.numero_ruta += 1
+            return ruta
         return ruta_al_azar(self.mapa, self.rng)
 
     # ---------------------------------------------------------------------
@@ -518,15 +525,17 @@ class VentanaSimulacion(Ventana):
 # -------------------------------------------------------------------------
 # Ver manejar una red en tiempo real.
 #
-# Maneja rutas al azar una atrás de otra. Al terminar una, la muestra un segundo
-# y pasa a la siguiente (o repite la manual, si se eligió una). La ventana queda
-# abierta hasta que se cierra o se aprieta Esc.
+# Maneja rutas al azar una atrás de otra, o las de la lista `rutas`, en orden y
+# volviendo a empezar. Al terminar una, la muestra un segundo y pasa a la
+# siguiente (o repite la manual, si se eligió una). La ventana queda abierta
+# hasta que se cierra o se aprieta Esc.
 #
-# Recibe: el mapa, la red y la semilla de las rutas al azar.
+# Recibe: el mapa, la red, la semilla de las rutas al azar y, opcionalmente,
+#         las rutas a recorrer (por ejemplo, las vueltas a la manzana).
 # -------------------------------------------------------------------------
-def ver_simulacion(mapa, red, semilla=0):
+def ver_simulacion(mapa, red, semilla=0, rutas=None):
     try:
-        VentanaSimulacion(mapa, red, semilla).correr()
+        VentanaSimulacion(mapa, red, semilla, rutas).correr()
     finally:
         cerrar_ventana()
 

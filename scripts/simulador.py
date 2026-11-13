@@ -1,7 +1,8 @@
 """Menú para ver manejar una red o entrenar una nueva, sin abrir notebooks.
 
 Opciones:
-  1. Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde acá.
+  1. Ver manejar una red guardada: las seis del informe o cualquiera entrenada desde acá. Se puede
+     elegir la manzana de la primera etapa, donde la red da vueltas a la izquierda y a la derecha.
   2 y 3. Entrenar en un solo mapa, mirando a la población o rápido (sin ventana).
   4 y 5. Entrenar por etapas, como en el informe: manzana → 2x2 → 3x3, mirando a la población o rápido.
 
@@ -25,15 +26,20 @@ from conduccion.aprendizaje.etapas import AJUSTES_ETAPAS, entrenar_por_etapas, e
 from conduccion.aprendizaje.genetico import TIPOS_CRUCE, TIPOS_MUTACION
 from conduccion.aprendizaje.guardado import cargar, donde_se_guarda, entrenamientos_guardados
 from conduccion.aprendizaje.perceptron_multicapa import Perceptron, cantidad_de_pesos
-from conduccion.mapa.mapa import santa_fe
+from conduccion.mapa.mapa import manzana, santa_fe
+from conduccion.mapa.ruta import vueltas_a_la_manzana
 from conduccion.parametros import capas_validas, usar_parametros, usar_parametros_de, volver_a_config
 
-# Los mapas del menú, con el nombre que se muestra
+# Los mapas del menú para entrenar en un solo mapa, con el nombre que se muestra
 ZONAS = {"2x2": "2x2 manzanas",
          "3x3": "3x3 manzanas",
          "centro": "centro, unos 900 x 900 m",
          "candioti": "barrio Candioti",
          "guadalupe": "barrio Guadalupe (prueba)"}
+
+# Para ver manejar, además, la manzana de la primera etapa: la red da vueltas, a un lado y al otro.
+# No se ofrece para entrenar en un solo mapa: la manzana se entrena en las opciones por etapas.
+ZONAS_PARA_VER = {"manzana": "manzana de la primera etapa: vueltas a la izquierda y a la derecha", **ZONAS}
 
 NEURONAS_OCULTAS = (8, 16, 32)
 
@@ -96,11 +102,13 @@ def elegir(titulo, opciones, inicial=0):
 
 
 # -------------------------------------------------------------------------
-# Pregunta en qué mapa. Devuelve: la zona, por ejemplo "3x3".
+# Pregunta en qué mapa, entre las zonas dadas. Si la inicial no está entre
+# ellas, se sugiere la primera. Devuelve: la zona, por ejemplo "3x3".
 # -------------------------------------------------------------------------
-def elegir_zona(inicial="2x2"):
-    zonas = list(ZONAS)
-    return zonas[elegir("Mapa:", list(ZONAS.values()), zonas.index(inicial))]
+def elegir_zona(inicial="2x2", zonas=ZONAS):
+    claves = list(zonas)
+    sugerida = claves.index(inicial) if inicial in claves else 0
+    return claves[elegir("Mapa:", list(zonas.values()), sugerida)]
 
 
 # -------------------------------------------------------------------------
@@ -117,12 +125,13 @@ def pedir_generaciones():
 # =========================================================================
 
 # -------------------------------------------------------------------------
-# La zona de un entrenamiento guardado: "santa fe 3x3" da "3x3".
-# Devuelve: None si no es una zona del menú (por ejemplo, la etapa de la manzana).
+# La zona de un entrenamiento guardado: "santa fe 3x3" da "3x3", y la etapa de
+# la manzana da "manzana".
+# Devuelve: None si no es una zona del menú.
 # -------------------------------------------------------------------------
 def zona_de(datos):
     zona = datos["parametros"]["mapa"].split()[-1]
-    return zona if zona in ZONAS else None
+    return zona if zona in ZONAS_PARA_VER else None
 
 
 # -------------------------------------------------------------------------
@@ -216,7 +225,7 @@ def ver_auto():
         return
 
     red = elegir_red("Red:", redes)
-    zona = elegir_zona("centro" if "nombre" in red else zona_de(red["datos"]))
+    zona = elegir_zona("centro" if "nombre" in red else zona_de(red["datos"]), ZONAS_PARA_VER)
 
     # La red maneja con los mismos parámetros con los que se entrenó, como el límite de agarre
     volver_a_config()
@@ -225,10 +234,19 @@ def ver_auto():
     # pygame se importa recién acá: solo hace falta en las opciones que abren una ventana
     from conduccion.visualizacion.simulador_pygame import ver_simulacion
 
+    # En la manzana, la red da las vueltas de la primera etapa: una a la izquierda y una a la derecha
+    red_elegida = Perceptron(config.CAPAS, cromosoma=red["cromosoma"])
+    if zona == "manzana":
+        mapa = manzana()
+        izquierda, derecha = vueltas_a_la_manzana(mapa)
+        rutas = [vuelta for par in zip(izquierda, derecha) for vuelta in par]
+    else:
+        mapa, rutas = santa_fe(zona), None
+
     print("Se abre una ventana. Puede quedar detrás de esta.")
     print("Teclas: N = otra ruta, R = reiniciar, Espacio = pausa, flechas = más o menos rápido, "
           "S = sensores, Esc = salir.")
-    ver_simulacion(santa_fe(zona), Perceptron(config.CAPAS, cromosoma=red["cromosoma"]))
+    ver_simulacion(mapa, red_elegida, rutas=rutas)
 
 
 # -------------------------------------------------------------------------
@@ -356,7 +374,7 @@ def entrenar_por_etapas_red(con_ventana):
 
     if identificadores:
         print(f"Listo: {len(identificadores)} etapas guardadas. "
-              "La red de la última etapa (2x2 o 3x3) se puede ver con la opción 1.")
+              "La red de cada etapa, también la de la manzana, se puede ver con la opción 1.")
 
 
 # -------------------------------------------------------------------------

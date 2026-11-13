@@ -1,0 +1,20 @@
+[
+ {
+  "generacion": 0,
+  "mejor_nota": 0.14271439713208767,
+  "nota_media": 0.031008446793173307,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "nota_referencia_candidato": 0.14787704539793806,
+  "mejor_referencia": 0.14787704539793806
+ },
+ {
+  "generacion": 1,
+  "mejor_nota": 0.29331150800622013,
+  "nota_media": 0.05829683354176969,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "nota_referencia_candidato": 0.32444405229595785,
+  "mejor_referencia": 0.32444405229595785
+ }
+]
