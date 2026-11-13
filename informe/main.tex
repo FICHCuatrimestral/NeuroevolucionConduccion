@@ -1,0 +1,414 @@
+\documentclass[final]{article}
+\usepackage[numbers,sort&compress]{natbib} % formato de citas
+\usepackage{neurips}            % estilo de la conferencia NeurIPS
+\usepackage[T1]{fontenc}        % letras acentuadas y comillas « » con sus propios caracteres
+\usepackage[spanish]{babel}     % definiciones para el español
+\usepackage{graphicx}           % para insertar figuras
+\usepackage{amsmath,amssymb}    % más símbolos útiles
+\usepackage[hidelinks]{hyperref}% para los links
+\usepackage{multirow}           % algunas mejoras para las tablas
+\usepackage{booktabs}
+\usepackage{xcolor}             % solo para marcar lo pendiente
+\usepackage{tikz}               % diagrama en bloques
+\usepackage{endnotes}           % las citas textuales van todas juntas al final
+\let\footnote=\endnote          % cada \footnote pasa a ser una nota al final
+\renewcommand{\notesname}{Citas textuales}
+\usetikzlibrary{positioning,arrows.meta}
+
+% Lo que falta completar queda en rojo. Antes de entregar, buscar \pendiente y no dejar ninguno.
+\newcommand{\pendiente}[1]{\textcolor{red}{[#1]}}
+
+\begin{document}
+\def\tablename{Tabla}          % (sino les pone Cuadro)
+
+\title{Conducción autónoma en calles de Santa Fe\\
+       mediante neuroevolución}
+
+\author{M. Bertona, A. Greminger y A. Nanzer \\
+        Facultad de Ingeniería y Ciencias Hídricas,
+        Universidad Nacional del Litoral}
+
+\maketitle
+
+% =====================================================================
+\begin{abstract}
+Enseñar a un vehículo a seguir una ruta urbana exige decidir el volante y el acelerador en cada instante.
+Para esa tarea no existe una respuesta correcta paso a paso, por lo que el entrenamiento basado en el gradiente del error no se aplica de forma directa.
+En este trabajo se entrena una red neuronal pequeña con un algoritmo genético, sin ejemplos de manejo, para conducir por calles reales de Santa Fe.
+El vehículo se simula con un modelo cinemático de bicicleta, al que se agregó un límite de agarre para que no pueda doblar rápido.
+La red recibe solo información medida desde el propio vehículo y se entrena por etapas, desde una manzana hasta un recorte de tres por tres manzanas.
+Se comparan cuatro operadores de cruce, dos de mutación y el efecto del límite de agarre.
+Todas las redes llegan a destino en 15 a 20 de 20 rutas del centro de la ciudad, y manejan también en barrios que no usaron para entrenar.
+Sin el límite, la red dobla las esquinas a 40\,km/h con aceleraciones imposibles para un auto real; con el límite, maneja despacio y dentro de lo físicamente posible.
+La red aprende exactamente lo que la física y la función de aptitud le exigen.
+\end{abstract}
+
+% =====================================================================
+\section{Introducción}
+
+La conducción autónoma es uno de los problemas de control más estudiados de los últimos años.
+Un vehículo tiene que llegar a destino, mantenerse en la calzada y respetar su carril, todo a la vez.
+Las soluciones clásicas separan el problema en partes: un planificador elige el camino y un controlador lo sigue.
+El controlador suele diseñarse a partir de un modelo del vehículo, por ejemplo con control predictivo \cite[p.~1097]{kong2015}\footnote{Las citas textuales de estas notas son traducciones propias. «En cada instante de muestreo, $t_s = 100$\,ms, el controlador MPC resuelve [un problema de optimización con el modelo del vehículo]».}.
+Una alternativa es aprender el controlador a partir de la experiencia, sin programar sus reglas.
+Esta idea resulta atractiva porque el mismo método puede adaptarse a otro vehículo o a otro entorno.
+
+Aprender a manejar tiene una dificultad particular: no hay un volante correcto en cada instante.
+Hay muchas formas buenas de doblar una esquina, y solo se puede juzgar el viaje completo.
+Además, la evaluación de un viaje cambia a saltos, por ejemplo cuando el auto choca.
+Por eso la retropropagación, que necesita la salida deseada y una función derivable, no es aplicable de forma directa \cite[p.~763]{montana1989}, \cite[p.~1425]{yao1999}\footnote{Montana y Davis: «Calcular un gradiente requiere que la función sea derivable. Por lo tanto, la retropropagación no puede manejar criterios de optimización discontinuos». Yao: «la función de aptitud (o de error) no necesita ser derivable, ni siquiera continua, ya que los algoritmos evolutivos no dependen de información del gradiente».}.
+La neuroevolución resuelve esto: busca los pesos de la red con un algoritmo genético que solo compara viajes \cite[p.~762]{montana1989}, \cite[p.~1439]{yao1999}\footnote{Montana y Davis, sobre el problema de clasificación que estudiaron: «No solo cumple su tarea, sino que supera a la retropropagación». Yao recomienda este camino «especialmente cuando la información del gradiente de la función de error es difícil o costosa de obtener».}.
+Togelius y Lucas la aplicaron a autos de carrera simulados y mostraron que la red debe recibir información medida desde el propio auto \cite[pp.~1906 y 1912]{togelius2005}\footnote{«El único controlador capaz de evolucionar un buen comportamiento de carrera fue el basado en una red neuronal que actúa sobre entradas egocéntricas».}.
+En un segundo trabajo lograron controladores generales entrenando de pistas simples a pistas complejas \cite[p.~1194]{togelius2006}\footnote{«Esto se puede lograr con evolución incremental, yendo de pistas más simples a más complejas [\dots]. Los intentos de evolucionar controladores en todas las pistas a la vez fallaron».}.
+Gomez y Miikkulainen llegaron a la misma conclusión: una tarea que no se aprende de forma directa sí se aprende de a poco \cite[p.~11]{gomez1996}\footnote{«Este trabajo muestra que, aun cuando una tarea es demasiado difícil para evolucionarla directamente, la neuroevolución puede aplicarse de forma incremental para lograr el comportamiento complejo buscado».}.
+Nelson y colaboradores advierten, por último, que el diseño de la función de aptitud decide qué comportamiento aparece \cite[p.~348]{nelson2009}\footnote{«Los intentos de hacer más manejable el espacio de búsqueda suelen imponer sesgos que reflejan el conocimiento previo del diseñador sobre soluciones conocidas, y así reducen la capacidad del sistema de descubrir soluciones nuevas».}.
+
+Los trabajos de Togelius y Lucas usan pistas cerradas, sin carriles y sin cruces de calles.
+En una ciudad, en cambio, el auto tiene que doblar a ambos lados en cruces completos y mantenerse en su mano.
+Además, el modelo cinemático de vehículo no limita el agarre de las ruedas, por lo que permite doblar a cualquier velocidad \cite[p.~1098]{kong2015}\footnote{«Incluso un controlador bien ajustado puede tener problemas para seguir una trayectoria con alta aceleración lateral, porque la diferencia con el modelo se vuelve más marcada».}.
+Una red entrenada sobre ese modelo puede aprender a aprovechar esa falla en lugar de aprender a manejar.
+
+En este trabajo se entrena un perceptrón multicapa con un algoritmo genético para manejar en calles reales de Santa Fe.
+Un planificador clásico elige las calles y la red solo decide el volante y el acelerador.
+El modelo del vehículo se completa con un límite de aceleración lateral, que impide doblar rápido: para tomar una esquina hay que llegar despacio.
+La red recibe sensores medidos desde el auto, por lo que puede probarse en barrios que no vio durante el entrenamiento.
+La red se entrena por etapas, empezando con vueltas a una manzana, y se comparan operadores de cruce y de mutación que tratan a cada neurona como una unidad con otros que tratan cada peso por separado.
+La Sección~\ref{sec:metodos} describe el entorno, el vehículo, la red y el algoritmo.
+La Sección~\ref{sec:resultados} presenta los experimentos y la Sección~\ref{sec:conclusiones} resume las conclusiones.
+
+% =====================================================================
+\section{Neuroevolución de un controlador de manejo}
+\label{sec:metodos}
+
+La Fig.~\ref{fig:bloques} muestra el sistema completo.
+El mapa de calles se convierte en un grafo, y sobre ese grafo el algoritmo A* elige el camino más corto \cite{hart1968}.
+El camino se transforma en una fila de puntos de control sobre el carril derecho.
+En cada paso de simulación, los sensores del auto alimentan a la red, y la red decide el volante y el acelerador.
+Al terminar el viaje, una función de aptitud le asigna una nota a la red, y el algoritmo genético usa esas notas para formar la población siguiente.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    bloque/.style={draw, rounded corners, fill=blue!8, minimum height=7mm, align=center, font=\small},
+    flecha/.style={-{Latex[length=2mm]}},
+    node distance=4mm]
+  \node[bloque] (mapa) {Mapa\\(grafo de calles)};
+  \node[bloque, right=of mapa] (astar) {A*};
+  \node[bloque, right=of astar] (puntos) {Puntos de\\control};
+  \node[bloque, right=of puntos] (sens) {Sensores};
+  \node[bloque, right=of sens] (red) {Red\\$16\to16\to2$};
+  \node[bloque, right=of red] (auto) {Modelo\\del auto};
+  \node[bloque, below=8mm of red] (nota) {Aptitud\\del viaje};
+  \node[bloque, below=8mm of puntos] (ag) {Algoritmo\\genético};
+  \draw[flecha] (mapa) -- (astar);
+  \draw[flecha] (astar) -- (puntos);
+  \draw[flecha] (puntos) -- (sens);
+  \draw[flecha] (sens) -- (red);
+  \draw[flecha] (red) -- node[above, font=\scriptsize]{$\delta, a$} (auto);
+  \draw[flecha] (auto.north) -- ++(0,4mm) -| node[pos=0.25, above, font=\scriptsize]{estado} (sens.north);
+  \draw[flecha] (auto.south) |- (nota.east);
+  \draw[flecha] (nota) -- (ag);
+  \draw[flecha] (ag.west) -- ++(-6mm,0) node[left, font=\scriptsize, align=right]{pesos de\\cada red};
+\end{tikzpicture}
+\caption{Esquema del sistema. El planificador A* elige las calles y la red solo decide el volante $\delta$ y el acelerador $a$ en cada paso. La aptitud de cada viaje guía al algoritmo genético, que genera los pesos de las redes de la generación siguiente.}
+\label{fig:bloques}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Mapas y rutas}
+
+Las calles se descargan de OpenStreetMap con la librería OSMnx \cite{boeing2025}.
+Cada esquina es un nodo del grafo y cada cuadra es una arista con su forma real, ensanchada 3,5\,m hacia cada lado para que todas las calles tengan dos manos.
+Para entrenar se usan mapas de dificultad creciente (Fig.~\ref{fig:mapas}): una manzana, donde el auto da vueltas doblando siempre hacia el mismo lado, y recortes de 2$\times$2 y 3$\times$3 manzanas del centro de la ciudad.
+Para probar se usa el centro completo, con diagonales, una avenida curva y cruces de más de cuatro calles.
+Como el centro contiene a los recortes de entrenamiento, que son cerca del 22\,\% de su calzada, también se prueba en seis barrios que no se usan para entrenar.
+
+Para cada viaje se sortean un origen y un destino, y A* encuentra el camino más corto entre ellos.
+El camino se corre 1,75\,m hacia la derecha, al centro del carril, y sobre esa línea se ubica un punto de control cada 10\,m y otro en cada giro de 30$^\circ$ o más.
+Un punto cuenta como alcanzado cuando el centro del auto pasa a menos de 6\,m, y los puntos solo cuentan en orden \cite[p.~1190]{togelius2006}\footnote{«Los puntos solo se pueden pasar en el orden correcto, y un punto cuenta como pasado cuando el centro del auto está a menos de 30 píxeles de él».}.
+Si el auto se abre en un giro y alcanza uno de los dos puntos siguientes, los salteados también cuentan, para que no quede trabado.
+Así la red no necesita conocer el mapa: le alcanza con seguir los puntos, y por eso puede manejar en mapas nuevos.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_mapas.pdf}
+\caption{Mapas de calles reales de Santa Fe. a) Manzana de la primera etapa, con una vuelta doblando siempre a la izquierda y otra siempre a la derecha. b) Recorte de 3$\times$3 manzanas con una ruta: el camino de A*, el carril derecho y los puntos de control. c) Centro de la ciudad con dos rutas al azar.}
+\label{fig:mapas}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Modelo del vehículo y límite de agarre}
+
+El vehículo se simula con el modelo cinemático de bicicleta \cite[p.~1095]{kong2015}\footnote{«Las entradas de control son los ángulos de dirección delantero y trasero y la aceleración. Como en la mayoría de los vehículos las ruedas traseras no giran, suponemos $\delta_r = 0$».}.
+El estado es la posición $(x,y)$ del centro de masa, la orientación $\psi$ y la velocidad $v$, y las entradas son el ángulo de la rueda delantera $\delta$ y la aceleración $a$.
+Con el ángulo de deriva $\beta = \arctan\bigl(\tan\delta\,\ell_r/(\ell_f+\ell_r)\bigr)$, el movimiento queda descripto por
+\begin{equation}
+  \dot x = v\cos(\psi+\beta), \qquad
+  \dot y = v\sin(\psi+\beta), \qquad
+  \dot \psi = \frac{v}{\ell_r}\sin\beta, \qquad
+  \dot v = a,
+  \label{eq:bicicleta}
+\end{equation}
+donde $\ell_f = 1{,}1$\,m y $\ell_r = 1{,}7$\,m son las distancias del centro de masa a los ejes \cite[p.~1095]{kong2015}\footnote{«El vehículo de prueba fue un Hyundai Azera (distancia entre ejes de 2,843\,m, $\ell_f = 1{,}105$\,m y $\ell_r = 1{,}738$\,m)». Aquí se usan esos valores redondeados.}.
+El sistema se integra con el método de Euler cada 0,1\,s \cite[p.~1095]{kong2015}\footnote{«Los modelos se discretizan con el método de Euler y se muestrean cada 100\,ms o cada 200\,ms».}.
+El volante se limita a $\pm35^\circ$, la aceleración a entre $-4$ y $+2$\,m/s$^2$ y la velocidad a 11\,m/s.
+El viaje termina si alguna esquina del auto, un rectángulo de 4,5\,m por 1,8\,m, sale de la calzada.
+
+El modelo supone que las ruedas nunca patinan, por lo que permite doblar con el volante a fondo a cualquier velocidad, justo donde pierde validez \cite[p.~1098]{kong2015}.
+Un auto real, en cambio, empieza a patinar cerca de 8\,m/s$^2$ de aceleración lateral.
+Por eso se agregó un límite de agarre: la aceleración lateral $a_y = v^2/R$, con el radio de giro $R = \ell_r/\sin\beta$, no puede superar $a_{\max} = 6$\,m/s$^2$.
+De ahí sale el volante permitido a cada velocidad,
+\begin{equation}
+  \delta_{\max}(v) = \min\!\left(35^\circ,\ \arctan\!\left(\frac{\ell_f+\ell_r}{\ell_r}\tan\beta_{\max}\right)\right),
+  \qquad \sin\beta_{\max} = \frac{a_{\max}\,\ell_r}{v^2}.
+  \label{eq:agarre}
+\end{equation}
+Por debajo de 5,1\,m/s el auto puede doblar a fondo, pero a 8\,m/s el volante ya queda limitado a 14,9$^\circ$ (Fig.~\ref{fig:auto}c).
+El límite no frena al auto: si la red llega rápido a una esquina, la curva no le alcanza y el auto se sale, así que tiene que aprender a llegar despacio.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_auto.pdf}
+\caption{Modelo del vehículo. a) Geometría del modelo de bicicleta con el auto orientado según el eje $x$ ($\psi=0$): CM es el centro de masa y $O$ el centro de giro. b) Trayectorias de 5\,s con el volante fijo y el acelerador a fondo, sin límite de agarre (continuo) y con límite de 6\,m/s$^2$ (discontinuo). c) Volante máximo permitido en función de la velocidad, según \eqref{eq:agarre}.}
+\label{fig:auto}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Red y función de aptitud}
+
+La red recibe 16 entradas, todas medidas desde el auto (Fig.~\ref{fig:red}a).
+Son siete rayos hasta el borde de la calle, la velocidad, la dirección y la distancia al próximo punto de control, el desvío del carril y la dirección del carril 3\,m y 6\,m adelante, para anticipar las curvas.
+Los ángulos entran como seno y coseno, y durante el entrenamiento se suma a cada entrada un ruido gaussiano de desvío 0,02 \cite[p.~1189]{togelius2006}\footnote{«Se aplica una pequeña cantidad de ruido a todas las lecturas de los sensores». El valor de 0,02 es una elección propia.}.
+El controlador es un perceptrón multicapa $16\to16\to2$ con tangente hiperbólica (Fig.~\ref{fig:red}b): una salida es el volante y la otra el acelerador, que frena si es negativa.
+Sus $16\cdot16+16+16\cdot2+2 = 306$ pesos y umbrales forman el cromosoma, con un gen real por peso \cite[p.~764]{montana1989}\footnote{«Los pesos (y umbrales) de la red neuronal se codifican como una lista de números reales».}.
+
+La aptitud de un viaje por la ruta $r$ mide cuánto avanzó el auto y castiga el tiempo que pasó fuera de su carril:
+\begin{equation}
+  F_r = (1-\lambda)\,\frac{k_r + p_r}{K_r}\,\bigl(1 - c\,f_r\bigr) + \lambda\,L_r\left(1 - \frac{t_r}{t_{\max,r}}\right),
+  \label{eq:aptitud}
+\end{equation}
+donde $k_r$ es la cantidad de puntos pasados, $p_r$ el avance hacia el siguiente \cite[p.~1190]{togelius2006}\footnote{«más un término intermedio que representa cuánto avanzó hacia el siguiente punto, calculado a partir de las distancias relativas entre el auto y los puntos anterior y siguiente».}, $K_r$ el total de puntos y $f_r$ la fracción del tiempo fuera del carril.
+$L_r$ vale 1 si el auto llegó a destino, $t_r$ es la duración del viaje y $t_{\max,r}$ el tiempo disponible, que es el largo de la ruta dividido 4\,m/s más 10\,s.
+El avance parcial distingue a las redes aunque ninguna llegue, y así la selección siempre tiene a quién preferir \cite[pp.~350--351]{nelson2009}\footnote{«Si todos los controladores de la población inicial están por debajo de una competencia mínima para la función de aptitud, esta no genera presión de selección y la población no logra evolucionar».}.
+Se usa $c=0{,}8$ para que avanzar por la mano contraria valga más que quedarse quieto, y el premio por tiempo, de peso $\lambda$, solo se da al que llega.
+La nota de una red es el promedio de $F_r$ sobre las rutas que manejó.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_red.pdf}
+\caption{Entradas y red. a) Las 16 entradas en una situación real del mapa de 2$\times$2: rayos hasta el borde de la calle, dirección y distancia al próximo punto de control, desvío del carril y dirección del carril a 3 y 6\,m. b) La red $16\to16\to2$; cada color agrupa entradas del mismo tipo.}
+\label{fig:red}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Operadores genéticos}
+
+El algoritmo genético usa reemplazo generacional, selección por torneo de 3 y elitismo de 2 individuos \cite[p.~1908]{togelius2005}\footnote{«El operador de mutación se aplicó a todos los individuos, salvo a los dos más aptos». El torneo de 3 es una elección propia.}.
+Lo particular de este problema está en el cruce.
+Si se intercambian dos neuronas ocultas con sus pesos, la red calcula lo mismo pero el cromosoma cambia: una misma red tiene $16!\cdot2^{16}$ cromosomas, contando el signo de cada neurona.
+Es el problema de las permutaciones \cite[p.~1426]{yao1999}\footnote{«Uno de los problemas del entrenamiento evolutivo de redes neuronales es el problema de las permutaciones [\dots], también conocido como problema de las convenciones en competencia».}, y al cruzar dos padres buenos el hijo puede recibir dos veces la misma neurona.
+Además, los pesos que entran a una neurona trabajan en conjunto, y un cruce que los separa puede romperla \cite[p.~765]{montana1989}\footnote{«Esta sinergia es mayor entre los pesos de las conexiones que entran a un mismo nodo. Por lo tanto, al transmitirse el material genético, estos subgrupos lógicos deberían mantenerse juntos».}.
+
+Por eso se comparan operadores que tratan a la neurona como unidad con otros que tratan cada peso por separado.
+En el \emph{cruce por neurona}, cada neurona del hijo se copia entera de uno de los padres, con sus pesos de entrada y su umbral; en el \emph{cruce por pesos}, cada peso se copia de uno de los padres al azar \cite[p.~765]{montana1989}\footnote{«Este operador asigna un valor a cada posición del cromosoma del hijo eligiendo al azar uno de los dos padres y usando el valor de la misma posición en el cromosoma de ese padre».}.
+En el cruce BLX-$\alpha$, cada gen se sortea entre los de los padres, en un intervalo agrandado $\alpha=0{,}5$ de su ancho hacia cada lado \cite{eshelman1993}; sin cruce, el hijo es una copia mutada de un solo padre.
+La \emph{mutación gaussiana} suma a cada gen, con probabilidad 0,05, un ruido normal de desvío $\sigma$ \cite[p.~1427]{yao1999}\footnote{«En estos ejemplos, el principal operador de búsqueda fue la mutación gaussiana».}, y la \emph{mutación por neurona} suma ese ruido a todos los pesos de dos neuronas \cite[p.~766]{montana1989}\footnote{«Como se predijo, hay un orden claro en cuanto a rendimiento: 1) MUTATE-NODES [\dots]», que es la mutación por neurona.}.
+La Fig.~\ref{fig:operadores} muestra que los operadores por neurona mantienen juntos los pesos de cada neurona, aunque no eliminan el problema de las permutaciones.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_operadores.pdf}
+\caption{Pesos de entrada a la capa oculta del hijo, para cada operador aplicado a dos redes al azar. Cada cuadrado es una matriz de $16\times16$: cada columna es una neurona y cada casilla, un peso. En los cruces, el color indica de qué padre viene cada peso; en BLX-$\alpha$, los tonos claros son valores intermedios. En las mutaciones se marcan los pesos modificados.}
+\label{fig:operadores}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Entrenamiento por etapas}
+
+En cada generación, toda la población maneja las mismas 3 rutas al azar, que cambian de una generación a otra.
+La nota en 3 rutas tiene ruido, y la más alta suele ser la de mejor suerte.
+Por eso la red de mayor nota maneja además 20 rutas de referencia fijas, y reemplaza a la mejor guardada solo si llega en más de ellas; si empatan, decide la nota y después el tiempo.
+Si la mejor guardada no queda en la población nueva, se reinserta en lugar del último hijo.
+
+En las primeras pruebas se entrenó directo en un solo mapa, y la población se trababa con facilidad en estrategias pobres.
+Por eso se entrena por etapas, como en \cite[p.~1194]{togelius2006} y \cite[p.~11]{gomez1996}: la población empieza dando vueltas a una manzana, a ambos lados, y pasa a mapas cada vez más complejos sin reiniciarse.
+En la manzana, las rutas de referencia son las 8 vueltas posibles.
+La población pasa de etapa cuando la mejor red llega en una fracción $u_e$ de las rutas de referencia, después de al menos $g_{\min}$ generaciones, o cuando se agotan las $g_{\max,e}$ de la etapa; la última etapa usa todas.
+El desvío $\sigma_e$ de la mutación baja de una etapa a la siguiente, para afinar sin desarmar lo aprendido, y cada generación maneja además una ruta de una etapa anterior, para no olvidarla.
+
+% =====================================================================
+\section{Resultados y discusión}
+\label{sec:resultados}
+
+\subsection{Diseño experimental}
+
+La Tabla~\ref{tab:parametros} reúne los parámetros de la configuración de base.
+Se entrenaron seis redes: la base y cinco variantes que cambian un solo factor, el cruce (por pesos, BLX-$\alpha$ o sin cruce), la mutación (por neurona) o el límite de agarre (sin límite).
+Todas se entrenan por etapas en la manzana, el recorte de 2$\times$2 y el de 3$\times$3, con una sola semilla.
+
+Cada red final maneja, sin ruido en los sensores, las mismas 20 rutas fijas del centro, sorteadas una sola vez.
+Además, cada red maneja las 20 rutas fijas de uno de los seis barrios de prueba.
+Se mide la cantidad de llegadas, con su intervalo de confianza del 95\,\% de Clopper-Pearson, los choques y los viajes que agotan el tiempo, el tiempo medio de los viajes que llegan, la velocidad media a menos de 15\,m de un giro y a más de 30\,m, y la aceleración lateral máxima.
+
+\begin{table}[t]
+\centering
+\caption{Parámetros de la configuración de base.}
+\label{tab:parametros}
+\small
+\begin{tabular}{llc}
+\toprule
+ & Parámetro & Valor \\
+\midrule
+\multirow{3}{*}{Red}
+ & Capas & $16\to16\to2$ \\
+ & Desvío de los pesos iniciales & 0,1 \\
+ & Desvío del ruido de los sensores & 0,02 \\
+\midrule
+\multirow{7}{*}{Algoritmo genético}
+ & Tamaño de la población, $N$ & 50 \\
+ & Torneo / élite & 3 / 2 \\
+ & Cruce & por neurona \\
+ & Probabilidad de cruce, $p_c$ & 0,8 \\
+ & Mutación & gaussiana \\
+ & Probabilidad de mutar cada gen & 0,05 \\
+ & Rutas por generación / de referencia & 3 / 20 \\
+\midrule
+\multirow{3}{*}{Aptitud y vehículo}
+ & Castigo de carril, $c$ & 0,8 \\
+ & Premio por tiempo, $\lambda$ & 0 \\
+ & Límite de agarre, $a_{\max}$ & 6\,m/s$^2$ \\
+\midrule
+\multirow{4}{*}{Etapas}
+ & $\sigma_e$ (manzana, 2$\times$2, 3$\times$3) & 0,3 / 0,2 / 0,15 \\
+ & $u_e$ (manzana, 2$\times$2) & 1 / 0,9 \\
+ & $g_{\min}$ & 10 \\
+ & $g_{\max,e}$ (manzana, 2$\times$2, 3$\times$3) & 100 / 50 / 50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------
+\subsection{Efecto del límite de agarre}
+\label{sec:agarre}
+
+La Tabla~\ref{tab:redes} reúne las seis redes; la última fila es la red entrenada sin límite de agarre.
+Cada fila muestra cuántas generaciones usó en la manzana y en el 2$\times$2, y cómo manejó las 20 rutas del centro.
+Sin límite, la red llega en las 20 rutas y en la mitad del tiempo que la base.
+Pero no maneja mejor: va a la velocidad máxima, 40\,km/h, durante todo el viaje, y dobla con aceleraciones laterales de 25 a 27\,m/s$^2$, unas tres veces lo que soporta un auto real (Fig.~\ref{fig:velocidad}).
+Aprendió a aprovechar la falla del modelo, no a manejar, y el límite de agarre resultó necesario para que el problema tenga sentido físico.
+
+Con el límite, la aceleración lateral nunca pasa de 6,4\,m/s$^2$, apenas por encima del tope.
+La red no frena antes de las esquinas: va a unos 19\,km/h durante todo el viaje, casi igual cerca y lejos de los giros.
+Como $\lambda=0$, ir despacio no le cuesta nada en la nota, y manejar lento todo el tiempo es la forma más simple de doblar sin salirse.
+Es lo que advierten Nelson y colaboradores: la evolución optimiza la aptitud que se le da, no el comportamiento que el diseñador tiene en mente \cite[p.~348]{nelson2009}.
+En pruebas preliminares con premio por tiempo ($\lambda=0{,}1$), una de dos redes aprendió a bajar la velocidad antes de cada giro: frenar en las esquinas está al alcance del método cuando la aptitud lo pide.
+
+\begin{table}[t]
+\centering
+\caption{Las seis redes: generaciones de las dos primeras etapas y resultados en las 20 rutas fijas del centro. Entre corchetes, el intervalo de confianza del 95\,\% de la tasa de llegada. La velocidad es la media a menos de 15\,m de un giro y a más de 30\,m.}
+\label{tab:redes}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+ & \multicolumn{2}{c}{Generaciones} & \multicolumn{5}{c}{Centro} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-8}
+Red & manzana & 2$\times$2 & Llegadas & Choques & Tiempo medio & Velocidad (km/h) & $a_y$ máx. (m/s$^2$) \\
+\midrule
+Base: cruce por neurona & 62 & 10 & 15 / 20 \; [51--91\,\%] & 5 & 111\,s & 19 / 18 & 6,3 \\
+Cruce por pesos & 48 & 25 & 20 / 20 \; [83--100\,\%] & 0 & 142\,s & 15 / 15 & 6,4 \\
+Cruce BLX-$\alpha$ & 67 & 17 & 19 / 20 \; [75--100\,\%] & 0$^{*}$ & 128\,s & 19 / 16 & 6,3 \\
+Sin cruce & 70 & 10 & 19 / 20 \; [75--100\,\%] & 1 & 135\,s & 16 / 15 & 6,1 \\
+Mutación por neurona & 65 & 10 & 17 / 20 \; [62--97\,\%] & 2$^{*}$ & 129\,s & 17 / 14 & 6,1 \\
+\midrule
+Sin límite de agarre & 36 & 10 & 20 / 20 \; [83--100\,\%] & 0 & 56\,s & 40 / 37 & 27,6 \\
+\bottomrule
+\multicolumn{8}{l}{$^{*}$ Más un viaje que agotó el tiempo.}
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_velocidad.pdf}
+\caption{Velocidad y aceleración lateral a lo largo de una ruta del centro, para la red sin límite de agarre y para la red base, con límite de 6\,m/s$^2$. Es la ruta de más giros, de las 20 fijas, a la que llegan las dos. Las líneas punteadas verticales marcan los giros.}
+\label{fig:velocidad}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Comparación de operadores genéticos}
+
+Las cinco primeras filas de la Tabla~\ref{tab:redes} comparan los operadores, todos con límite de agarre.
+Todas las variantes aprenden la manzana en 48 a 70 generaciones y pasan el 2$\times$2 en 10 a 25; el 3$\times$3, como última etapa, usa siempre sus 50 generaciones.
+En el centro llegan en 15 a 20 de las 20 rutas, y los intervalos de confianza se superponen en todos los casos.
+Con 20 rutas y una sola semilla, entonces, ninguna diferencia se puede atribuir al operador: el cruce por neurona, por ejemplo, fue el que menos llegó, pero con un intervalo que contiene a los demás.
+Montana y Davis tampoco encontraron diferencias claras entre sus tipos de cruce \cite[p.~766]{montana1989}\footnote{«Indican que hay poca diferencia de rendimiento entre los distintos tipos de cruce».}, lo que indica que el método es robusto a esta elección.
+
+La Fig.~\ref{fig:entrenamiento} muestra cómo aprende cada red.
+En la manzana, todas pasan primero por la mitad de las vueltas de referencia: aprenden a doblar hacia un lado antes que hacia el otro.
+Al pasar al 2$\times$2 y al 3$\times$3, la mejor red ya llega en la mayoría de las rutas desde las primeras generaciones.
+Lo aprendido en las vueltas a una sola manzana, entonces, se transfiere a mapas más grandes, y la red sin límite de agarre es la que aprende más rápido porque puede doblar a cualquier velocidad.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figuras/fig_entrenamiento.pdf}
+\caption{Llegadas de la mejor red guardada en las rutas de referencia de su etapa, generación por generación: 8 vueltas en la manzana y 20 rutas en el 2$\times$2 y en el 3$\times$3. Las líneas punteadas verticales marcan, con el color de cada red, el paso a la etapa siguiente.}
+\label{fig:entrenamiento}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Generalización a calles nuevas}
+
+El centro contiene a los recortes de entrenamiento, pero suma diagonales, una avenida curva y cruces de más de cuatro calles que no aparecen en ellos.
+Aun así, las seis redes llegan en 15 a 20 de sus 20 rutas (Tabla~\ref{tab:redes}).
+Para probar en calles que nunca vieron, cada red manejó además las 20 rutas fijas de uno de los seis barrios de prueba (Tabla~\ref{tab:barrios}).
+Todas manejan en esos barrios, con entre 7 y 20 llegadas según el barrio.
+
+Cada red se probó en un barrio distinto, elegido al azar, así que esta tabla no compara operadores: para eso está la del centro.
+Lo que muestra es que todas las redes manejan en barrios de la ciudad que no usaron para entrenar.
+Esas redes solo vieron vueltas a una manzana y dos recortes chicos del centro.
+Una explicación es que sus sensores miden todo desde el auto, de modo que una esquina se ve parecida en cualquier mapa, y por eso lo aprendido en pocas calles sirve en otras.
+
+\begin{table}[t]
+\centering
+\caption{Cada red en las 20 rutas fijas de un barrio de prueba. Entre corchetes, el intervalo de confianza del 95\,\% de la tasa de llegada.}
+\label{tab:barrios}
+\small
+\begin{tabular}{llccc}
+\toprule
+Red & Barrio & Llegadas & Choques & Sin tiempo \\
+\midrule
+Base: cruce por neurona & Guadalupe & 10 / 20 \; [27--73\,\%] & 10 & 0 \\
+Cruce por pesos & Roma & 19 / 20 \; [75--100\,\%] & 1 & 0 \\
+Cruce BLX-$\alpha$ & Schneider & 12 / 20 \; [36--81\,\%] & 6 & 2 \\
+Sin cruce & 12 de Octubre & 20 / 20 \; [83--100\,\%] & 0 & 0 \\
+Mutación por neurona & La Guardia & 7 / 20 \; [15--59\,\%] & 11 & 2 \\
+Sin límite de agarre & Arenales & 13 / 20 \; [41--85\,\%] & 7 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+En este trabajo se entrenó, con un algoritmo genético y sin ejemplos de manejo, un perceptrón multicapa de 306 pesos que maneja por calles reales de Santa Fe.
+Las piezas vienen de trabajos anteriores: el modelo de bicicleta de Kong y colaboradores, los sensores desde el auto y la aptitud por puntos de control de Togelius y Lucas, la codificación real y los operadores por neurona de Montana y Davis, y el entrenamiento por etapas de Gomez y Miikkulainen.
+El aporte fue juntarlas en mapas reales, con puntos de control en cada giro, y agregar un límite de agarre al modelo del vehículo.
+Con una sola semilla, las diferencias entre operadores de cruce y de mutación no alcanzaron para ordenarlos, y todos resultaron capaces de aprender la tarea.
+El límite de agarre resultó necesario: sin él, la red aprovecha una física imposible y dobla a 40\,km/h, y con él maneja dentro de lo que un auto real puede hacer.
+Las redes, entrenadas en una manzana y en dos recortes chicos, llegan en 15 a 20 de 20 rutas del centro y manejan en barrios que no usaron para entrenar.
+La red aprende lo que la física y la aptitud le exigen, y eso permite guiar su comportamiento diseñando bien el entorno y la nota.
+
+Como trabajos futuros quedan repetir las corridas con varias semillas y probar todas las redes en los mismos barrios, para comparar operadores con más precisión.
+También se puede agregar el premio por tiempo junto con el límite de agarre, para buscar redes que frenen antes de las esquinas y aceleren en las rectas, y comparar de forma controlada el entrenamiento directo con el entrenamiento por etapas.
+Por último, sumar tráfico, obstáculos y semáforos exigiría nuevos sensores y una aptitud que los contemple.
+
+% =====================================================================
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
+
+% Las citas textuales, en una hoja aparte después de las referencias
+\newpage
+\theendnotes
+
+\end{document}

@@ -1,0 +1,31 @@
+/*-- scss:defaults --*/
+// Estilo sobrio, como el demo de Quarto: fondo blanco, una sola familia de letra
+// y casi ningún adorno. Los colores se definen más adelante.
+$font-family-sans-serif: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-font-weight: 600;
+$presentation-font-size-root: 32px;
+$presentation-h2-font-size: 1.4em;
+
+/*-- scss:rules --*/
+.reveal .slides section { text-align: left; }
+
+/* Texto chico y gris: aclaraciones al pie de una diapositiva */
+.reveal .chico { font-size: 0.7em; color: #666; }
+
+/* La pregunta que abre cada parte de la charla */
+.reveal .pregunta { font-style: italic; color: #555; }
+
+/* De qué paper sale una figura: va debajo de ella */
+.reveal .cita { font-size: 0.55em; color: #666; text-align: center; }
+.reveal .cita p { margin: 0.2em 0 0 0; }
+.reveal .cita p::before { content: "Basado en "; }
+
+/* Columnas centradas en vertical; con .arriba, alineadas por arriba (dos columnas de texto) */
+.reveal .columns { align-items: center; }
+.reveal .columns.arriba { align-items: flex-start; }
+
+/* Tablas como en un artículo: tres rayas horizontales y ninguna vertical */
+.reveal table { font-size: 0.7em; border-collapse: collapse; border-top: 1.5px solid #333; border-bottom: 1.5px solid #333; }
+.reveal table th { border-bottom: 1px solid #333; }
+.reveal table td { border-bottom: none; }

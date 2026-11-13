@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+cache/
+.checkpoint.tmp
+
+# Entrenamientos: se suben solo los que se eligen para el informe
+resultados/*
+!resultados/.gitkeep
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz

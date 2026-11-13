@@ -1,0 +1,758 @@
+{
+ "neurona_gaussiana_agarre": {
+  "barrio": "Guadalupe",
+  "zona": "guadalupe",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "choque",
+    "tiempo": 25.5,
+    "esquinas": 9
+   },
+   {
+    "ruta": 1,
+    "motivo": "llegada",
+    "tiempo": 50.7,
+    "esquinas": 4
+   },
+   {
+    "ruta": 2,
+    "motivo": "choque",
+    "tiempo": 17.6,
+    "esquinas": 12
+   },
+   {
+    "ruta": 3,
+    "motivo": "llegada",
+    "tiempo": 40.7,
+    "esquinas": 4
+   },
+   {
+    "ruta": 4,
+    "motivo": "llegada",
+    "tiempo": 42.1,
+    "esquinas": 3
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 43.1,
+    "esquinas": 4
+   },
+   {
+    "ruta": 6,
+    "motivo": "choque",
+    "tiempo": 54.1,
+    "esquinas": 6
+   },
+   {
+    "ruta": 7,
+    "motivo": "llegada",
+    "tiempo": 89.1,
+    "esquinas": 7
+   },
+   {
+    "ruta": 8,
+    "motivo": "llegada",
+    "tiempo": 61.7,
+    "esquinas": 5
+   },
+   {
+    "ruta": 9,
+    "motivo": "choque",
+    "tiempo": 35.2,
+    "esquinas": 10
+   },
+   {
+    "ruta": 10,
+    "motivo": "choque",
+    "tiempo": 35.2,
+    "esquinas": 7
+   },
+   {
+    "ruta": 11,
+    "motivo": "llegada",
+    "tiempo": 138.9,
+    "esquinas": 9
+   },
+   {
+    "ruta": 12,
+    "motivo": "choque",
+    "tiempo": 21.5,
+    "esquinas": 13
+   },
+   {
+    "ruta": 13,
+    "motivo": "choque",
+    "tiempo": 51.0,
+    "esquinas": 9
+   },
+   {
+    "ruta": 14,
+    "motivo": "choque",
+    "tiempo": 57.9,
+    "esquinas": 9
+   },
+   {
+    "ruta": 15,
+    "motivo": "llegada",
+    "tiempo": 148.3,
+    "esquinas": 11
+   },
+   {
+    "ruta": 16,
+    "motivo": "llegada",
+    "tiempo": 169.6,
+    "esquinas": 11
+   },
+   {
+    "ruta": 17,
+    "motivo": "choque",
+    "tiempo": 47.5,
+    "esquinas": 14
+   },
+   {
+    "ruta": 18,
+    "motivo": "llegada",
+    "tiempo": 41.2,
+    "esquinas": 3
+   },
+   {
+    "ruta": 19,
+    "motivo": "choque",
+    "tiempo": 33.6,
+    "esquinas": 10
+   }
+  ]
+ },
+ "pesos_gaussiana_agarre": {
+  "barrio": "Roma",
+  "zona": "n2_02_roma",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "llegada",
+    "tiempo": 98.8,
+    "esquinas": 5
+   },
+   {
+    "ruta": 1,
+    "motivo": "llegada",
+    "tiempo": 146.2,
+    "esquinas": 6
+   },
+   {
+    "ruta": 2,
+    "motivo": "llegada",
+    "tiempo": 182.6,
+    "esquinas": 8
+   },
+   {
+    "ruta": 3,
+    "motivo": "llegada",
+    "tiempo": 248.2,
+    "esquinas": 11
+   },
+   {
+    "ruta": 4,
+    "motivo": "llegada",
+    "tiempo": 102.3,
+    "esquinas": 5
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 172.1,
+    "esquinas": 7
+   },
+   {
+    "ruta": 6,
+    "motivo": "llegada",
+    "tiempo": 47.3,
+    "esquinas": 3
+   },
+   {
+    "ruta": 7,
+    "motivo": "llegada",
+    "tiempo": 131.1,
+    "esquinas": 10
+   },
+   {
+    "ruta": 8,
+    "motivo": "llegada",
+    "tiempo": 180.3,
+    "esquinas": 9
+   },
+   {
+    "ruta": 9,
+    "motivo": "llegada",
+    "tiempo": 154.9,
+    "esquinas": 8
+   },
+   {
+    "ruta": 10,
+    "motivo": "llegada",
+    "tiempo": 89.2,
+    "esquinas": 4
+   },
+   {
+    "ruta": 11,
+    "motivo": "llegada",
+    "tiempo": 261.0,
+    "esquinas": 11
+   },
+   {
+    "ruta": 12,
+    "motivo": "llegada",
+    "tiempo": 54.4,
+    "esquinas": 3
+   },
+   {
+    "ruta": 13,
+    "motivo": "llegada",
+    "tiempo": 131.6,
+    "esquinas": 6
+   },
+   {
+    "ruta": 14,
+    "motivo": "llegada",
+    "tiempo": 180.6,
+    "esquinas": 10
+   },
+   {
+    "ruta": 15,
+    "motivo": "llegada",
+    "tiempo": 171.0,
+    "esquinas": 9
+   },
+   {
+    "ruta": 16,
+    "motivo": "llegada",
+    "tiempo": 48.0,
+    "esquinas": 3
+   },
+   {
+    "ruta": 17,
+    "motivo": "llegada",
+    "tiempo": 79.7,
+    "esquinas": 4
+   },
+   {
+    "ruta": 18,
+    "motivo": "choque",
+    "tiempo": 293.8,
+    "esquinas": 13
+   },
+   {
+    "ruta": 19,
+    "motivo": "llegada",
+    "tiempo": 90.0,
+    "esquinas": 6
+   }
+  ]
+ },
+ "blx_gaussiana_agarre": {
+  "barrio": "Schneider",
+  "zona": "n3_09_schneider",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "llegada",
+    "tiempo": 143.1,
+    "esquinas": 8
+   },
+   {
+    "ruta": 1,
+    "motivo": "choque",
+    "tiempo": 22.9,
+    "esquinas": 13
+   },
+   {
+    "ruta": 2,
+    "motivo": "choque",
+    "tiempo": 22.9,
+    "esquinas": 6
+   },
+   {
+    "ruta": 3,
+    "motivo": "llegada",
+    "tiempo": 67.4,
+    "esquinas": 7
+   },
+   {
+    "ruta": 4,
+    "motivo": "llegada",
+    "tiempo": 155.9,
+    "esquinas": 12
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 170.7,
+    "esquinas": 14
+   },
+   {
+    "ruta": 6,
+    "motivo": "tiempo",
+    "tiempo": 166.4,
+    "esquinas": 10
+   },
+   {
+    "ruta": 7,
+    "motivo": "llegada",
+    "tiempo": 43.1,
+    "esquinas": 4
+   },
+   {
+    "ruta": 8,
+    "motivo": "llegada",
+    "tiempo": 148.9,
+    "esquinas": 9
+   },
+   {
+    "ruta": 9,
+    "motivo": "choque",
+    "tiempo": 84.4,
+    "esquinas": 18
+   },
+   {
+    "ruta": 10,
+    "motivo": "choque",
+    "tiempo": 77.8,
+    "esquinas": 21
+   },
+   {
+    "ruta": 11,
+    "motivo": "llegada",
+    "tiempo": 209.6,
+    "esquinas": 11
+   },
+   {
+    "ruta": 12,
+    "motivo": "llegada",
+    "tiempo": 250.5,
+    "esquinas": 15
+   },
+   {
+    "ruta": 13,
+    "motivo": "choque",
+    "tiempo": 109.0,
+    "esquinas": 17
+   },
+   {
+    "ruta": 14,
+    "motivo": "llegada",
+    "tiempo": 193.2,
+    "esquinas": 14
+   },
+   {
+    "ruta": 15,
+    "motivo": "tiempo",
+    "tiempo": 101.2,
+    "esquinas": 7
+   },
+   {
+    "ruta": 16,
+    "motivo": "llegada",
+    "tiempo": 55.6,
+    "esquinas": 6
+   },
+   {
+    "ruta": 17,
+    "motivo": "llegada",
+    "tiempo": 90.5,
+    "esquinas": 6
+   },
+   {
+    "ruta": 18,
+    "motivo": "llegada",
+    "tiempo": 88.4,
+    "esquinas": 8
+   },
+   {
+    "ruta": 19,
+    "motivo": "choque",
+    "tiempo": 74.2,
+    "esquinas": 10
+   }
+  ]
+ },
+ "ninguna_gaussiana_agarre": {
+  "barrio": "12 de Octubre",
+  "zona": "n1_02_12_de_octubre",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "llegada",
+    "tiempo": 135.6,
+    "esquinas": 5
+   },
+   {
+    "ruta": 1,
+    "motivo": "llegada",
+    "tiempo": 209.8,
+    "esquinas": 9
+   },
+   {
+    "ruta": 2,
+    "motivo": "llegada",
+    "tiempo": 126.5,
+    "esquinas": 5
+   },
+   {
+    "ruta": 3,
+    "motivo": "llegada",
+    "tiempo": 130.7,
+    "esquinas": 5
+   },
+   {
+    "ruta": 4,
+    "motivo": "llegada",
+    "tiempo": 256.6,
+    "esquinas": 11
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 94.0,
+    "esquinas": 7
+   },
+   {
+    "ruta": 6,
+    "motivo": "llegada",
+    "tiempo": 242.4,
+    "esquinas": 12
+   },
+   {
+    "ruta": 7,
+    "motivo": "llegada",
+    "tiempo": 88.5,
+    "esquinas": 4
+   },
+   {
+    "ruta": 8,
+    "motivo": "llegada",
+    "tiempo": 148.6,
+    "esquinas": 7
+   },
+   {
+    "ruta": 9,
+    "motivo": "llegada",
+    "tiempo": 85.8,
+    "esquinas": 5
+   },
+   {
+    "ruta": 10,
+    "motivo": "llegada",
+    "tiempo": 37.3,
+    "esquinas": 2
+   },
+   {
+    "ruta": 11,
+    "motivo": "llegada",
+    "tiempo": 117.6,
+    "esquinas": 5
+   },
+   {
+    "ruta": 12,
+    "motivo": "llegada",
+    "tiempo": 99.5,
+    "esquinas": 7
+   },
+   {
+    "ruta": 13,
+    "motivo": "llegada",
+    "tiempo": 77.9,
+    "esquinas": 4
+   },
+   {
+    "ruta": 14,
+    "motivo": "llegada",
+    "tiempo": 76.0,
+    "esquinas": 4
+   },
+   {
+    "ruta": 15,
+    "motivo": "llegada",
+    "tiempo": 228.8,
+    "esquinas": 12
+   },
+   {
+    "ruta": 16,
+    "motivo": "llegada",
+    "tiempo": 94.6,
+    "esquinas": 6
+   },
+   {
+    "ruta": 17,
+    "motivo": "llegada",
+    "tiempo": 76.9,
+    "esquinas": 5
+   },
+   {
+    "ruta": 18,
+    "motivo": "llegada",
+    "tiempo": 57.8,
+    "esquinas": 5
+   },
+   {
+    "ruta": 19,
+    "motivo": "llegada",
+    "tiempo": 150.5,
+    "esquinas": 7
+   }
+  ]
+ },
+ "neurona_neurona_agarre": {
+  "barrio": "La Guardia",
+  "zona": "n4_14_la_guardia",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "choque",
+    "tiempo": 63.0,
+    "esquinas": 10
+   },
+   {
+    "ruta": 1,
+    "motivo": "choque",
+    "tiempo": 19.0,
+    "esquinas": 8
+   },
+   {
+    "ruta": 2,
+    "motivo": "llegada",
+    "tiempo": 94.7,
+    "esquinas": 5
+   },
+   {
+    "ruta": 3,
+    "motivo": "llegada",
+    "tiempo": 119.5,
+    "esquinas": 7
+   },
+   {
+    "ruta": 4,
+    "motivo": "choque",
+    "tiempo": 110.0,
+    "esquinas": 10
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 52.9,
+    "esquinas": 2
+   },
+   {
+    "ruta": 6,
+    "motivo": "choque",
+    "tiempo": 58.2,
+    "esquinas": 11
+   },
+   {
+    "ruta": 7,
+    "motivo": "choque",
+    "tiempo": 20.2,
+    "esquinas": 3
+   },
+   {
+    "ruta": 8,
+    "motivo": "choque",
+    "tiempo": 119.7,
+    "esquinas": 7
+   },
+   {
+    "ruta": 9,
+    "motivo": "tiempo",
+    "tiempo": 344.5,
+    "esquinas": 15
+   },
+   {
+    "ruta": 10,
+    "motivo": "choque",
+    "tiempo": 33.6,
+    "esquinas": 8
+   },
+   {
+    "ruta": 11,
+    "motivo": "choque",
+    "tiempo": 85.0,
+    "esquinas": 9
+   },
+   {
+    "ruta": 12,
+    "motivo": "llegada",
+    "tiempo": 102.2,
+    "esquinas": 7
+   },
+   {
+    "ruta": 13,
+    "motivo": "tiempo",
+    "tiempo": 303.7,
+    "esquinas": 14
+   },
+   {
+    "ruta": 14,
+    "motivo": "choque",
+    "tiempo": 38.2,
+    "esquinas": 11
+   },
+   {
+    "ruta": 15,
+    "motivo": "llegada",
+    "tiempo": 76.9,
+    "esquinas": 4
+   },
+   {
+    "ruta": 16,
+    "motivo": "choque",
+    "tiempo": 126.4,
+    "esquinas": 14
+   },
+   {
+    "ruta": 17,
+    "motivo": "choque",
+    "tiempo": 88.7,
+    "esquinas": 10
+   },
+   {
+    "ruta": 18,
+    "motivo": "llegada",
+    "tiempo": 75.9,
+    "esquinas": 3
+   },
+   {
+    "ruta": 19,
+    "motivo": "llegada",
+    "tiempo": 157.1,
+    "esquinas": 8
+   }
+  ]
+ },
+ "neurona_gaussiana_sin-agarre": {
+  "barrio": "Arenales",
+  "zona": "n4_02_arenales",
+  "rutas": [
+   {
+    "ruta": 0,
+    "motivo": "llegada",
+    "tiempo": 59.4,
+    "esquinas": 13
+   },
+   {
+    "ruta": 1,
+    "motivo": "llegada",
+    "tiempo": 48.4,
+    "esquinas": 8
+   },
+   {
+    "ruta": 2,
+    "motivo": "llegada",
+    "tiempo": 33.3,
+    "esquinas": 8
+   },
+   {
+    "ruta": 3,
+    "motivo": "choque",
+    "tiempo": 27.7,
+    "esquinas": 7
+   },
+   {
+    "ruta": 4,
+    "motivo": "llegada",
+    "tiempo": 53.2,
+    "esquinas": 11
+   },
+   {
+    "ruta": 5,
+    "motivo": "llegada",
+    "tiempo": 51.0,
+    "esquinas": 8
+   },
+   {
+    "ruta": 6,
+    "motivo": "llegada",
+    "tiempo": 45.1,
+    "esquinas": 9
+   },
+   {
+    "ruta": 7,
+    "motivo": "llegada",
+    "tiempo": 56.3,
+    "esquinas": 12
+   },
+   {
+    "ruta": 8,
+    "motivo": "llegada",
+    "tiempo": 25.0,
+    "esquinas": 5
+   },
+   {
+    "ruta": 9,
+    "motivo": "choque",
+    "tiempo": 4.7,
+    "esquinas": 6
+   },
+   {
+    "ruta": 10,
+    "motivo": "llegada",
+    "tiempo": 57.5,
+    "esquinas": 10
+   },
+   {
+    "ruta": 11,
+    "motivo": "llegada",
+    "tiempo": 51.4,
+    "esquinas": 7
+   },
+   {
+    "ruta": 12,
+    "motivo": "choque",
+    "tiempo": 59.3,
+    "esquinas": 13
+   },
+   {
+    "ruta": 13,
+    "motivo": "llegada",
+    "tiempo": 16.7,
+    "esquinas": 4
+   },
+   {
+    "ruta": 14,
+    "motivo": "choque",
+    "tiempo": 65.2,
+    "esquinas": 15
+   },
+   {
+    "ruta": 15,
+    "motivo": "llegada",
+    "tiempo": 37.1,
+    "esquinas": 6
+   },
+   {
+    "ruta": 16,
+    "motivo": "choque",
+    "tiempo": 12.7,
+    "esquinas": 11
+   },
+   {
+    "ruta": 17,
+    "motivo": "choque",
+    "tiempo": 24.3,
+    "esquinas": 6
+   },
+   {
+    "ruta": 18,
+    "motivo": "choque",
+    "tiempo": 2.8,
+    "esquinas": 8
+   },
+   {
+    "ruta": 19,
+    "motivo": "llegada",
+    "tiempo": 22.3,
+    "esquinas": 4
+   }
+  ]
+ }
+}

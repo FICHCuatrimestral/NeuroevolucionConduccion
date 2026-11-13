@@ -1,0 +1,3953 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d22" for="edge" attr.name="lit" attr.type="string" />
+  <key id="d21" for="edge" attr.name="maxspeed" attr.type="string" />
+  <key id="d20" for="edge" attr.name="geometry" attr.type="string" />
+  <key id="d19" for="edge" attr.name="v_original" attr.type="string" />
+  <key id="d18" for="edge" attr.name="u_original" attr.type="string" />
+  <key id="d17" for="edge" attr.name="lanes" attr.type="string" />
+  <key id="d16" for="edge" attr.name="length" attr.type="string" />
+  <key id="d15" for="edge" attr.name="reversed" attr.type="string" />
+  <key id="d14" for="edge" attr.name="surface" attr.type="string" />
+  <key id="d13" for="edge" attr.name="oneway" attr.type="string" />
+  <key id="d12" for="edge" attr.name="name" attr.type="string" />
+  <key id="d11" for="edge" attr.name="highway" attr.type="string" />
+  <key id="d10" for="edge" attr.name="osmid" attr.type="string" />
+  <key id="d9" for="node" attr.name="highway" attr.type="string" />
+  <key id="d8" for="node" attr.name="street_count" attr.type="string" />
+  <key id="d7" for="node" attr.name="x" attr.type="string" />
+  <key id="d6" for="node" attr.name="y" attr.type="string" />
+  <key id="d5" for="node" attr.name="osmid_original" attr.type="string" />
+  <key id="d4" for="graph" attr.name="consolidated" attr.type="string" />
+  <key id="d3" for="graph" attr.name="simplified" attr.type="string" />
+  <key id="d2" for="graph" attr.name="crs" attr.type="string" />
+  <key id="d1" for="graph" attr.name="created_with" attr.type="string" />
+  <key id="d0" for="graph" attr.name="created_date" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="1073">
+      <data key="d5">809929359</data>
+      <data key="d6">6496355.124964842</data>
+      <data key="d7">716148.1159863616</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1075">
+      <data key="d5">809929604</data>
+      <data key="d6">6496418.50094579</data>
+      <data key="d7">716163.8155317523</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1079">
+      <data key="d5">809929364</data>
+      <data key="d6">6496689.389491436</data>
+      <data key="d7">716236.0312604497</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1081">
+      <data key="d5">809929626</data>
+      <data key="d6">6496561.799011817</data>
+      <data key="d7">716202.829439434</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1092">
+      <data key="d5">809946047</data>
+      <data key="d6">6496979.868972408</data>
+      <data key="d7">716311.3355613478</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1096">
+      <data key="d5">809929533</data>
+      <data key="d6">6496812.245991546</data>
+      <data key="d7">716229.8201263845</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1109">
+      <data key="d5">809929514</data>
+      <data key="d6">6496920.529636901</data>
+      <data key="d7">716296.2218701185</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1110">
+      <data key="d5">809929596</data>
+      <data key="d6">6496801.755506164</data>
+      <data key="d7">716264.721336159</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1125">
+      <data key="d5">1883255785</data>
+      <data key="d6">6496763.512833094</data>
+      <data key="d7">716386.0698094927</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1130">
+      <data key="d5">809946012</data>
+      <data key="d6">6497105.44103693</data>
+      <data key="d7">716344.5068950041</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1131">
+      <data key="d5">2693878675</data>
+      <data key="d6">6496539.520041829</data>
+      <data key="d7">716268.921175513</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1200">
+      <data key="d5">809950147</data>
+      <data key="d6">6497072.579178013</data>
+      <data key="d7">716468.4291703119</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1224">
+      <data key="d5">809950166</data>
+      <data key="d6">6496948.335721316</data>
+      <data key="d7">716436.4513623506</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1234">
+      <data key="d5">809950131</data>
+      <data key="d6">6496806.435979995</data>
+      <data key="d7">716664.685422691</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1235">
+      <data key="d5">809950178</data>
+      <data key="d6">6496689.073445894</data>
+      <data key="d7">716633.0869655501</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1236">
+      <data key="d5">809950167</data>
+      <data key="d6">6496844.720216226</data>
+      <data key="d7">716542.0379512738</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1237">
+      <data key="d5">809950136</data>
+      <data key="d6">6496609.032742135</data>
+      <data key="d7">716480.8074569686</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1238">
+      <data key="d5">809950145</data>
+      <data key="d6">6496642.073982624</data>
+      <data key="d7">716379.1090551261</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1239">
+      <data key="d5">809950140</data>
+      <data key="d6">6496725.806064308</data>
+      <data key="d7">716511.4237501891</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1240">
+      <data key="d5">809950138</data>
+      <data key="d6">6496201.352462839</data>
+      <data key="d7">716767.4421169823</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1241">
+      <data key="d5">809950182</data>
+      <data key="d6">6496068.9306411855</data>
+      <data key="d7">716729.2941017315</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1242">
+      <data key="d5">809950171</data>
+      <data key="d6">6496232.6062188875</data>
+      <data key="d7">716641.5996591408</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1243">
+      <data key="d5">809950141</data>
+      <data key="d6">6496262.198309175</data>
+      <data key="d7">716522.4684644782</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1244">
+      <data key="d5">1873944968</data>
+      <data key="d6">6496295.195690972</data>
+      <data key="d7">716396.9079744394</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1245">
+      <data key="d5">873085764</data>
+      <data key="d6">6496131.432596852</data>
+      <data key="d7">716483.5990530589</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1246">
+      <data key="d5">809950173</data>
+      <data key="d6">6496648.983672965</data>
+      <data key="d7">716355.2740595385</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1247">
+      <data key="d5">1883255786</data>
+      <data key="d6">6496756.792549253</data>
+      <data key="d7">716410.3929811147</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1248">
+      <data key="d5">809950150</data>
+      <data key="d6">6496612.270644233</data>
+      <data key="d7">716877.7266961029</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1249">
+      <data key="d5">873085733</data>
+      <data key="d6">6496575.437907285</data>
+      <data key="d7">716997.6015793288</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1250">
+      <data key="d5">809950172</data>
+      <data key="d6">6496492.042702608</data>
+      <data key="d7">716843.1434377077</data>
+      <data key="d8">4</data>
+      <data key="d9">traffic_signals</data>
+    </node>
+    <node id="1251">
+      <data key="d5">809950152</data>
+      <data key="d6">6496445.267923763</data>
+      <data key="d7">716567.0258910232</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1252">
+      <data key="d5">809950185</data>
+      <data key="d6">6496406.773930347</data>
+      <data key="d7">716688.0034511162</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1253">
+      <data key="d5">809950154</data>
+      <data key="d6">6496514.589967117</data>
+      <data key="d7">716346.6668845413</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1254">
+      <data key="d5">809950160</data>
+      <data key="d6">6496483.346756278</data>
+      <data key="d7">716448.3257596672</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1255">
+      <data key="d5">809950155</data>
+      <data key="d6">6497040.415594431</data>
+      <data key="d7">716594.4246637601</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1256">
+      <data key="d5">809950180</data>
+      <data key="d6">6497065.645454522</data>
+      <data key="d7">716493.9347980979</data>
+      <data key="d8">4</data>
+      <data key="d9">crossing</data>
+    </node>
+    <node id="1258">
+      <data key="d5">809950159</data>
+      <data key="d6">6496037.1791023845</data>
+      <data key="d7">716852.8940720279</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1259">
+      <data key="d5">809950168</data>
+      <data key="d6">6496170.938933779</data>
+      <data key="d7">716891.7548750555</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1260">
+      <data key="d5">809950163</data>
+      <data key="d6">6496570.834290452</data>
+      <data key="d7">716602.0306230196</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1261">
+      <data key="d5">809950165</data>
+      <data key="d6">6496882.8356427755</data>
+      <data key="d7">716419.4336206431</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1262">
+      <data key="d5">809950190</data>
+      <data key="d6">6496941.841458784</data>
+      <data key="d7">716460.5709133941</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1263">
+      <data key="d5">809950188</data>
+      <data key="d6">6496918.8693883475</data>
+      <data key="d7">716560.7841911532</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1264">
+      <data key="d5">809950187</data>
+      <data key="d6">6496876.08820091</data>
+      <data key="d7">716442.9309103007</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1265">
+      <data key="d5">1873945701</data>
+      <data key="d6">6496329.239310993</data>
+      <data key="d7">716931.4820179859</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1266">
+      <data key="d5">809950170</data>
+      <data key="d6">6496522.4733682275</data>
+      <data key="d7">716321.3532375214</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1267">
+      <data key="d5">873086002</data>
+      <data key="d6">6496326.15699497</data>
+      <data key="d7">716268.381665949</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1268">
+      <data key="d5">1853479107</data>
+      <data key="d6">6496531.853676219</data>
+      <data key="d7">716720.2760067746</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1269">
+      <data key="d5">1873945700</data>
+      <data key="d6">6496366.036666318</data>
+      <data key="d7">716813.2697501894</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1270">
+      <data key="d5">2693878676</data>
+      <data key="d6">6496667.493068518</data>
+      <data key="d7">716302.3879905432</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="1271">
+      <data key="d5">1883255787</data>
+      <data key="d6">6496651.112342197</data>
+      <data key="d7">716752.4273016165</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1272">
+      <data key="d5">1865920730</data>
+      <data key="d6">6496101.21932935</data>
+      <data key="d7">716606.9857422139</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="1274">
+      <data key="d5">873085643</data>
+      <data key="d6">6496888.920855895</data>
+      <data key="d7">716687.4123155759</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4462">
+      <data key="d5">1853479102</data>
+      <data key="d6">6496859.624377002</data>
+      <data key="d7">716810.3715730836</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4474">
+      <data key="d5">873085663</data>
+      <data key="d6">6496891.6894706655</data>
+      <data key="d7">717213.7047595957</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4475">
+      <data key="d5">873085851</data>
+      <data key="d6">6496920.919341447</data>
+      <data key="d7">717088.3340287394</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4476">
+      <data key="d5">873085884</data>
+      <data key="d6">6496768.267798409</data>
+      <data key="d7">717179.1163014483</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4483">
+      <data key="d5">873085976</data>
+      <data key="d6">6496659.2929436965</data>
+      <data key="d7">717147.4886419933</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4488">
+      <data key="d5">873085687</data>
+      <data key="d6">6497008.806436559</data>
+      <data key="d7">716719.8237850743</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4493">
+      <data key="d5">873086046</data>
+      <data key="d6">6496188.419801883</data>
+      <data key="d7">716256.2801351092</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4496">
+      <data key="d5">873085696</data>
+      <data key="d6">6496148.600956294</data>
+      <data key="d7">717006.4628297571</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4497">
+      <data key="d5">1865920731</data>
+      <data key="d6">6496007.042887811</data>
+      <data key="d7">716967.6268321903</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4511">
+      <data key="d5">873085720</data>
+      <data key="d6">6496321.0753202895</data>
+      <data key="d7">716292.8614373852</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4512">
+      <data key="d5">873085783</data>
+      <data key="d6">6496695.477939451</data>
+      <data key="d7">717030.0193384644</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4513">
+      <data key="d5">873086007</data>
+      <data key="d6">6496537.645154021</data>
+      <data key="d7">717114.5234143722</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4535">
+      <data key="d5">873085918</data>
+      <data key="d6">6496162.305927695</data>
+      <data key="d7">716357.7489903301</data>
+      <data key="d8">3</data>
+    </node>
+    <node id="4542">
+      <data key="d5">873085829</data>
+      <data key="d6">6496798.005813374</data>
+      <data key="d7">717057.5345116302</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4543">
+      <data key="d5">873085823</data>
+      <data key="d6">6496731.395870469</data>
+      <data key="d7">716909.8772102679</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4557">
+      <data key="d5">873085818</data>
+      <data key="d6">6496290.257756218</data>
+      <data key="d7">717044.8178429232</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4562">
+      <data key="d5">1883255784</data>
+      <data key="d6">6496769.9619668</data>
+      <data key="d7">716786.0984447678</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4576">
+      <data key="d5">873086109</data>
+      <data key="d6">6496949.376934226</data>
+      <data key="d7">716969.0388821925</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4578">
+      <data key="d5">873085860</data>
+      <data key="d6">6496828.149025467</data>
+      <data key="d7">716936.1314590258</data>
+      <data key="d8">4</data>
+      <data key="d9">crossing</data>
+    </node>
+    <node id="4579">
+      <data key="d5">873085863</data>
+      <data key="d6">6496192.510636141</data>
+      <data key="d7">716232.5011239377</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4610">
+      <data key="d5">1853450037</data>
+      <data key="d6">6496414.868797937</data>
+      <data key="d7">717078.773818216</data>
+      <data key="d8">4</data>
+      <data key="d9">traffic_signals</data>
+    </node>
+    <node id="4617">
+      <data key="d5">1853479083</data>
+      <data key="d6">6496979.406166274</data>
+      <data key="d7">716841.89973102</data>
+      <data key="d8">4</data>
+    </node>
+    <node id="4621">
+      <data key="d5">873086144</data>
+      <data key="d6">6496451.411124442</data>
+      <data key="d7">716965.9264260551</data>
+      <data key="d8">4</data>
+    </node>
+    <edge source="1073" target="1075" id="0">
+      <data key="d10">883912767</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">False</data>
+      <data key="d14">concrete</data>
+      <data key="d15">True</data>
+      <data key="d16">65.44980580377708</data>
+      <data key="d17">2</data>
+      <data key="d18">809929359</data>
+      <data key="d19">809929604</data>
+      <data key="d20">LINESTRING (716148.1159863616 6496355.124964842, 716163.8155317523 6496418.50094579)</data>
+    </edge>
+    <edge source="1073" target="1267" id="0">
+      <data key="d10">277477865</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.45886186438354</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873086002</data>
+      <data key="d19">809929359</data>
+      <data key="d20">LINESTRING (716148.1159863616 6496355.124964842, 716268.381665949 6496326.15699497)</data>
+    </edge>
+    <edge source="1075" target="1073" id="0">
+      <data key="d10">883912767</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">False</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">65.44980580377708</data>
+      <data key="d17">2</data>
+      <data key="d18">809929604</data>
+      <data key="d19">809929359</data>
+      <data key="d20">LINESTRING (716163.8155317523 6496418.50094579, 716148.1159863616 6496355.124964842)</data>
+    </edge>
+    <edge source="1075" target="1081" id="0">
+      <data key="d10">277476633</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">148.86647244128557</data>
+      <data key="d17">2</data>
+      <data key="d18">809929626</data>
+      <data key="d19">809929604</data>
+      <data key="d20">LINESTRING (716163.8155317523 6496418.50094579, 716202.829439434 6496561.799011817)</data>
+    </edge>
+    <edge source="1079" target="1081" id="0">
+      <data key="d10">277476630</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">132.1558222908846</data>
+      <data key="d20">LINESTRING (716236.0312604497 6496689.389491436, 716206.2133783791 6496574.795218546, 716202.829439434 6496561.799011817)</data>
+      <data key="d17">2</data>
+      <data key="d18">809929364</data>
+      <data key="d19">809929626</data>
+    </edge>
+    <edge source="1079" target="1110" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">116.2501445188922</data>
+      <data key="d18">809929596</data>
+      <data key="d19">809929364</data>
+      <data key="d20">LINESTRING (716236.0312604497 6496689.389491436, 716264.721336159 6496801.755506164)</data>
+    </edge>
+    <edge source="1079" target="1270" id="0">
+      <data key="d10">52723391</data>
+      <data key="d11">residential</data>
+      <data key="d12">Alfonso Duran</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">69.75072628901093</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878676</data>
+      <data key="d19">809929364</data>
+      <data key="d20">LINESTRING (716236.0312604497 6496689.389491436, 716302.3879905432 6496667.493068518)</data>
+    </edge>
+    <edge source="1081" target="1131" id="0">
+      <data key="d10">277476632</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">69.62185830268956</data>
+      <data key="d17">2</data>
+      <data key="d18">809929626</data>
+      <data key="d19">2693878675</data>
+      <data key="d20">LINESTRING (716202.829439434 6496561.799011817, 716268.921175513 6496539.520041829)</data>
+    </edge>
+    <edge source="1081" target="1075" id="0">
+      <data key="d10">277476633</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">148.86647244128557</data>
+      <data key="d17">2</data>
+      <data key="d18">809929626</data>
+      <data key="d19">809929604</data>
+      <data key="d20">LINESTRING (716202.829439434 6496561.799011817, 716163.8155317523 6496418.50094579)</data>
+    </edge>
+    <edge source="1081" target="1079" id="0">
+      <data key="d10">277476630</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">132.1558222908846</data>
+      <data key="d20">LINESTRING (716202.829439434 6496561.799011817, 716206.2133783791 6496574.795218546, 716236.0312604497 6496689.389491436)</data>
+      <data key="d17">2</data>
+      <data key="d18">809929364</data>
+      <data key="d19">809929626</data>
+    </edge>
+    <edge source="1092" target="1224" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.77414764765018</data>
+      <data key="d17">2</data>
+      <data key="d18">809946047</data>
+      <data key="d19">809950166</data>
+      <data key="d20">LINESTRING (716311.3355613478 6496979.868972408, 716436.4513623506 6496948.335721316)</data>
+    </edge>
+    <edge source="1092" target="1109" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">61.38135783084989</data>
+      <data key="d20">LINESTRING (716311.3355613478 6496979.868972408, 716299.4262288254 6496933.096970864, 716296.2218701185 6496920.529636901)</data>
+      <data key="d18">809946047</data>
+      <data key="d19">809929514</data>
+    </edge>
+    <edge source="1092" target="1130" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.189908415963</data>
+      <data key="d18">809946012</data>
+      <data key="d19">809946047</data>
+      <data key="d20">LINESTRING (716311.3355613478 6496979.868972408, 716344.5068950041 6497105.44103693)</data>
+    </edge>
+    <edge source="1096" target="1110" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">36.37577613430642</data>
+      <data key="d17">2</data>
+      <data key="d18">809929533</data>
+      <data key="d19">809929596</data>
+      <data key="d20">LINESTRING (716229.8201263845 6496812.245991546, 716264.721336159 6496801.755506164)</data>
+    </edge>
+    <edge source="1109" target="1110" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.1737641864938</data>
+      <data key="d18">809929514</data>
+      <data key="d19">809929596</data>
+      <data key="d20">LINESTRING (716296.2218701185 6496920.529636901, 716264.721336159 6496801.755506164)</data>
+    </edge>
+    <edge source="1109" target="1092" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">61.38135783084989</data>
+      <data key="d20">LINESTRING (716296.2218701185 6496920.529636901, 716299.4262288254 6496933.096970864, 716311.3355613478 6496979.868972408)</data>
+      <data key="d18">809946047</data>
+      <data key="d19">809929514</data>
+    </edge>
+    <edge source="1109" target="1261" id="0">
+      <data key="d10">277477867</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.60995547570022</data>
+      <data key="d17">2</data>
+      <data key="d18">809950165</data>
+      <data key="d19">809929514</data>
+      <data key="d20">LINESTRING (716296.2218701185 6496920.529636901, 716419.4336206431 6496882.8356427755)</data>
+    </edge>
+    <edge source="1110" target="1079" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">116.2501445188922</data>
+      <data key="d18">809929596</data>
+      <data key="d19">809929364</data>
+      <data key="d20">LINESTRING (716264.721336159 6496801.755506164, 716236.0312604497 6496689.389491436)</data>
+    </edge>
+    <edge source="1110" target="1125" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.99899421977771</data>
+      <data key="d20">LINESTRING (716264.721336159 6496801.755506164, 716335.9352029386 6496779.302648971, 716363.5194438781 6496770.606421266, 716386.0698094927 6496763.512833094)</data>
+      <data key="d17">2</data>
+      <data key="d18">809929596</data>
+      <data key="d19">1883255785</data>
+    </edge>
+    <edge source="1110" target="1096" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">36.37577613430642</data>
+      <data key="d17">2</data>
+      <data key="d18">809929533</data>
+      <data key="d19">809929596</data>
+      <data key="d20">LINESTRING (716264.721336159 6496801.755506164, 716229.8201263845 6496812.245991546)</data>
+    </edge>
+    <edge source="1110" target="1109" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.1737641864938</data>
+      <data key="d18">809929514</data>
+      <data key="d19">809929596</data>
+      <data key="d20">LINESTRING (716264.721336159 6496801.755506164, 716296.2218701185 6496920.529636901)</data>
+    </edge>
+    <edge source="1125" target="1247" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">25.186038337633086</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255785</data>
+      <data key="d19">1883255786</data>
+      <data key="d20">LINESTRING (716386.0698094927 6496763.512833094, 716410.3929811147 6496756.792549253)</data>
+    </edge>
+    <edge source="1125" target="1246" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.8874244942806</data>
+      <data key="d20">LINESTRING (716386.0698094927 6496763.512833094, 716358.5725263669 6496659.696586631, 716355.2740595385 6496648.983672965)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1883255785</data>
+      <data key="d19">809950173</data>
+    </edge>
+    <edge source="1125" target="1110" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.99899421977771</data>
+      <data key="d20">LINESTRING (716386.0698094927 6496763.512833094, 716363.5194438781 6496770.606421266, 716335.9352029386 6496779.302648971, 716264.721336159 6496801.755506164)</data>
+      <data key="d17">2</data>
+      <data key="d18">809929596</data>
+      <data key="d19">1883255785</data>
+    </edge>
+    <edge source="1125" target="1261" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.19143651234225</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950165</data>
+      <data key="d19">1883255785</data>
+      <data key="d20">LINESTRING (716386.0698094927 6496763.512833094, 716419.4336206431 6496882.8356427755)</data>
+    </edge>
+    <edge source="1130" target="1092" id="0">
+      <data key="d10">225457956</data>
+      <data key="d11">residential</data>
+      <data key="d12">Bulevar Doctor Zavalla</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.189908415963</data>
+      <data key="d18">809946012</data>
+      <data key="d19">809946047</data>
+      <data key="d20">LINESTRING (716344.5068950041 6497105.44103693, 716311.3355613478 6496979.868972408)</data>
+    </edge>
+    <edge source="1130" target="1200" id="0">
+      <data key="d10">342979610</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">False</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">True</data>
+      <data key="d16">127.95631080732</data>
+      <data key="d17">2</data>
+      <data key="d18">809946012</data>
+      <data key="d19">809950147</data>
+      <data key="d20">LINESTRING (716344.5068950041 6497105.44103693, 716468.4291703119 6497072.579178013)</data>
+    </edge>
+    <edge source="1131" target="1266" id="0">
+      <data key="d10">277476632</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">55.03397543711143</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878675</data>
+      <data key="d19">809950170</data>
+      <data key="d20">LINESTRING (716268.921175513 6496539.520041829, 716321.3532375214 6496522.4733682275)</data>
+    </edge>
+    <edge source="1131" target="1081" id="0">
+      <data key="d10">277476632</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">69.62185830268956</data>
+      <data key="d17">2</data>
+      <data key="d18">809929626</data>
+      <data key="d19">2693878675</data>
+      <data key="d20">LINESTRING (716268.921175513 6496539.520041829, 716202.829439434 6496561.799011817)</data>
+    </edge>
+    <edge source="1131" target="1270" id="0">
+      <data key="d10">263739683</data>
+      <data key="d11">residential</data>
+      <data key="d12">Pasaje Echeverría</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">132.59351925214784</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878676</data>
+      <data key="d19">2693878675</data>
+      <data key="d20">LINESTRING (716268.921175513 6496539.520041829, 716302.3879905432 6496667.493068518)</data>
+    </edge>
+    <edge source="1200" target="1130" id="0">
+      <data key="d10">342979610</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">False</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.95631080732</data>
+      <data key="d17">2</data>
+      <data key="d18">809950147</data>
+      <data key="d19">809946012</data>
+      <data key="d20">LINESTRING (716468.4291703119 6497072.579178013, 716344.5068950041 6497105.44103693)</data>
+    </edge>
+    <edge source="1200" target="1224" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.60103104241145</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950147</data>
+      <data key="d19">809950166</data>
+      <data key="d20">LINESTRING (716468.4291703119 6497072.579178013, 716436.4513623506 6496948.335721316)</data>
+    </edge>
+    <edge source="1200" target="1256" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">26.380301576185403</data>
+      <data key="d17">2</data>
+      <data key="d18">809950180</data>
+      <data key="d19">809950147</data>
+      <data key="d20">LINESTRING (716468.4291703119 6497072.579178013, 716493.9347980979 6497065.645454522)</data>
+    </edge>
+    <edge source="1224" target="1262" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.93022479645412</data>
+      <data key="d17">2</data>
+      <data key="d18">809950166</data>
+      <data key="d19">809950190</data>
+      <data key="d20">LINESTRING (716436.4513623506 6496948.335721316, 716460.5709133941 6496941.841458784)</data>
+    </edge>
+    <edge source="1224" target="1261" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">67.83872119143524</data>
+      <data key="d20">LINESTRING (716436.4513623506 6496948.335721316, 716421.6690340062 6496890.808748325, 716419.4336206431 6496882.8356427755)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950166</data>
+      <data key="d19">809950165</data>
+    </edge>
+    <edge source="1224" target="1092" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.77414764765018</data>
+      <data key="d17">2</data>
+      <data key="d18">809946047</data>
+      <data key="d19">809950166</data>
+      <data key="d20">LINESTRING (716436.4513623506 6496948.335721316, 716311.3355613478 6496979.868972408)</data>
+    </edge>
+    <edge source="1224" target="1200" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.60103104241145</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950147</data>
+      <data key="d19">809950166</data>
+      <data key="d20">LINESTRING (716436.4513623506 6496948.335721316, 716468.4291703119 6497072.579178013)</data>
+    </edge>
+    <edge source="1234" target="1235" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">121.83082860799081</data>
+      <data key="d17">2</data>
+      <data key="d18">809950131</data>
+      <data key="d19">809950178</data>
+      <data key="d20">LINESTRING (716664.685422691 6496806.435979995, 716633.0869655501 6496689.073445894)</data>
+    </edge>
+    <edge source="1234" target="1236" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.2474857976428</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950131</data>
+      <data key="d19">809950167</data>
+      <data key="d20">LINESTRING (716664.685422691 6496806.435979995, 716542.0379512738 6496844.720216226)</data>
+    </edge>
+    <edge source="1234" target="1274" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">85.76081669584386</data>
+      <data key="d17">2</data>
+      <data key="d18">873085643</data>
+      <data key="d19">809950131</data>
+      <data key="d20">LINESTRING (716664.685422691 6496806.435979995, 716687.4123155759 6496888.920855895)</data>
+    </edge>
+    <edge source="1234" target="4562" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.53658722630787</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1883255784</data>
+      <data key="d19">809950131</data>
+      <data key="d20">LINESTRING (716664.685422691 6496806.435979995, 716786.0984447678 6496769.9619668)</data>
+    </edge>
+    <edge source="1235" target="1260" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.54204047300972</data>
+      <data key="d17">2</data>
+      <data key="d18">809950178</data>
+      <data key="d19">809950163</data>
+      <data key="d20">LINESTRING (716633.0869655501 6496689.073445894, 716602.0306230196 6496570.834290452)</data>
+    </edge>
+    <edge source="1235" target="1271" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.00380871429263</data>
+      <data key="d17">2</data>
+      <data key="d18">809950178</data>
+      <data key="d19">1883255787</data>
+      <data key="d20">LINESTRING (716633.0869655501 6496689.073445894, 716752.4273016165 6496651.112342197)</data>
+    </edge>
+    <edge source="1235" target="1234" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">121.83082860799081</data>
+      <data key="d17">2</data>
+      <data key="d18">809950131</data>
+      <data key="d19">809950178</data>
+      <data key="d20">LINESTRING (716633.0869655501 6496689.073445894, 716664.685422691 6496806.435979995)</data>
+    </edge>
+    <edge source="1235" target="1239" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.850686053369</data>
+      <data key="d17">2</data>
+      <data key="d18">809950140</data>
+      <data key="d19">809950178</data>
+      <data key="d20">LINESTRING (716633.0869655501 6496689.073445894, 716511.4237501891 6496725.806064308)</data>
+    </edge>
+    <edge source="1236" target="1263" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">76.66662788296208</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950167</data>
+      <data key="d19">809950188</data>
+      <data key="d20">LINESTRING (716542.0379512738 6496844.720216226, 716560.7841911532 6496918.8693883475)</data>
+    </edge>
+    <edge source="1236" target="1264" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">103.76262118876103</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950167</data>
+      <data key="d19">809950187</data>
+      <data key="d20">LINESTRING (716542.0379512738 6496844.720216226, 716442.9309103007 6496876.08820091)</data>
+    </edge>
+    <edge source="1236" target="1234" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.2474857976428</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950131</data>
+      <data key="d19">809950167</data>
+      <data key="d20">LINESTRING (716542.0379512738 6496844.720216226, 716664.685422691 6496806.435979995)</data>
+    </edge>
+    <edge source="1236" target="1239" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.08672367493453</data>
+      <data key="d20">LINESTRING (716542.0379512738 6496844.720216226, 716538.2476485 6496830.013255079, 716511.4237501891 6496725.806064308)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950140</data>
+      <data key="d19">809950167</data>
+    </edge>
+    <edge source="1237" target="1238" id="0">
+      <data key="d10">225457958</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.73794197332641</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950136</data>
+      <data key="d19">809950145</data>
+      <data key="d20">LINESTRING (716480.8074569686 6496609.032742135, 716379.1090551261 6496642.073982624)</data>
+    </edge>
+    <edge source="1237" target="1239" id="0">
+      <data key="d10">918374230</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">121.00905863056518</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950136</data>
+      <data key="d19">809950140</data>
+      <data key="d20">LINESTRING (716480.8074569686 6496609.032742135, 716511.4237501891 6496725.806064308)</data>
+    </edge>
+    <edge source="1237" target="1254" id="0">
+      <data key="d10">132258348</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.12698268254098</data>
+      <data key="d18">809950160</data>
+      <data key="d19">809950136</data>
+      <data key="d20">LINESTRING (716480.8074569686 6496609.032742135, 716448.3257596672 6496483.346756278)</data>
+    </edge>
+    <edge source="1237" target="1260" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.86624998624282</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950163</data>
+      <data key="d19">809950136</data>
+      <data key="d20">LINESTRING (716480.8074569686 6496609.032742135, 716602.0306230196 6496570.834290452)</data>
+    </edge>
+    <edge source="1238" target="1246" id="0">
+      <data key="d10">225457958</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.769452705554283</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950145</data>
+      <data key="d19">809950173</data>
+      <data key="d20">LINESTRING (716379.1090551261 6496642.073982624, 716355.2740595385 6496648.983672965)</data>
+    </edge>
+    <edge source="1238" target="1247" id="0">
+      <data key="d10">225975531</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">119.18963476976504</data>
+      <data key="d20">LINESTRING (716379.1090551261 6496642.073982624, 716380.9894751941 6496648.956362078, 716406.2306273264 6496741.527618097, 716410.3929811147 6496756.792549253)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950145</data>
+      <data key="d19">1883255786</data>
+    </edge>
+    <edge source="1238" target="1237" id="0">
+      <data key="d10">225457958</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.73794197332641</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950136</data>
+      <data key="d19">809950145</data>
+      <data key="d20">LINESTRING (716379.1090551261 6496642.073982624, 716480.8074569686 6496609.032742135)</data>
+    </edge>
+    <edge source="1238" target="1253" id="0">
+      <data key="d10">1458192604</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.86443965173822</data>
+      <data key="d20">LINESTRING (716379.1090551261 6496642.073982624, 716377.1407029685 6496634.616633643, 716346.6668845413 6496514.589967117)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950154</data>
+      <data key="d19">809950145</data>
+    </edge>
+    <edge source="1239" target="1235" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.850686053369</data>
+      <data key="d17">2</data>
+      <data key="d18">809950140</data>
+      <data key="d19">809950178</data>
+      <data key="d20">LINESTRING (716511.4237501891 6496725.806064308, 716633.0869655501 6496689.073445894)</data>
+    </edge>
+    <edge source="1239" target="1236" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.08672367493453</data>
+      <data key="d20">LINESTRING (716511.4237501891 6496725.806064308, 716538.2476485 6496830.013255079, 716542.0379512738 6496844.720216226)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950140</data>
+      <data key="d19">809950167</data>
+    </edge>
+    <edge source="1239" target="1237" id="0">
+      <data key="d10">918374230</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">121.00905863056518</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950136</data>
+      <data key="d19">809950140</data>
+      <data key="d20">LINESTRING (716511.4237501891 6496725.806064308, 716480.8074569686 6496609.032742135)</data>
+    </edge>
+    <edge source="1239" target="1247" id="0">
+      <data key="d10">918374232</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">105.48017979617377</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255786</data>
+      <data key="d19">809950140</data>
+      <data key="d20">LINESTRING (716511.4237501891 6496725.806064308, 716410.3929811147 6496756.792549253)</data>
+    </edge>
+    <edge source="1240" target="1241" id="0">
+      <data key="d10">225472645</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">138.12895567021658</data>
+      <data key="d21">60</data>
+      <data key="d18">809950138</data>
+      <data key="d19">809950182</data>
+      <data key="d20">LINESTRING (716767.4421169823 6496201.352462839, 716729.2941017315 6496068.9306411855)</data>
+    </edge>
+    <edge source="1240" target="1242" id="0">
+      <data key="d10">225472689</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.40874680025394</data>
+      <data key="d21">40</data>
+      <data key="d18">809950138</data>
+      <data key="d19">809950171</data>
+      <data key="d20">LINESTRING (716767.4421169823 6496201.352462839, 716641.5996591408 6496232.6062188875)</data>
+    </edge>
+    <edge source="1240" target="1259" id="0">
+      <data key="d10">225454825</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.724719522583</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950168</data>
+      <data key="d19">809950138</data>
+      <data key="d20">LINESTRING (716767.4421169823 6496201.352462839, 716891.7548750555 6496170.938933779)</data>
+    </edge>
+    <edge source="1240" target="1269" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">171.34454701529071</data>
+      <data key="d17">3</data>
+      <data key="d18">1873945700</data>
+      <data key="d19">809950138</data>
+      <data key="d20">LINESTRING (716767.4421169823 6496201.352462839, 716813.2697501894 6496366.036666318)</data>
+    </edge>
+    <edge source="1241" target="1272" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.25222639224725</data>
+      <data key="d17">2</data>
+      <data key="d18">809950182</data>
+      <data key="d19">1865920730</data>
+      <data key="d20">LINESTRING (716729.2941017315 6496068.9306411855, 716606.9857422139 6496101.21932935)</data>
+    </edge>
+    <edge source="1241" target="1240" id="0">
+      <data key="d10">225472645</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">138.12895567021658</data>
+      <data key="d21">60</data>
+      <data key="d18">809950138</data>
+      <data key="d19">809950182</data>
+      <data key="d20">LINESTRING (716729.2941017315 6496068.9306411855, 716767.4421169823 6496201.352462839)</data>
+    </edge>
+    <edge source="1241" target="1258" id="0">
+      <data key="d10">225825781</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.3626423796497</data>
+      <data key="d20">LINESTRING (716729.2941017315 6496068.9306411855, 716846.8915982086 6496038.724726543, 716852.8940720279 6496037.1791023845)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950159</data>
+      <data key="d19">809950182</data>
+    </edge>
+    <edge source="1242" target="1243" id="0">
+      <data key="d10">485595881</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.50861783049311</data>
+      <data key="d21">40</data>
+      <data key="d18">809950171</data>
+      <data key="d19">809950141</data>
+      <data key="d20">LINESTRING (716641.5996591408 6496232.6062188875, 716522.4684644782 6496262.198309175)</data>
+    </edge>
+    <edge source="1242" target="1252" id="0">
+      <data key="d10">485595882</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">180.67504605755113</data>
+      <data key="d20">LINESTRING (716641.5996591408 6496232.6062188875, 716674.8973980802 6496359.106618803, 716688.0034511162 6496406.773930347)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950171</data>
+      <data key="d19">809950185</data>
+    </edge>
+    <edge source="1242" target="1240" id="0">
+      <data key="d10">225472689</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.40874680025394</data>
+      <data key="d21">40</data>
+      <data key="d18">809950138</data>
+      <data key="d19">809950171</data>
+      <data key="d20">LINESTRING (716641.5996591408 6496232.6062188875, 716767.4421169823 6496201.352462839)</data>
+    </edge>
+    <edge source="1242" target="1272" id="0">
+      <data key="d10">255983681</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">136.19450535966274</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1865920730</data>
+      <data key="d19">809950171</data>
+      <data key="d20">LINESTRING (716641.5996591408 6496232.6062188875, 716606.9857422139 6496101.21932935)</data>
+    </edge>
+    <edge source="1243" target="1244" id="0">
+      <data key="d10">225467461</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.57096971796938</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950141</data>
+      <data key="d19">1873944968</data>
+      <data key="d20">LINESTRING (716522.4684644782 6496262.198309175, 716396.9079744394 6496295.195690972)</data>
+    </edge>
+    <edge source="1243" target="1245" id="0">
+      <data key="d10">1368380320</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">136.74727675797664</data>
+      <data key="d20">LINESTRING (716522.4684644782 6496262.198309175, 716513.0616474038 6496230.2935051005, 716507.037221414 6496210.386540944, 716499.8622529579 6496184.014549039, 716483.5990530589 6496131.432596852)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950141</data>
+      <data key="d19">873085764</data>
+    </edge>
+    <edge source="1243" target="1242" id="0">
+      <data key="d10">485595881</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.50861783049311</data>
+      <data key="d21">40</data>
+      <data key="d18">809950171</data>
+      <data key="d19">809950141</data>
+      <data key="d20">LINESTRING (716522.4684644782 6496262.198309175, 716641.5996591408 6496232.6062188875)</data>
+    </edge>
+    <edge source="1243" target="1251" id="0">
+      <data key="d10">1368380321</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">189.4092745130792</data>
+      <data key="d20">LINESTRING (716522.4684644782 6496262.198309175, 716521.541538609 6496270.9585694745, 716567.0258910232 6496445.267923763)</data>
+      <data key="d17">2</data>
+      <data key="d18">809950152</data>
+      <data key="d19">809950141</data>
+    </edge>
+    <edge source="1244" target="1254" id="0">
+      <data key="d10">132258348</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">195.51245377035568</data>
+      <data key="d18">1873944968</data>
+      <data key="d19">809950160</data>
+      <data key="d20">LINESTRING (716396.9079744394 6496295.195690972, 716448.3257596672 6496483.346756278)</data>
+    </edge>
+    <edge source="1244" target="4511" id="0">
+      <data key="d10">225467461</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">107.00483693165934</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">1873944968</data>
+      <data key="d19">873085720</data>
+      <data key="d20">LINESTRING (716396.9079744394 6496295.195690972, 716292.8614373852 6496321.0753202895)</data>
+    </edge>
+    <edge source="1244" target="1243" id="0">
+      <data key="d10">225467461</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.57096971796938</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950141</data>
+      <data key="d19">1873944968</data>
+      <data key="d20">LINESTRING (716396.9079744394 6496295.195690972, 716522.4684644782 6496262.198309175)</data>
+    </edge>
+    <edge source="1245" target="4535" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.32455210393945</data>
+      <data key="d17">2</data>
+      <data key="d18">873085764</data>
+      <data key="d19">873085918</data>
+      <data key="d20">LINESTRING (716483.5990530589 6496131.432596852, 716357.7489903301 6496162.305927695)</data>
+    </edge>
+    <edge source="1245" target="1243" id="0">
+      <data key="d10">1368380320</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">136.74727675797664</data>
+      <data key="d20">LINESTRING (716483.5990530589 6496131.432596852, 716499.8622529579 6496184.014549039, 716507.037221414 6496210.386540944, 716513.0616474038 6496230.2935051005, 716522.4684644782 6496262.198309175)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950141</data>
+      <data key="d19">873085764</data>
+    </edge>
+    <edge source="1245" target="1272" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.77972211756153</data>
+      <data key="d17">2</data>
+      <data key="d18">1865920730</data>
+      <data key="d19">873085764</data>
+      <data key="d20">LINESTRING (716483.5990530589 6496131.432596852, 716606.9857422139 6496101.21932935)</data>
+    </edge>
+    <edge source="1246" target="1270" id="0">
+      <data key="d10">52723391</data>
+      <data key="d11">residential</data>
+      <data key="d12">Alfonso Duran</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">55.93381953351734</data>
+      <data key="d17">2</data>
+      <data key="d18">809950173</data>
+      <data key="d19">2693878676</data>
+      <data key="d20">LINESTRING (716355.2740595385 6496648.983672965, 716302.3879905432 6496667.493068518)</data>
+    </edge>
+    <edge source="1246" target="1266" id="0">
+      <data key="d10">277476629</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.2908043533142</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950173</data>
+      <data key="d19">809950170</data>
+      <data key="d20">LINESTRING (716355.2740595385 6496648.983672965, 716321.3532375214 6496522.4733682275)</data>
+    </edge>
+    <edge source="1246" target="1125" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.8874244942806</data>
+      <data key="d20">LINESTRING (716355.2740595385 6496648.983672965, 716358.5725263669 6496659.696586631, 716386.0698094927 6496763.512833094)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1883255785</data>
+      <data key="d19">809950173</data>
+    </edge>
+    <edge source="1246" target="1238" id="0">
+      <data key="d10">225457958</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.769452705554283</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950145</data>
+      <data key="d19">809950173</data>
+      <data key="d20">LINESTRING (716355.2740595385 6496648.983672965, 716379.1090551261 6496642.073982624)</data>
+    </edge>
+    <edge source="1247" target="1239" id="0">
+      <data key="d10">918374232</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">105.48017979617377</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255786</data>
+      <data key="d19">809950140</data>
+      <data key="d20">LINESTRING (716410.3929811147 6496756.792549253, 716511.4237501891 6496725.806064308)</data>
+    </edge>
+    <edge source="1247" target="1264" id="0">
+      <data key="d10">918374233</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.94663003716722</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255786</data>
+      <data key="d19">809950187</data>
+      <data key="d20">LINESTRING (716410.3929811147 6496756.792549253, 716442.9309103007 6496876.08820091)</data>
+    </edge>
+    <edge source="1247" target="1125" id="0">
+      <data key="d10">760147846</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">25.186038337633086</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255785</data>
+      <data key="d19">1883255786</data>
+      <data key="d20">LINESTRING (716410.3929811147 6496756.792549253, 716386.0698094927 6496763.512833094)</data>
+    </edge>
+    <edge source="1247" target="1238" id="0">
+      <data key="d10">225975531</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">119.18963476976504</data>
+      <data key="d20">LINESTRING (716410.3929811147 6496756.792549253, 716406.2306273264 6496741.527618097, 716380.9894751941 6496648.956362078, 716379.1090551261 6496642.073982624)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950145</data>
+      <data key="d19">1883255786</data>
+    </edge>
+    <edge source="1248" target="1249" id="0">
+      <data key="d10">371931369</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.17354905904138</data>
+      <data key="d17">2</data>
+      <data key="d18">809950150</data>
+      <data key="d19">873085733</data>
+      <data key="d20">LINESTRING (716877.7266961029 6496612.270644233, 716997.6015793288 6496575.437907285)</data>
+    </edge>
+    <edge source="1248" target="1250" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.3952562990346</data>
+      <data key="d17">3</data>
+      <data key="d18">809950150</data>
+      <data key="d19">809950172</data>
+      <data key="d20">LINESTRING (716877.7266961029 6496612.270644233, 716843.1434377077 6496492.042702608)</data>
+    </edge>
+    <edge source="1248" target="1271" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.93952196519788</data>
+      <data key="d20">LINESTRING (716877.7266961029 6496612.270644233, 716876.7460495913 6496612.568504805, 716752.4273016165 6496651.112342197)</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255787</data>
+      <data key="d19">809950150</data>
+    </edge>
+    <edge source="1248" target="4543" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.68050647794355</data>
+      <data key="d17">3</data>
+      <data key="d18">873085823</data>
+      <data key="d19">809950150</data>
+      <data key="d20">LINESTRING (716877.7266961029 6496612.270644233, 716909.8772102679 6496731.395870469)</data>
+    </edge>
+    <edge source="1249" target="4512" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.63548356207032</data>
+      <data key="d17">2</data>
+      <data key="d18">873085733</data>
+      <data key="d19">873085783</data>
+      <data key="d20">LINESTRING (716997.6015793288 6496575.437907285, 717030.0193384644 6496695.477939451)</data>
+    </edge>
+    <edge source="1249" target="4513" id="0">
+      <data key="d10">371931369</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.65497006095967</data>
+      <data key="d17">2</data>
+      <data key="d18">873085733</data>
+      <data key="d19">873086007</data>
+      <data key="d20">LINESTRING (716997.6015793288 6496575.437907285, 717114.5234143722 6496537.645154021)</data>
+    </edge>
+    <edge source="1249" target="1248" id="0">
+      <data key="d10">371931369</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.17354905904138</data>
+      <data key="d17">2</data>
+      <data key="d18">809950150</data>
+      <data key="d19">873085733</data>
+      <data key="d20">LINESTRING (716997.6015793288 6496575.437907285, 716877.7266961029 6496612.270644233)</data>
+    </edge>
+    <edge source="1249" target="4621" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.31537875396162</data>
+      <data key="d17">2</data>
+      <data key="d18">873086144</data>
+      <data key="d19">873085733</data>
+      <data key="d20">LINESTRING (716997.6015793288 6496575.437907285, 716965.9264260551 6496451.411124442)</data>
+    </edge>
+    <edge source="1250" target="1268" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.9221775069257</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950172</data>
+      <data key="d19">1853479107</data>
+      <data key="d20">LINESTRING (716843.1434377077 6496492.042702608, 716720.2760067746 6496531.853676219)</data>
+    </edge>
+    <edge source="1250" target="1269" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.81491461397067</data>
+      <data key="d17">3</data>
+      <data key="d18">809950172</data>
+      <data key="d19">1873945700</data>
+      <data key="d20">LINESTRING (716843.1434377077 6496492.042702608, 716813.2697501894 6496366.036666318)</data>
+    </edge>
+    <edge source="1250" target="1248" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.3952562990346</data>
+      <data key="d17">3</data>
+      <data key="d18">809950150</data>
+      <data key="d19">809950172</data>
+      <data key="d20">LINESTRING (716843.1434377077 6496492.042702608, 716877.7266961029 6496612.270644233)</data>
+    </edge>
+    <edge source="1250" target="4621" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.099090536624</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086144</data>
+      <data key="d19">809950172</data>
+      <data key="d20">LINESTRING (716843.1434377077 6496492.042702608, 716965.9264260551 6496451.411124442)</data>
+    </edge>
+    <edge source="1251" target="1252" id="0">
+      <data key="d10">225975534</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.72721327040537</data>
+      <data key="d20">LINESTRING (716567.0258910232 6496445.267923763, 716656.758126095 6496416.4018824, 716663.7236348237 6496414.159585991, 716675.5324023041 6496410.7399178445, 716688.0034511162 6496406.773930347)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950152</data>
+      <data key="d19">809950185</data>
+    </edge>
+    <edge source="1251" target="1243" id="0">
+      <data key="d10">1368380321</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">189.4092745130792</data>
+      <data key="d20">LINESTRING (716567.0258910232 6496445.267923763, 716521.541538609 6496270.9585694745, 716522.4684644782 6496262.198309175)</data>
+      <data key="d17">2</data>
+      <data key="d18">809950152</data>
+      <data key="d19">809950141</data>
+    </edge>
+    <edge source="1251" target="1254" id="0">
+      <data key="d10">1368380322</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.4317653073187</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950160</data>
+      <data key="d19">809950152</data>
+      <data key="d20">LINESTRING (716567.0258910232 6496445.267923763, 716448.3257596672 6496483.346756278)</data>
+    </edge>
+    <edge source="1251" target="1260" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.66154645999774</data>
+      <data key="d17">2</data>
+      <data key="d18">809950163</data>
+      <data key="d19">809950152</data>
+      <data key="d20">LINESTRING (716567.0258910232 6496445.267923763, 716602.0306230196 6496570.834290452)</data>
+    </edge>
+    <edge source="1252" target="1269" id="0">
+      <data key="d10">485595883</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.48558153584403</data>
+      <data key="d18">809950185</data>
+      <data key="d19">1873945700</data>
+      <data key="d20">LINESTRING (716688.0034511162 6496406.773930347, 716813.2697501894 6496366.036666318)</data>
+    </edge>
+    <edge source="1252" target="1268" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.48611074824856</data>
+      <data key="d17">2</data>
+      <data key="d18">809950185</data>
+      <data key="d19">1853479107</data>
+      <data key="d20">LINESTRING (716688.0034511162 6496406.773930347, 716720.2760067746 6496531.853676219)</data>
+    </edge>
+    <edge source="1252" target="1242" id="0">
+      <data key="d10">485595882</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">180.67504605755113</data>
+      <data key="d20">LINESTRING (716688.0034511162 6496406.773930347, 716674.8973980802 6496359.106618803, 716641.5996591408 6496232.6062188875)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950171</data>
+      <data key="d19">809950185</data>
+    </edge>
+    <edge source="1252" target="1251" id="0">
+      <data key="d10">225975534</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.72721327040537</data>
+      <data key="d20">LINESTRING (716688.0034511162 6496406.773930347, 716675.5324023041 6496410.7399178445, 716663.7236348237 6496414.159585991, 716656.758126095 6496416.4018824, 716567.0258910232 6496445.267923763)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950152</data>
+      <data key="d19">809950185</data>
+    </edge>
+    <edge source="1253" target="1254" id="0">
+      <data key="d10">1368380322</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.156392112394</data>
+      <data key="d20">LINESTRING (716346.6668845413 6496514.589967117, 716437.5338341501 6496486.844721183, 716448.3257596672 6496483.346756278)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950154</data>
+      <data key="d19">809950160</data>
+    </edge>
+    <edge source="1253" target="1238" id="0">
+      <data key="d10">1458192604</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.86443965173822</data>
+      <data key="d20">LINESTRING (716346.6668845413 6496514.589967117, 716377.1407029685 6496634.616633643, 716379.1090551261 6496642.073982624)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950154</data>
+      <data key="d19">809950145</data>
+    </edge>
+    <edge source="1253" target="1266" id="0">
+      <data key="d10">225740521</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">26.464030944233805</data>
+      <data key="d17">2</data>
+      <data key="d18">809950170</data>
+      <data key="d19">809950154</data>
+      <data key="d20">LINESTRING (716346.6668845413 6496514.589967117, 716321.3532375214 6496522.4733682275)</data>
+    </edge>
+    <edge source="1253" target="4511" id="0">
+      <data key="d10">277477864</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">201.3295148203811</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085720</data>
+      <data key="d19">809950154</data>
+      <data key="d20">LINESTRING (716346.6668845413 6496514.589967117, 716292.8614373852 6496321.0753202895)</data>
+    </edge>
+    <edge source="1254" target="1237" id="0">
+      <data key="d10">132258348</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.12698268254098</data>
+      <data key="d18">809950160</data>
+      <data key="d19">809950136</data>
+      <data key="d20">LINESTRING (716448.3257596672 6496483.346756278, 716480.8074569686 6496609.032742135)</data>
+    </edge>
+    <edge source="1254" target="1251" id="0">
+      <data key="d10">1368380322</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.4317653073187</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950160</data>
+      <data key="d19">809950152</data>
+      <data key="d20">LINESTRING (716448.3257596672 6496483.346756278, 716567.0258910232 6496445.267923763)</data>
+    </edge>
+    <edge source="1254" target="1244" id="0">
+      <data key="d10">132258348</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">195.51245377035568</data>
+      <data key="d18">1873944968</data>
+      <data key="d19">809950160</data>
+      <data key="d20">LINESTRING (716448.3257596672 6496483.346756278, 716396.9079744394 6496295.195690972)</data>
+    </edge>
+    <edge source="1254" target="1253" id="0">
+      <data key="d10">1368380322</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.156392112394</data>
+      <data key="d20">LINESTRING (716448.3257596672 6496483.346756278, 716437.5338341501 6496486.844721183, 716346.6668845413 6496514.589967117)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950154</data>
+      <data key="d19">809950160</data>
+    </edge>
+    <edge source="1255" target="1256" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">103.4042840474445</data>
+      <data key="d17">2</data>
+      <data key="d18">809950155</data>
+      <data key="d19">809950180</data>
+      <data key="d20">LINESTRING (716594.4246637601 6497040.415594431, 716493.9347980979 6497065.645454522)</data>
+    </edge>
+    <edge source="1255" target="1263" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.4135541694913</data>
+      <data key="d20">LINESTRING (716594.4246637601 6497040.415594431, 716590.3184352347 6497025.582146406, 716560.7841911532 6496918.8693883475)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950188</data>
+      <data key="d19">809950155</data>
+    </edge>
+    <edge source="1255" target="4488" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.06666112877355</data>
+      <data key="d17">2</data>
+      <data key="d18">873085687</data>
+      <data key="d19">809950155</data>
+      <data key="d20">LINESTRING (716594.4246637601 6497040.415594431, 716719.8237850743 6497008.806436559)</data>
+    </edge>
+    <edge source="1256" target="1200" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">26.380301576185403</data>
+      <data key="d17">2</data>
+      <data key="d18">809950180</data>
+      <data key="d19">809950147</data>
+      <data key="d20">LINESTRING (716493.9347980979 6497065.645454522, 716468.4291703119 6497072.579178013)</data>
+    </edge>
+    <edge source="1256" target="1255" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">103.4042840474445</data>
+      <data key="d17">2</data>
+      <data key="d18">809950155</data>
+      <data key="d19">809950180</data>
+      <data key="d20">LINESTRING (716493.9347980979 6497065.645454522, 716594.4246637601 6497040.415594431)</data>
+    </edge>
+    <edge source="1256" target="1262" id="0">
+      <data key="d10">277477866</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.52574063686052</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950190</data>
+      <data key="d19">809950180</data>
+      <data key="d20">LINESTRING (716493.9347980979 6497065.645454522, 716460.5709133941 6496941.841458784)</data>
+    </edge>
+    <edge source="1258" target="1259" id="0">
+      <data key="d10">225740438</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">139.62051615989958</data>
+      <data key="d20">LINESTRING (716852.8940720279 6496037.1791023845, 716854.2811015524 6496041.786702026, 716871.0090828594 6496097.4421879705, 716885.900325395 6496149.664196929, 716891.7548750555 6496170.938933779)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950159</data>
+      <data key="d19">809950168</data>
+    </edge>
+    <edge source="1258" target="1241" id="0">
+      <data key="d10">225825781</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.3626423796497</data>
+      <data key="d20">LINESTRING (716852.8940720279 6496037.1791023845, 716846.8915982086 6496038.724726543, 716729.2941017315 6496068.9306411855)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950159</data>
+      <data key="d19">809950182</data>
+    </edge>
+    <edge source="1258" target="4497" id="0">
+      <data key="d10">225825781</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.3930851145548</data>
+      <data key="d20">LINESTRING (716852.8940720279 6496037.1791023845, 716858.820435052 6496035.623977108, 716960.9267128865 6496008.802873328, 716967.6268321903 6496007.042887811)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1865920731</data>
+      <data key="d19">809950159</data>
+    </edge>
+    <edge source="1259" target="1240" id="0">
+      <data key="d10">225454825</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.724719522583</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950168</data>
+      <data key="d19">809950138</data>
+      <data key="d20">LINESTRING (716891.7548750555 6496170.938933779, 716767.4421169823 6496201.352462839)</data>
+    </edge>
+    <edge source="1259" target="1265" id="0">
+      <data key="d10">225740438</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">163.60304537554268</data>
+      <data key="d20">LINESTRING (716891.7548750555 6496170.938933779, 716903.6826588301 6496218.486536294, 716905.773341865 6496226.784279269, 716931.4820179859 6496329.239310993)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950168</data>
+      <data key="d19">1873945701</data>
+    </edge>
+    <edge source="1259" target="1258" id="0">
+      <data key="d10">225740438</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">139.62051615989958</data>
+      <data key="d20">LINESTRING (716891.7548750555 6496170.938933779, 716885.900325395 6496149.664196929, 716871.0090828594 6496097.4421879705, 716854.2811015524 6496041.786702026, 716852.8940720279 6496037.1791023845)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950159</data>
+      <data key="d19">809950168</data>
+    </edge>
+    <edge source="1259" target="4496" id="0">
+      <data key="d10">225454825</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">116.62006024650339</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085696</data>
+      <data key="d19">809950168</data>
+      <data key="d20">LINESTRING (716891.7548750555 6496170.938933779, 717006.4628297571 6496148.600956294)</data>
+    </edge>
+    <edge source="1260" target="1237" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.86624998624282</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950163</data>
+      <data key="d19">809950136</data>
+      <data key="d20">LINESTRING (716602.0306230196 6496570.834290452, 716480.8074569686 6496609.032742135)</data>
+    </edge>
+    <edge source="1260" target="1251" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.66154645999774</data>
+      <data key="d17">2</data>
+      <data key="d18">809950163</data>
+      <data key="d19">809950152</data>
+      <data key="d20">LINESTRING (716602.0306230196 6496570.834290452, 716567.0258910232 6496445.267923763)</data>
+    </edge>
+    <edge source="1260" target="1235" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.54204047300972</data>
+      <data key="d17">2</data>
+      <data key="d18">809950178</data>
+      <data key="d19">809950163</data>
+      <data key="d20">LINESTRING (716602.0306230196 6496570.834290452, 716633.0869655501 6496689.073445894)</data>
+    </edge>
+    <edge source="1260" target="1268" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.28108988776648</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853479107</data>
+      <data key="d19">809950163</data>
+      <data key="d20">LINESTRING (716602.0306230196 6496570.834290452, 716720.2760067746 6496531.853676219)</data>
+    </edge>
+    <edge source="1261" target="1109" id="0">
+      <data key="d10">277477867</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.60995547570022</data>
+      <data key="d17">2</data>
+      <data key="d18">809950165</data>
+      <data key="d19">809929514</data>
+      <data key="d20">LINESTRING (716419.4336206431 6496882.8356427755, 716296.2218701185 6496920.529636901)</data>
+    </edge>
+    <edge source="1261" target="1125" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.19143651234225</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950165</data>
+      <data key="d19">1883255785</data>
+      <data key="d20">LINESTRING (716419.4336206431 6496882.8356427755, 716386.0698094927 6496763.512833094)</data>
+    </edge>
+    <edge source="1261" target="1224" id="0">
+      <data key="d10">342979611</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">67.83872119143524</data>
+      <data key="d20">LINESTRING (716419.4336206431 6496882.8356427755, 716421.6690340062 6496890.808748325, 716436.4513623506 6496948.335721316)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950166</data>
+      <data key="d19">809950165</data>
+    </edge>
+    <edge source="1261" target="1264" id="0">
+      <data key="d10">277477867</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.400546463456163</data>
+      <data key="d17">2</data>
+      <data key="d18">809950187</data>
+      <data key="d19">809950165</data>
+      <data key="d20">LINESTRING (716419.4336206431 6496882.8356427755, 716442.9309103007 6496876.08820091)</data>
+    </edge>
+    <edge source="1262" target="1263" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">102.60540162000537</data>
+      <data key="d17">2</data>
+      <data key="d18">809950190</data>
+      <data key="d19">809950188</data>
+      <data key="d20">LINESTRING (716460.5709133941 6496941.841458784, 716560.7841911532 6496918.8693883475)</data>
+    </edge>
+    <edge source="1262" target="1256" id="0">
+      <data key="d10">277477866</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.52574063686052</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950190</data>
+      <data key="d19">809950180</data>
+      <data key="d20">LINESTRING (716460.5709133941 6496941.841458784, 716493.9347980979 6497065.645454522)</data>
+    </edge>
+    <edge source="1262" target="1224" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.93022479645412</data>
+      <data key="d17">2</data>
+      <data key="d18">809950166</data>
+      <data key="d19">809950190</data>
+      <data key="d20">LINESTRING (716460.5709133941 6496941.841458784, 716436.4513623506 6496948.335721316)</data>
+    </edge>
+    <edge source="1262" target="1264" id="0">
+      <data key="d10">277477866</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">68.24041377195789</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950187</data>
+      <data key="d19">809950190</data>
+      <data key="d20">LINESTRING (716460.5709133941 6496941.841458784, 716442.9309103007 6496876.08820091)</data>
+    </edge>
+    <edge source="1263" target="1274" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.86100664002424</data>
+      <data key="d17">2</data>
+      <data key="d18">809950188</data>
+      <data key="d19">873085643</data>
+      <data key="d20">LINESTRING (716560.7841911532 6496918.8693883475, 716687.4123155759 6496888.920855895)</data>
+    </edge>
+    <edge source="1263" target="1255" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.4135541694913</data>
+      <data key="d20">LINESTRING (716560.7841911532 6496918.8693883475, 716590.3184352347 6497025.582146406, 716594.4246637601 6497040.415594431)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950188</data>
+      <data key="d19">809950155</data>
+    </edge>
+    <edge source="1263" target="1236" id="0">
+      <data key="d10">225457964</data>
+      <data key="d11">residential</data>
+      <data key="d12">San Lorenzo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">76.66662788296208</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950167</data>
+      <data key="d19">809950188</data>
+      <data key="d20">LINESTRING (716560.7841911532 6496918.8693883475, 716542.0379512738 6496844.720216226)</data>
+    </edge>
+    <edge source="1263" target="1262" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">102.60540162000537</data>
+      <data key="d17">2</data>
+      <data key="d18">809950190</data>
+      <data key="d19">809950188</data>
+      <data key="d20">LINESTRING (716560.7841911532 6496918.8693883475, 716460.5709133941 6496941.841458784)</data>
+    </edge>
+    <edge source="1264" target="1262" id="0">
+      <data key="d10">277477866</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">68.24041377195789</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">809950187</data>
+      <data key="d19">809950190</data>
+      <data key="d20">LINESTRING (716442.9309103007 6496876.08820091, 716460.5709133941 6496941.841458784)</data>
+    </edge>
+    <edge source="1264" target="1261" id="0">
+      <data key="d10">277477867</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.400546463456163</data>
+      <data key="d17">2</data>
+      <data key="d18">809950187</data>
+      <data key="d19">809950165</data>
+      <data key="d20">LINESTRING (716442.9309103007 6496876.08820091, 716419.4336206431 6496882.8356427755)</data>
+    </edge>
+    <edge source="1264" target="1236" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">103.76262118876103</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950167</data>
+      <data key="d19">809950187</data>
+      <data key="d20">LINESTRING (716442.9309103007 6496876.08820091, 716542.0379512738 6496844.720216226)</data>
+    </edge>
+    <edge source="1264" target="1247" id="0">
+      <data key="d10">918374233</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.94663003716722</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255786</data>
+      <data key="d19">809950187</data>
+      <data key="d20">LINESTRING (716442.9309103007 6496876.08820091, 716410.3929811147 6496756.792549253)</data>
+    </edge>
+    <edge source="1265" target="4557" id="0">
+      <data key="d10">225740443</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">119.64093657748987</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1873945701</data>
+      <data key="d19">873085818</data>
+      <data key="d20">LINESTRING (716931.4820179859 6496329.239310993, 717044.8178429232 6496290.257756218)</data>
+    </edge>
+    <edge source="1265" target="4621" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.23256259671767</data>
+      <data key="d17">2</data>
+      <data key="d18">1873945701</data>
+      <data key="d19">873086144</data>
+      <data key="d20">LINESTRING (716931.4820179859 6496329.239310993, 716965.9264260551 6496451.411124442)</data>
+    </edge>
+    <edge source="1265" target="1259" id="0">
+      <data key="d10">225740438</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">163.60304537554268</data>
+      <data key="d20">LINESTRING (716931.4820179859 6496329.239310993, 716905.773341865 6496226.784279269, 716903.6826588301 6496218.486536294, 716891.7548750555 6496170.938933779)</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950168</data>
+      <data key="d19">1873945701</data>
+    </edge>
+    <edge source="1265" target="1269" id="0">
+      <data key="d10">485595883</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.57887160874627</data>
+      <data key="d20">LINESTRING (716931.4820179859 6496329.239310993, 716921.0269582067 6496332.4978007, 716813.2697501894 6496366.036666318)</data>
+      <data key="d18">1873945700</data>
+      <data key="d19">1873945701</data>
+    </edge>
+    <edge source="1266" target="1267" id="0">
+      <data key="d10">225740503</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">203.8208619249031</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950170</data>
+      <data key="d19">873086002</data>
+      <data key="d20">LINESTRING (716321.3532375214 6496522.4733682275, 716268.381665949 6496326.15699497)</data>
+    </edge>
+    <edge source="1266" target="1253" id="0">
+      <data key="d10">225740521</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">26.464030944233805</data>
+      <data key="d17">2</data>
+      <data key="d18">809950170</data>
+      <data key="d19">809950154</data>
+      <data key="d20">LINESTRING (716321.3532375214 6496522.4733682275, 716346.6668845413 6496514.589967117)</data>
+    </edge>
+    <edge source="1266" target="1131" id="0">
+      <data key="d10">277476632</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">concrete</data>
+      <data key="d15">False</data>
+      <data key="d16">55.03397543711143</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878675</data>
+      <data key="d19">809950170</data>
+      <data key="d20">LINESTRING (716321.3532375214 6496522.4733682275, 716268.921175513 6496539.520041829)</data>
+    </edge>
+    <edge source="1266" target="1246" id="0">
+      <data key="d10">277476629</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.2908043533142</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950173</data>
+      <data key="d19">809950170</data>
+      <data key="d20">LINESTRING (716321.3532375214 6496522.4733682275, 716355.2740595385 6496648.983672965)</data>
+    </edge>
+    <edge source="1267" target="4579" id="0">
+      <data key="d10">225740503</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">138.70845176628333</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086002</data>
+      <data key="d19">873085863</data>
+      <data key="d20">LINESTRING (716268.381665949 6496326.15699497, 716232.5011239377 6496192.510636141)</data>
+    </edge>
+    <edge source="1267" target="1073" id="0">
+      <data key="d10">277477865</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.45886186438354</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873086002</data>
+      <data key="d19">809929359</data>
+      <data key="d20">LINESTRING (716268.381665949 6496326.15699497, 716148.1159863616 6496355.124964842)</data>
+    </edge>
+    <edge source="1267" target="1266" id="0">
+      <data key="d10">225740503</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">203.8208619249031</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950170</data>
+      <data key="d19">873086002</data>
+      <data key="d20">LINESTRING (716268.381665949 6496326.15699497, 716321.3532375214 6496522.4733682275)</data>
+    </edge>
+    <edge source="1267" target="4511" id="0">
+      <data key="d10">277477865</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.950351553055526</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873085720</data>
+      <data key="d19">873086002</data>
+      <data key="d20">LINESTRING (716268.381665949 6496326.15699497, 716292.8614373852 6496321.0753202895)</data>
+    </edge>
+    <edge source="1268" target="1260" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.28108988776648</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853479107</data>
+      <data key="d19">809950163</data>
+      <data key="d20">LINESTRING (716720.2760067746 6496531.853676219, 716602.0306230196 6496570.834290452)</data>
+    </edge>
+    <edge source="1268" target="1271" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.81001444819923</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479107</data>
+      <data key="d19">1883255787</data>
+      <data key="d20">LINESTRING (716720.2760067746 6496531.853676219, 716752.4273016165 6496651.112342197)</data>
+    </edge>
+    <edge source="1268" target="1250" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.9221775069257</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">809950172</data>
+      <data key="d19">1853479107</data>
+      <data key="d20">LINESTRING (716720.2760067746 6496531.853676219, 716843.1434377077 6496492.042702608)</data>
+    </edge>
+    <edge source="1268" target="1252" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.48611074824856</data>
+      <data key="d17">2</data>
+      <data key="d18">809950185</data>
+      <data key="d19">1853479107</data>
+      <data key="d20">LINESTRING (716720.2760067746 6496531.853676219, 716688.0034511162 6496406.773930347)</data>
+    </edge>
+    <edge source="1269" target="1240" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">171.34454701529071</data>
+      <data key="d17">3</data>
+      <data key="d18">1873945700</data>
+      <data key="d19">809950138</data>
+      <data key="d20">LINESTRING (716813.2697501894 6496366.036666318, 716767.4421169823 6496201.352462839)</data>
+    </edge>
+    <edge source="1269" target="1265" id="0">
+      <data key="d10">485595883</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.57887160874627</data>
+      <data key="d20">LINESTRING (716813.2697501894 6496366.036666318, 716921.0269582067 6496332.4978007, 716931.4820179859 6496329.239310993)</data>
+      <data key="d18">1873945700</data>
+      <data key="d19">1873945701</data>
+    </edge>
+    <edge source="1269" target="1250" id="0">
+      <data key="d10">371931371</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.81491461397067</data>
+      <data key="d17">3</data>
+      <data key="d18">809950172</data>
+      <data key="d19">1873945700</data>
+      <data key="d20">LINESTRING (716813.2697501894 6496366.036666318, 716843.1434377077 6496492.042702608)</data>
+    </edge>
+    <edge source="1269" target="1252" id="0">
+      <data key="d10">485595883</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">131.48558153584403</data>
+      <data key="d18">809950185</data>
+      <data key="d19">1873945700</data>
+      <data key="d20">LINESTRING (716813.2697501894 6496366.036666318, 716688.0034511162 6496406.773930347)</data>
+    </edge>
+    <edge source="1270" target="1079" id="0">
+      <data key="d10">52723391</data>
+      <data key="d11">residential</data>
+      <data key="d12">Alfonso Duran</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">69.75072628901093</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878676</data>
+      <data key="d19">809929364</data>
+      <data key="d20">LINESTRING (716302.3879905432 6496667.493068518, 716236.0312604497 6496689.389491436)</data>
+    </edge>
+    <edge source="1270" target="1131" id="0">
+      <data key="d10">263739683</data>
+      <data key="d11">residential</data>
+      <data key="d12">Pasaje Echeverría</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">132.59351925214784</data>
+      <data key="d17">2</data>
+      <data key="d18">2693878676</data>
+      <data key="d19">2693878675</data>
+      <data key="d20">LINESTRING (716302.3879905432 6496667.493068518, 716268.921175513 6496539.520041829)</data>
+    </edge>
+    <edge source="1270" target="1246" id="0">
+      <data key="d10">52723391</data>
+      <data key="d11">residential</data>
+      <data key="d12">Alfonso Duran</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">55.93381953351734</data>
+      <data key="d17">2</data>
+      <data key="d18">809950173</data>
+      <data key="d19">2693878676</data>
+      <data key="d20">LINESTRING (716302.3879905432 6496667.493068518, 716355.2740595385 6496648.983672965)</data>
+    </edge>
+    <edge source="1271" target="4562" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.81708829999332</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255787</data>
+      <data key="d19">1883255784</data>
+      <data key="d20">LINESTRING (716752.4273016165 6496651.112342197, 716786.0984447678 6496769.9619668)</data>
+    </edge>
+    <edge source="1271" target="1248" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.93952196519788</data>
+      <data key="d20">LINESTRING (716752.4273016165 6496651.112342197, 716876.7460495913 6496612.568504805, 716877.7266961029 6496612.270644233)</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255787</data>
+      <data key="d19">809950150</data>
+    </edge>
+    <edge source="1271" target="1235" id="0">
+      <data key="d10">918374231</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.00380871429263</data>
+      <data key="d17">2</data>
+      <data key="d18">809950178</data>
+      <data key="d19">1883255787</data>
+      <data key="d20">LINESTRING (716752.4273016165 6496651.112342197, 716633.0869655501 6496689.073445894)</data>
+    </edge>
+    <edge source="1271" target="1268" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.81001444819923</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479107</data>
+      <data key="d19">1883255787</data>
+      <data key="d20">LINESTRING (716752.4273016165 6496651.112342197, 716720.2760067746 6496531.853676219)</data>
+    </edge>
+    <edge source="1272" target="1242" id="0">
+      <data key="d10">255983681</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">136.19450535966274</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1865920730</data>
+      <data key="d19">809950171</data>
+      <data key="d20">LINESTRING (716606.9857422139 6496101.21932935, 716641.5996591408 6496232.6062188875)</data>
+    </edge>
+    <edge source="1272" target="1245" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.77972211756153</data>
+      <data key="d17">2</data>
+      <data key="d18">1865920730</data>
+      <data key="d19">873085764</data>
+      <data key="d20">LINESTRING (716606.9857422139 6496101.21932935, 716483.5990530589 6496131.432596852)</data>
+    </edge>
+    <edge source="1272" target="1241" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.25222639224725</data>
+      <data key="d17">2</data>
+      <data key="d18">809950182</data>
+      <data key="d19">1865920730</data>
+      <data key="d20">LINESTRING (716606.9857422139 6496101.21932935, 716729.2941017315 6496068.9306411855)</data>
+    </edge>
+    <edge source="1274" target="4462" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.14851554214182</data>
+      <data key="d17">2</data>
+      <data key="d18">873085643</data>
+      <data key="d19">1853479102</data>
+      <data key="d20">LINESTRING (716687.4123155759 6496888.920855895, 716810.3715730836 6496859.624377002)</data>
+    </edge>
+    <edge source="1274" target="1234" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">85.76081669584386</data>
+      <data key="d17">2</data>
+      <data key="d18">873085643</data>
+      <data key="d19">809950131</data>
+      <data key="d20">LINESTRING (716687.4123155759 6496888.920855895, 716664.685422691 6496806.435979995)</data>
+    </edge>
+    <edge source="1274" target="1263" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.86100664002424</data>
+      <data key="d17">2</data>
+      <data key="d18">809950188</data>
+      <data key="d19">873085643</data>
+      <data key="d20">LINESTRING (716687.4123155759 6496888.920855895, 716560.7841911532 6496918.8693883475)</data>
+    </edge>
+    <edge source="1274" target="4488" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.4845525370765</data>
+      <data key="d17">2</data>
+      <data key="d18">873085687</data>
+      <data key="d19">873085643</data>
+      <data key="d20">LINESTRING (716687.4123155759 6496888.920855895, 716719.8237850743 6497008.806436559)</data>
+    </edge>
+    <edge source="4462" target="4578" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.38270490468267</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479102</data>
+      <data key="d19">873085860</data>
+      <data key="d20">LINESTRING (716810.3715730836 6496859.624377002, 716936.1314590258 6496828.149025467)</data>
+    </edge>
+    <edge source="4462" target="4617" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.15757089857344</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479102</data>
+      <data key="d19">1853479083</data>
+      <data key="d20">LINESTRING (716810.3715730836 6496859.624377002, 716841.89973102 6496979.406166274)</data>
+    </edge>
+    <edge source="4462" target="1274" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.14851554214182</data>
+      <data key="d17">2</data>
+      <data key="d18">873085643</data>
+      <data key="d19">1853479102</data>
+      <data key="d20">LINESTRING (716810.3715730836 6496859.624377002, 716687.4123155759 6496888.920855895)</data>
+    </edge>
+    <edge source="4462" target="4562" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">93.110379621793</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255784</data>
+      <data key="d19">1853479102</data>
+      <data key="d20">LINESTRING (716810.3715730836 6496859.624377002, 716786.0984447678 6496769.9619668)</data>
+    </edge>
+    <edge source="4474" target="4475" id="0">
+      <data key="d10">225995288</data>
+      <data key="d11">residential</data>
+      <data key="d12">Irigoyen Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.47420628897999</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085663</data>
+      <data key="d19">873085851</data>
+      <data key="d20">LINESTRING (717213.7047595957 6496891.6894706655, 717088.3340287394 6496920.919341447)</data>
+    </edge>
+    <edge source="4474" target="4476" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.47807403363046</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085663</data>
+      <data key="d19">873085884</data>
+      <data key="d20">LINESTRING (717213.7047595957 6496891.6894706655, 717179.1163014483 6496768.267798409)</data>
+    </edge>
+    <edge source="4475" target="4576" id="0">
+      <data key="d10">225995288</data>
+      <data key="d11">residential</data>
+      <data key="d12">Irigoyen Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.39714744602095</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085851</data>
+      <data key="d19">873086109</data>
+      <data key="d20">LINESTRING (717088.3340287394 6496920.919341447, 716969.0388821925 6496949.376934226)</data>
+    </edge>
+    <edge source="4475" target="4474" id="0">
+      <data key="d10">225995288</data>
+      <data key="d11">residential</data>
+      <data key="d12">Irigoyen Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.47420628897999</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085663</data>
+      <data key="d19">873085851</data>
+      <data key="d20">LINESTRING (717088.3340287394 6496920.919341447, 717213.7047595957 6496891.6894706655)</data>
+    </edge>
+    <edge source="4475" target="4542" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.01947636711314</data>
+      <data key="d17">2</data>
+      <data key="d18">873085829</data>
+      <data key="d19">873085851</data>
+      <data key="d20">LINESTRING (717088.3340287394 6496920.919341447, 717057.5345116302 6496798.005813374)</data>
+    </edge>
+    <edge source="4476" target="4483" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">113.73598744328318</data>
+      <data key="d20">LINESTRING (717179.1163014483 6496768.267798409, 717152.3574072866 6496676.06251416, 717147.4886419933 6496659.2929436965)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085884</data>
+      <data key="d19">873085976</data>
+    </edge>
+    <edge source="4476" target="4474" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.47807403363046</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085663</data>
+      <data key="d19">873085884</data>
+      <data key="d20">LINESTRING (717179.1163014483 6496768.267798409, 717213.7047595957 6496891.6894706655)</data>
+    </edge>
+    <edge source="4476" target="4542" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.91687174054012</data>
+      <data key="d17">2</data>
+      <data key="d18">873085829</data>
+      <data key="d19">873085884</data>
+      <data key="d20">LINESTRING (717179.1163014483 6496768.267798409, 717057.5345116302 6496798.005813374)</data>
+    </edge>
+    <edge source="4483" target="4513" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.33411180388472</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085976</data>
+      <data key="d19">873086007</data>
+      <data key="d20">LINESTRING (717147.4886419933 6496659.2929436965, 717114.5234143722 6496537.645154021)</data>
+    </edge>
+    <edge source="4483" target="4512" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.68859100120784</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085976</data>
+      <data key="d19">873085783</data>
+      <data key="d20">LINESTRING (717147.4886419933 6496659.2929436965, 717030.0193384644 6496695.477939451)</data>
+    </edge>
+    <edge source="4483" target="4476" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">113.73598744328318</data>
+      <data key="d20">LINESTRING (717147.4886419933 6496659.2929436965, 717152.3574072866 6496676.06251416, 717179.1163014483 6496768.267798409)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085884</data>
+      <data key="d19">873085976</data>
+    </edge>
+    <edge source="4488" target="1255" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.06666112877355</data>
+      <data key="d17">2</data>
+      <data key="d18">873085687</data>
+      <data key="d19">809950155</data>
+      <data key="d20">LINESTRING (716719.8237850743 6497008.806436559, 716594.4246637601 6497040.415594431)</data>
+    </edge>
+    <edge source="4488" target="1274" id="0">
+      <data key="d10">225467444</data>
+      <data key="d11">residential</data>
+      <data key="d12">Saavedra</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.4845525370765</data>
+      <data key="d17">2</data>
+      <data key="d18">873085687</data>
+      <data key="d19">873085643</data>
+      <data key="d20">LINESTRING (716719.8237850743 6497008.806436559, 716687.4123155759 6496888.920855895)</data>
+    </edge>
+    <edge source="4488" target="4617" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.31595990729672</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479083</data>
+      <data key="d19">873085687</data>
+      <data key="d20">LINESTRING (716719.8237850743 6497008.806436559, 716841.89973102 6496979.406166274)</data>
+    </edge>
+    <edge source="4493" target="4579" id="0">
+      <data key="d10">557114788</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.077501401131162</data>
+      <data key="d17">2</data>
+      <data key="d18">873086046</data>
+      <data key="d19">873085863</data>
+      <data key="d20">LINESTRING (716256.2801351092 6496188.419801883, 716232.5011239377 6496192.510636141)</data>
+    </edge>
+    <edge source="4493" target="4511" id="0">
+      <data key="d10">53138286</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">137.93248889406442</data>
+      <data key="d20">LINESTRING (716256.2801351092 6496188.419801883, 716265.6382919695 6496222.122771941, 716268.9116228996 6496233.912196963, 716288.4249762283 6496304.939782945, 716292.8614373852 6496321.0753202895)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873086046</data>
+      <data key="d19">873085720</data>
+    </edge>
+    <edge source="4493" target="4535" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">104.57001820781633</data>
+      <data key="d17">2</data>
+      <data key="d18">873085918</data>
+      <data key="d19">873086046</data>
+      <data key="d20">LINESTRING (716256.2801351092 6496188.419801883, 716357.7489903301 6496162.305927695)</data>
+    </edge>
+    <edge source="4496" target="1259" id="0">
+      <data key="d10">225454825</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">116.62006024650339</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085696</data>
+      <data key="d19">809950168</data>
+      <data key="d20">LINESTRING (717006.4628297571 6496148.600956294, 716891.7548750555 6496170.938933779)</data>
+    </edge>
+    <edge source="4496" target="4497" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">147.19598485222062</data>
+      <data key="d20">LINESTRING (717006.4628297571 6496148.600956294, 717000.2675572693 6496121.043956634, 716992.6807113552 6496092.28486534, 716986.2683776263 6496067.949240342, 716969.5521634606 6496013.336343602, 716967.6268321903 6496007.042887811)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085696</data>
+      <data key="d19">1865920731</data>
+    </edge>
+    <edge source="4496" target="4557" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">147.1055180006516</data>
+      <data key="d20">LINESTRING (717006.4628297571 6496148.600956294, 717010.4128030207 6496163.204612772, 717021.2023732658 6496203.055600464, 717044.8178429232 6496290.257756218)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085818</data>
+      <data key="d19">873085696</data>
+    </edge>
+    <edge source="4497" target="1258" id="0">
+      <data key="d10">225825781</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.3930851145548</data>
+      <data key="d20">LINESTRING (716967.6268321903 6496007.042887811, 716960.9267128865 6496008.802873328, 716858.820435052 6496035.623977108, 716852.8940720279 6496037.1791023845)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1865920731</data>
+      <data key="d19">809950159</data>
+    </edge>
+    <edge source="4497" target="4496" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">147.19598485222062</data>
+      <data key="d20">LINESTRING (716967.6268321903 6496007.042887811, 716969.5521634606 6496013.336343602, 716986.2683776263 6496067.949240342, 716992.6807113552 6496092.28486534, 717000.2675572693 6496121.043956634, 717006.4628297571 6496148.600956294)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085696</data>
+      <data key="d19">1865920731</data>
+    </edge>
+    <edge source="4511" target="1253" id="0">
+      <data key="d10">277477864</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">201.3295148203811</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085720</data>
+      <data key="d19">809950154</data>
+      <data key="d20">LINESTRING (716292.8614373852 6496321.0753202895, 716346.6668845413 6496514.589967117)</data>
+    </edge>
+    <edge source="4511" target="1267" id="0">
+      <data key="d10">277477865</data>
+      <data key="d11">tertiary</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.950351553055526</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873085720</data>
+      <data key="d19">873086002</data>
+      <data key="d20">LINESTRING (716292.8614373852 6496321.0753202895, 716268.381665949 6496326.15699497)</data>
+    </edge>
+    <edge source="4511" target="1244" id="0">
+      <data key="d10">225467461</data>
+      <data key="d11">residential</data>
+      <data key="d12">Salta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">107.00483693165934</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">1873944968</data>
+      <data key="d19">873085720</data>
+      <data key="d20">LINESTRING (716292.8614373852 6496321.0753202895, 716396.9079744394 6496295.195690972)</data>
+    </edge>
+    <edge source="4511" target="4493" id="0">
+      <data key="d10">53138286</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">137.93248889406442</data>
+      <data key="d20">LINESTRING (716292.8614373852 6496321.0753202895, 716288.4249762283 6496304.939782945, 716268.9116228996 6496233.912196963, 716265.6382919695 6496222.122771941, 716256.2801351092 6496188.419801883)</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d18">873086046</data>
+      <data key="d19">873085720</data>
+    </edge>
+    <edge source="4512" target="4542" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.40813684838369</data>
+      <data key="d17">2</data>
+      <data key="d18">873085783</data>
+      <data key="d19">873085829</data>
+      <data key="d20">LINESTRING (717030.0193384644 6496695.477939451, 717057.5345116302 6496798.005813374)</data>
+    </edge>
+    <edge source="4512" target="4543" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.16152644425152</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085783</data>
+      <data key="d19">873085823</data>
+      <data key="d20">LINESTRING (717030.0193384644 6496695.477939451, 716909.8772102679 6496731.395870469)</data>
+    </edge>
+    <edge source="4512" target="1249" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.63548356207032</data>
+      <data key="d17">2</data>
+      <data key="d18">873085733</data>
+      <data key="d19">873085783</data>
+      <data key="d20">LINESTRING (717030.0193384644 6496695.477939451, 716997.6015793288 6496575.437907285)</data>
+    </edge>
+    <edge source="4512" target="4483" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.68859100120784</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085976</data>
+      <data key="d19">873085783</data>
+      <data key="d20">LINESTRING (717030.0193384644 6496695.477939451, 717147.4886419933 6496659.2929436965)</data>
+    </edge>
+    <edge source="4513" target="4610" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.17276316943625</data>
+      <data key="d20">LINESTRING (717114.5234143722 6496537.645154021, 717109.1645839077 6496519.221974641, 717083.0071143907 6496429.399938503, 717080.7576253449 6496421.682361613, 717078.773818216 6496414.868797937)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086007</data>
+      <data key="d19">1853450037</data>
+    </edge>
+    <edge source="4513" target="1249" id="0">
+      <data key="d10">371931369</data>
+      <data key="d11">residential</data>
+      <data key="d12">Tucumán</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.65497006095967</data>
+      <data key="d17">2</data>
+      <data key="d18">873085733</data>
+      <data key="d19">873086007</data>
+      <data key="d20">LINESTRING (717114.5234143722 6496537.645154021, 716997.6015793288 6496575.437907285)</data>
+    </edge>
+    <edge source="4513" target="4483" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.33411180388472</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085976</data>
+      <data key="d19">873086007</data>
+      <data key="d20">LINESTRING (717114.5234143722 6496537.645154021, 717147.4886419933 6496659.2929436965)</data>
+    </edge>
+    <edge source="4535" target="4493" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">104.57001820781633</data>
+      <data key="d17">2</data>
+      <data key="d18">873085918</data>
+      <data key="d19">873086046</data>
+      <data key="d20">LINESTRING (716357.7489903301 6496162.305927695, 716256.2801351092 6496188.419801883)</data>
+    </edge>
+    <edge source="4535" target="1245" id="0">
+      <data key="d10">371931354</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.32455210393945</data>
+      <data key="d17">2</data>
+      <data key="d18">873085764</data>
+      <data key="d19">873085918</data>
+      <data key="d20">LINESTRING (716357.7489903301 6496162.305927695, 716483.5990530589 6496131.432596852)</data>
+    </edge>
+    <edge source="4542" target="4476" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.91687174054012</data>
+      <data key="d17">2</data>
+      <data key="d18">873085829</data>
+      <data key="d19">873085884</data>
+      <data key="d20">LINESTRING (717057.5345116302 6496798.005813374, 717179.1163014483 6496768.267798409)</data>
+    </edge>
+    <edge source="4542" target="4475" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.01947636711314</data>
+      <data key="d17">2</data>
+      <data key="d18">873085829</data>
+      <data key="d19">873085851</data>
+      <data key="d20">LINESTRING (717057.5345116302 6496798.005813374, 717088.3340287394 6496920.919341447)</data>
+    </edge>
+    <edge source="4542" target="4512" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">106.40813684838369</data>
+      <data key="d17">2</data>
+      <data key="d18">873085783</data>
+      <data key="d19">873085829</data>
+      <data key="d20">LINESTRING (717057.5345116302 6496798.005813374, 717030.0193384644 6496695.477939451)</data>
+    </edge>
+    <edge source="4542" target="4578" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.84143111146003</data>
+      <data key="d17">2</data>
+      <data key="d18">873085860</data>
+      <data key="d19">873085829</data>
+      <data key="d20">LINESTRING (717057.5345116302 6496798.005813374, 716936.1314590258 6496828.149025467)</data>
+    </edge>
+    <edge source="4543" target="4562" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.40889464216983</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085823</data>
+      <data key="d19">1883255784</data>
+      <data key="d20">LINESTRING (716909.8772102679 6496731.395870469, 716786.0984447678 6496769.9619668)</data>
+    </edge>
+    <edge source="4543" target="1248" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.68050647794355</data>
+      <data key="d17">3</data>
+      <data key="d18">873085823</data>
+      <data key="d19">809950150</data>
+      <data key="d20">LINESTRING (716909.8772102679 6496731.395870469, 716877.7266961029 6496612.270644233)</data>
+    </edge>
+    <edge source="4543" target="4512" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.16152644425152</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085783</data>
+      <data key="d19">873085823</data>
+      <data key="d20">LINESTRING (716909.8772102679 6496731.395870469, 717030.0193384644 6496695.477939451)</data>
+    </edge>
+    <edge source="4543" target="4578" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">100.48973099190043</data>
+      <data key="d17">3</data>
+      <data key="d18">873085860</data>
+      <data key="d19">873085823</data>
+      <data key="d20">LINESTRING (716909.8772102679 6496731.395870469, 716936.1314590258 6496828.149025467)</data>
+    </edge>
+    <edge source="4557" target="4496" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">147.1055180006516</data>
+      <data key="d20">LINESTRING (717044.8178429232 6496290.257756218, 717021.2023732658 6496203.055600464, 717010.4128030207 6496163.204612772, 717006.4628297571 6496148.600956294)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085818</data>
+      <data key="d19">873085696</data>
+    </edge>
+    <edge source="4557" target="1265" id="0">
+      <data key="d10">225740443</data>
+      <data key="d11">residential</data>
+      <data key="d12">Mendoza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">119.64093657748987</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1873945701</data>
+      <data key="d19">873085818</data>
+      <data key="d20">LINESTRING (717044.8178429232 6496290.257756218, 716931.4820179859 6496329.239310993)</data>
+    </edge>
+    <edge source="4557" target="4610" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.46045651937627</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853450037</data>
+      <data key="d19">873085818</data>
+      <data key="d20">LINESTRING (717044.8178429232 6496290.257756218, 717078.773818216 6496414.868797937)</data>
+    </edge>
+    <edge source="4562" target="1234" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">126.53658722630787</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1883255784</data>
+      <data key="d19">809950131</data>
+      <data key="d20">LINESTRING (716786.0984447678 6496769.9619668, 716664.685422691 6496806.435979995)</data>
+    </edge>
+    <edge source="4562" target="4462" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">93.110379621793</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255784</data>
+      <data key="d19">1853479102</data>
+      <data key="d20">LINESTRING (716786.0984447678 6496769.9619668, 716810.3715730836 6496859.624377002)</data>
+    </edge>
+    <edge source="4562" target="1271" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">123.81708829999332</data>
+      <data key="d17">2</data>
+      <data key="d18">1883255787</data>
+      <data key="d19">1883255784</data>
+      <data key="d20">LINESTRING (716786.0984447678 6496769.9619668, 716752.4273016165 6496651.112342197)</data>
+    </edge>
+    <edge source="4562" target="4543" id="0">
+      <data key="d10">485595879</data>
+      <data key="d11">residential</data>
+      <data key="d12">La Rioja</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.40889464216983</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085823</data>
+      <data key="d19">1883255784</data>
+      <data key="d20">LINESTRING (716786.0984447678 6496769.9619668, 716909.8772102679 6496731.395870469)</data>
+    </edge>
+    <edge source="4576" target="4617" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.37558390438966</data>
+      <data key="d17">2</data>
+      <data key="d18">873086109</data>
+      <data key="d19">1853479083</data>
+      <data key="d20">LINESTRING (716969.0388821925 6496949.376934226, 716841.89973102 6496979.406166274)</data>
+    </edge>
+    <edge source="4576" target="4578" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.91278402810774</data>
+      <data key="d17">3</data>
+      <data key="d18">873086109</data>
+      <data key="d19">873085860</data>
+      <data key="d20">LINESTRING (716969.0388821925 6496949.376934226, 716936.1314590258 6496828.149025467)</data>
+    </edge>
+    <edge source="4576" target="4475" id="0">
+      <data key="d10">225995288</data>
+      <data key="d11">residential</data>
+      <data key="d12">Irigoyen Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">122.39714744602095</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873085851</data>
+      <data key="d19">873086109</data>
+      <data key="d20">LINESTRING (716969.0388821925 6496949.376934226, 717088.3340287394 6496920.919341447)</data>
+    </edge>
+    <edge source="4578" target="4542" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.84143111146003</data>
+      <data key="d17">2</data>
+      <data key="d18">873085860</data>
+      <data key="d19">873085829</data>
+      <data key="d20">LINESTRING (716936.1314590258 6496828.149025467, 717057.5345116302 6496798.005813374)</data>
+    </edge>
+    <edge source="4578" target="4543" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">100.48973099190043</data>
+      <data key="d17">3</data>
+      <data key="d18">873085860</data>
+      <data key="d19">873085823</data>
+      <data key="d20">LINESTRING (716936.1314590258 6496828.149025467, 716909.8772102679 6496731.395870469)</data>
+    </edge>
+    <edge source="4578" target="4462" id="0">
+      <data key="d10">67012202</data>
+      <data key="d11">residential</data>
+      <data key="d12">Eva Perón</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.38270490468267</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479102</data>
+      <data key="d19">873085860</data>
+      <data key="d20">LINESTRING (716936.1314590258 6496828.149025467, 716810.3715730836 6496859.624377002)</data>
+    </edge>
+    <edge source="4578" target="4576" id="0">
+      <data key="d10">975268124</data>
+      <data key="d11">residential</data>
+      <data key="d12">Urquiza</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.91278402810774</data>
+      <data key="d17">3</data>
+      <data key="d18">873086109</data>
+      <data key="d19">873085860</data>
+      <data key="d20">LINESTRING (716936.1314590258 6496828.149025467, 716969.0388821925 6496949.376934226)</data>
+    </edge>
+    <edge source="4579" target="1267" id="0">
+      <data key="d10">225740503</data>
+      <data key="d11">secondary</data>
+      <data key="d12">Avenida Gobernador Freyre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">138.70845176628333</data>
+      <data key="d21">40</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086002</data>
+      <data key="d19">873085863</data>
+      <data key="d20">LINESTRING (716232.5011239377 6496192.510636141, 716268.381665949 6496326.15699497)</data>
+    </edge>
+    <edge source="4579" target="4493" id="0">
+      <data key="d10">557114788</data>
+      <data key="d11">residential</data>
+      <data key="d12">Lisandro de La Torre</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">24.077501401131162</data>
+      <data key="d17">2</data>
+      <data key="d18">873086046</data>
+      <data key="d19">873085863</data>
+      <data key="d20">LINESTRING (716232.5011239377 6496192.510636141, 716256.2801351092 6496188.419801883)</data>
+    </edge>
+    <edge source="4610" target="4621" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.4013767149988</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853450037</data>
+      <data key="d19">873086144</data>
+      <data key="d20">LINESTRING (717078.773818216 6496414.868797937, 716965.9264260551 6496451.411124442)</data>
+    </edge>
+    <edge source="4610" target="4557" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.46045651937627</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853450037</data>
+      <data key="d19">873085818</data>
+      <data key="d20">LINESTRING (717078.773818216 6496414.868797937, 717044.8178429232 6496290.257756218)</data>
+    </edge>
+    <edge source="4610" target="4513" id="0">
+      <data key="d10">225998790</data>
+      <data key="d11">residential</data>
+      <data key="d12">1 de Mayo</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.17276316943625</data>
+      <data key="d20">LINESTRING (717078.773818216 6496414.868797937, 717080.7576253449 6496421.682361613, 717083.0071143907 6496429.399938503, 717109.1645839077 6496519.221974641, 717114.5234143722 6496537.645154021)</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086007</data>
+      <data key="d19">1853450037</data>
+    </edge>
+    <edge source="4617" target="4488" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">125.31595990729672</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479083</data>
+      <data key="d19">873085687</data>
+      <data key="d20">LINESTRING (716841.89973102 6496979.406166274, 716719.8237850743 6497008.806436559)</data>
+    </edge>
+    <edge source="4617" target="4462" id="0">
+      <data key="d10">485595884</data>
+      <data key="d11">residential</data>
+      <data key="d12">Francia</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">124.15757089857344</data>
+      <data key="d17">2</data>
+      <data key="d18">1853479102</data>
+      <data key="d19">1853479083</data>
+      <data key="d20">LINESTRING (716841.89973102 6496979.406166274, 716810.3715730836 6496859.624377002)</data>
+    </edge>
+    <edge source="4617" target="4576" id="0">
+      <data key="d10">176911504</data>
+      <data key="d11">residential</data>
+      <data key="d12">Gobernador Vera</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">130.37558390438966</data>
+      <data key="d17">2</data>
+      <data key="d18">873086109</data>
+      <data key="d19">1853479083</data>
+      <data key="d20">LINESTRING (716841.89973102 6496979.406166274, 716969.0388821925 6496949.376934226)</data>
+    </edge>
+    <edge source="4621" target="1250" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">129.099090536624</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">873086144</data>
+      <data key="d19">809950172</data>
+      <data key="d20">LINESTRING (716965.9264260551 6496451.411124442, 716843.1434377077 6496492.042702608)</data>
+    </edge>
+    <edge source="4621" target="1249" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">128.31537875396162</data>
+      <data key="d17">2</data>
+      <data key="d18">873086144</data>
+      <data key="d19">873085733</data>
+      <data key="d20">LINESTRING (716965.9264260551 6496451.411124442, 716997.6015793288 6496575.437907285)</data>
+    </edge>
+    <edge source="4621" target="1265" id="0">
+      <data key="d10">225740457</data>
+      <data key="d11">residential</data>
+      <data key="d12">4 de Enero</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">127.23256259671767</data>
+      <data key="d17">2</data>
+      <data key="d18">1873945701</data>
+      <data key="d19">873086144</data>
+      <data key="d20">LINESTRING (716965.9264260551 6496451.411124442, 716931.4820179859 6496329.239310993)</data>
+    </edge>
+    <edge source="4621" target="4610" id="0">
+      <data key="d10">225457947</data>
+      <data key="d11">residential</data>
+      <data key="d12">Primera Junta</data>
+      <data key="d13">True</data>
+      <data key="d14">asphalt</data>
+      <data key="d15">False</data>
+      <data key="d16">118.4013767149988</data>
+      <data key="d17">2</data>
+      <data key="d22">yes</data>
+      <data key="d18">1853450037</data>
+      <data key="d19">873086144</data>
+      <data key="d20">LINESTRING (716965.9264260551 6496451.411124442, 717078.773818216 6496414.868797937)</data>
+    </edge>
+    <data key="d0">2026-11-06 19:41:36</data>
+    <data key="d1">OSMnx 2.1.1</data>
+    <data key="d2">EPSG:32720</data>
+    <data key="d3">True</data>
+    <data key="d4">True</data>
+  </graph>
+</graphml>
