@@ -1,0 +1,9 @@
+{
+ "numero": 3623,
+ "combinacion": {
+  "cruce": "ninguna",
+  "mutacion": "gaussiana",
+  "agarre": true
+ },
+ "semilla": 0
+}

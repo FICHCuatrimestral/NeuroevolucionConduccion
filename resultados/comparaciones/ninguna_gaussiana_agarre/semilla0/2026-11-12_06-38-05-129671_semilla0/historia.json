@@ -1,0 +1,112 @@
+[
+ {
+  "generacion": 0,
+  "etapa": "manzana",
+  "mejor_nota": 0.21076919607174902,
+  "nota_media": 0.023666885114327546,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.21597931662350814,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 1,
+  "etapa": "manzana",
+  "mejor_nota": 0.20792280565167667,
+  "nota_media": 0.029243787014433496,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.21597931662350814,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 2,
+  "etapa": "manzana",
+  "mejor_nota": 0.24770546064497,
+  "nota_media": 0.04251310649567138,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.24843696845110572,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 3,
+  "etapa": "manzana",
+  "mejor_nota": 0.2486982971125204,
+  "nota_media": 0.0430838784853609,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.24975601010021717,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 4,
+  "etapa": "manzana",
+  "mejor_nota": 0.24936104892586297,
+  "nota_media": 0.05371395208589418,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.24975601010021717,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 5,
+  "etapa": "manzana",
+  "mejor_nota": 0.25239679508294566,
+  "nota_media": 0.06571511644445192,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.24975601010021717,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 6,
+  "etapa": "manzana",
+  "mejor_nota": 0.2503421844804044,
+  "nota_media": 0.06384932533389337,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.2512527535645535,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 7,
+  "etapa": "manzana",
+  "mejor_nota": 0.2505560730931615,
+  "nota_media": 0.08485706145854016,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.2516247798118424,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 8,
+  "etapa": "manzana",
+  "mejor_nota": 0.2513314241248772,
+  "nota_media": 0.08366867542819204,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.2516247798118424,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 9,
+  "etapa": "manzana",
+  "mejor_nota": 0.25080752968124387,
+  "nota_media": 0.09409871677899644,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.2516247798118424,
+  "llegadas_referencia": 0
+ },
+ {
+  "generacion": 10,
+  "etapa": "manzana",
+  "mejor_nota": 0.2511019967821432,
+  "nota_media": 0.10960965261078848,
+  "llegadas_del_mejor": 0,
+  "sigma": 0.3,
+  "mejor_referencia": 0.2521341455804845,
+  "llegadas_referencia": 0
+ }
+]

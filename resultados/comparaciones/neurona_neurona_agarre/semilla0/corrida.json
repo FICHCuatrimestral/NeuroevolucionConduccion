@@ -1,0 +1,9 @@
+{
+ "numero": 9009,
+ "combinacion": {
+  "cruce": "neurona",
+  "mutacion": "neurona",
+  "agarre": true
+ },
+ "semilla": 0
+}

@@ -1,0 +1,9 @@
+{
+ "numero": 9082,
+ "combinacion": {
+  "cruce": "pesos",
+  "mutacion": "gaussiana",
+  "agarre": true
+ },
+ "semilla": 0
+}

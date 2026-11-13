@@ -1,0 +1,502 @@
+[
+ {
+  "generacion": 0,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.6850215419895297,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 1,
+  "etapa": "3x3",
+  "mejor_nota": 0.9972069457015112,
+  "nota_media": 0.6181093168283992,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 2,
+  "etapa": "3x3",
+  "mejor_nota": 0.9968162605935039,
+  "nota_media": 0.6427941857672103,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 3,
+  "etapa": "3x3",
+  "mejor_nota": 0.9973349387344588,
+  "nota_media": 0.663136971529684,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 4,
+  "etapa": "3x3",
+  "mejor_nota": 0.9957567596319115,
+  "nota_media": 0.5968458904925422,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 5,
+  "etapa": "3x3",
+  "mejor_nota": 0.9970293182610708,
+  "nota_media": 0.6732646232439192,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 6,
+  "etapa": "3x3",
+  "mejor_nota": 0.9992506060156797,
+  "nota_media": 0.7266479937438477,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 7,
+  "etapa": "3x3",
+  "mejor_nota": 0.998731884057971,
+  "nota_media": 0.6616042153966132,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 8,
+  "etapa": "3x3",
+  "mejor_nota": 0.999645390070922,
+  "nota_media": 0.782526641199897,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 9,
+  "etapa": "3x3",
+  "mejor_nota": 0.9984982190234454,
+  "nota_media": 0.7077555699692748,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9969586288317123,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 10,
+  "etapa": "3x3",
+  "mejor_nota": 0.9943505893075835,
+  "nota_media": 0.6613963167660607,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9974903151714434,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 11,
+  "etapa": "3x3",
+  "mejor_nota": 0.9973030791189285,
+  "nota_media": 0.6797839317623878,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9974903151714434,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 12,
+  "etapa": "3x3",
+  "mejor_nota": 0.998747763864043,
+  "nota_media": 0.6434456144184459,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9974903151714434,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 13,
+  "etapa": "3x3",
+  "mejor_nota": 0.9977902868117525,
+  "nota_media": 0.7136874766961715,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9974903151714434,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 14,
+  "etapa": "3x3",
+  "mejor_nota": 0.9979445534977875,
+  "nota_media": 0.7355067505560998,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9989715588830327,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 15,
+  "etapa": "3x3",
+  "mejor_nota": 0.9998188405797102,
+  "nota_media": 0.6843009028848356,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9989715588830327,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 16,
+  "etapa": "3x3",
+  "mejor_nota": 0.9997849462365591,
+  "nota_media": 0.78123992219589,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9989715588830327,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 17,
+  "etapa": "3x3",
+  "mejor_nota": 0.9960530956288066,
+  "nota_media": 0.6899813488710441,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9989715588830327,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 18,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7340397001286434,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9989715588830327,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 19,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7466770023008001,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 20,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7572163209615721,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 21,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7644287027181597,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 22,
+  "etapa": "3x3",
+  "mejor_nota": 0.996548418024928,
+  "nota_media": 0.8001952446542019,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 23,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.742795651902396,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 24,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7641149099598973,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 25,
+  "etapa": "3x3",
+  "mejor_nota": 0.9977611675646184,
+  "nota_media": 0.6968245362156233,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 26,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.669270218819571,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 27,
+  "etapa": "3x3",
+  "mejor_nota": 0.9989120580235721,
+  "nota_media": 0.7127889994618299,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 28,
+  "etapa": "3x3",
+  "mejor_nota": 0.9996755879967558,
+  "nota_media": 0.6411478174173858,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 29,
+  "etapa": "3x3",
+  "mejor_nota": 0.9996763754045308,
+  "nota_media": 0.6605014728450957,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 30,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7281818970598332,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.999118048736535,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 31,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.6899347899558279,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 32,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7219348287839881,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 33,
+  "etapa": "3x3",
+  "mejor_nota": 0.9988713318284425,
+  "nota_media": 0.6979460755219516,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 34,
+  "etapa": "3x3",
+  "mejor_nota": 0.9998284734133791,
+  "nota_media": 0.6882033525131925,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 35,
+  "etapa": "3x3",
+  "mejor_nota": 0.9997971602434077,
+  "nota_media": 0.6960248991728213,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 36,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7012433393369532,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 37,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7821973416354776,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 38,
+  "etapa": "3x3",
+  "mejor_nota": 0.9988163096848104,
+  "nota_media": 0.62121482714755,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 39,
+  "etapa": "3x3",
+  "mejor_nota": 0.9997122302158273,
+  "nota_media": 0.7280115415560539,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 40,
+  "etapa": "3x3",
+  "mejor_nota": 0.9977764047643565,
+  "nota_media": 0.5983923522537041,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 41,
+  "etapa": "3x3",
+  "mejor_nota": 0.9955039031478026,
+  "nota_media": 0.5484682593980623,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 42,
+  "etapa": "3x3",
+  "mejor_nota": 0.998762561010623,
+  "nota_media": 0.6809571090840286,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 43,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.6617930568629484,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 44,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7104181222388404,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 45,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.7469091254892856,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 46,
+  "etapa": "3x3",
+  "mejor_nota": 0.9998469778117827,
+  "nota_media": 0.7511557697143885,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 47,
+  "etapa": "3x3",
+  "mejor_nota": 1.0,
+  "nota_media": 0.788987366001779,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 48,
+  "etapa": "3x3",
+  "mejor_nota": 0.9995627288730737,
+  "nota_media": 0.6969392336009861,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 49,
+  "etapa": "3x3",
+  "mejor_nota": 0.9988319121260297,
+  "nota_media": 0.8180525450513003,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.15,
+  "mejor_referencia": 0.9991601521371279,
+  "llegadas_referencia": 20
+ }
+]

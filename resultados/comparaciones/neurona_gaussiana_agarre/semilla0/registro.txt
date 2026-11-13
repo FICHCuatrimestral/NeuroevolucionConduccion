@@ -1,0 +1,134 @@
+Etapa 1 de 2: manzana. Guardando en 2026-11-12_06-38-04-536219_semilla0
+manzana  generación 0  mejor 0.211  media 0.024  llegadas del mejor 0/2  mejor referencia 0.216  llega en 0/8  sigma 0.3
+manzana  generación 1  mejor 0.215  media 0.026  llegadas del mejor 0/2  mejor referencia 0.216  llega en 0/8  sigma 0.3
+manzana  generación 2  mejor 0.219  media 0.028  llegadas del mejor 0/2  mejor referencia 0.216  llega en 0/8  sigma 0.3
+manzana  generación 3  mejor 0.216  media 0.030  llegadas del mejor 0/2  mejor referencia 0.216  llega en 0/8  sigma 0.3
+manzana  generación 4  mejor 0.252  media 0.036  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 5  mejor 0.255  media 0.049  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 6  mejor 0.253  media 0.051  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 7  mejor 0.253  media 0.054  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 8  mejor 0.253  media 0.034  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+Entrenamiento detenido. Cada etapa conserva su última generación completa.
+Para seguir desde donde quedó: continuar_desde="2026-11-12_06-38-04-536219_semilla0"
+Etapa 1 de 3: manzana. Guardando en 2026-11-12_06-50-19-896662_semilla0
+manzana  generación 9  mejor 0.253  media 0.036  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 10  mejor 0.252  media 0.048  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 11  mejor 0.253  media 0.053  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 12  mejor 0.256  media 0.056  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 13  mejor 0.253  media 0.064  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 14  mejor 0.253  media 0.058  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 15  mejor 0.253  media 0.056  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 16  mejor 0.253  media 0.055  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 17  mejor 0.253  media 0.061  llegadas del mejor 0/2  mejor referencia 0.253  llega en 0/8  sigma 0.3
+manzana  generación 18  mejor 0.375  media 0.077  llegadas del mejor 0/2  mejor referencia 0.313  llega en 0/8  sigma 0.3
+manzana  generación 19  mejor 0.369  media 0.090  llegadas del mejor 0/2  mejor referencia 0.315  llega en 0/8  sigma 0.3
+manzana  generación 20  mejor 0.254  media 0.073  llegadas del mejor 0/2  mejor referencia 0.315  llega en 0/8  sigma 0.3
+manzana  generación 21  mejor 0.254  media 0.051  llegadas del mejor 0/2  mejor referencia 0.315  llega en 0/8  sigma 0.3
+manzana  generación 22  mejor 0.254  media 0.084  llegadas del mejor 0/2  mejor referencia 0.315  llega en 0/8  sigma 0.3
+manzana  generación 23  mejor 0.370  media 0.105  llegadas del mejor 0/2  mejor referencia 0.371  llega en 0/8  sigma 0.3
+manzana  generación 24  mejor 0.261  media 0.096  llegadas del mejor 0/2  mejor referencia 0.371  llega en 0/8  sigma 0.3
+manzana  generación 25  mejor 0.368  media 0.106  llegadas del mejor 0/2  mejor referencia 0.371  llega en 0/8  sigma 0.3
+manzana  generación 26  mejor 0.376  media 0.120  llegadas del mejor 0/2  mejor referencia 0.371  llega en 0/8  sigma 0.3
+manzana  generación 27  mejor 0.376  media 0.159  llegadas del mejor 0/2  mejor referencia 0.371  llega en 0/8  sigma 0.3
+manzana  generación 28  mejor 0.374  media 0.174  llegadas del mejor 0/2  mejor referencia 0.375  llega en 0/8  sigma 0.3
+manzana  generación 29  mejor 0.491  media 0.158  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 30  mejor 0.492  media 0.178  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 31  mejor 0.490  media 0.143  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 32  mejor 0.490  media 0.152  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 33  mejor 0.605  media 0.183  llegadas del mejor 1/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 34  mejor 0.604  media 0.146  llegadas del mejor 1/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 35  mejor 0.379  media 0.204  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 36  mejor 0.490  media 0.180  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 37  mejor 0.497  media 0.185  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 38  mejor 0.605  media 0.190  llegadas del mejor 1/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 39  mejor 0.493  media 0.215  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 40  mejor 0.489  media 0.207  llegadas del mejor 0/2  mejor referencia 0.493  llega en 0/8  sigma 0.3
+manzana  generación 41  mejor 0.616  media 0.218  llegadas del mejor 1/2  mejor referencia 0.615  llega en 4/8  sigma 0.3
+manzana  generación 42  mejor 0.611  media 0.187  llegadas del mejor 1/2  mejor referencia 0.615  llega en 4/8  sigma 0.3
+manzana  generación 43  mejor 0.624  media 0.209  llegadas del mejor 1/2  mejor referencia 0.618  llega en 4/8  sigma 0.3
+manzana  generación 44  mejor 0.629  media 0.183  llegadas del mejor 1/2  mejor referencia 0.618  llega en 4/8  sigma 0.3
+manzana  generación 45  mejor 0.624  media 0.224  llegadas del mejor 1/2  mejor referencia 0.618  llega en 4/8  sigma 0.3
+manzana  generación 46  mejor 0.620  media 0.220  llegadas del mejor 1/2  mejor referencia 0.618  llega en 4/8  sigma 0.3
+manzana  generación 47  mejor 0.622  media 0.234  llegadas del mejor 1/2  mejor referencia 0.621  llega en 4/8  sigma 0.3
+manzana  generación 48  mejor 0.624  media 0.203  llegadas del mejor 1/2  mejor referencia 0.621  llega en 4/8  sigma 0.3
+manzana  generación 49  mejor 0.739  media 0.241  llegadas del mejor 1/2  mejor referencia 0.673  llega en 4/8  sigma 0.3
+manzana  generación 50  mejor 0.622  media 0.240  llegadas del mejor 1/2  mejor referencia 0.673  llega en 4/8  sigma 0.3
+manzana  generación 51  mejor 0.622  media 0.253  llegadas del mejor 1/2  mejor referencia 0.673  llega en 4/8  sigma 0.3
+manzana  generación 52  mejor 0.743  media 0.250  llegadas del mejor 1/2  mejor referencia 0.673  llega en 4/8  sigma 0.3
+manzana  generación 53  mejor 0.748  media 0.257  llegadas del mejor 1/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 54  mejor 0.994  media 0.260  llegadas del mejor 2/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 55  mejor 0.994  media 0.248  llegadas del mejor 2/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 56  mejor 0.629  media 0.242  llegadas del mejor 1/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 57  mejor 0.872  media 0.233  llegadas del mejor 1/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 58  mejor 0.990  media 0.243  llegadas del mejor 2/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 59  mejor 0.874  media 0.232  llegadas del mejor 0/2  mejor referencia 0.718  llega en 5/8  sigma 0.3
+manzana  generación 60  mejor 0.748  media 0.287  llegadas del mejor 1/2  mejor referencia 0.891  llega en 7/8  sigma 0.3
+manzana  generación 61  mejor 0.956  media 0.297  llegadas del mejor 2/2  mejor referencia 0.954  llega en 8/8  sigma 0.3
+La mejor red llega en 8 de 8 rutas de referencia: pasa a la etapa siguiente.
+Llegadas de la mejor red en las referencias: manzana 8/8
+Etapa 2 de 3: 2x2. Guardando en 2026-11-12_07-50-17-172102_semilla0
+2x2  generación 0  mejor 1.000  media 0.653  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 1  mejor 0.988  media 0.518  llegadas del mejor 3/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 2  mejor 0.987  media 0.421  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 3  mejor 0.992  media 0.532  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 4  mejor 0.998  media 0.610  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 5  mejor 0.998  media 0.692  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 6  mejor 0.995  media 0.526  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 7  mejor 0.889  media 0.534  llegadas del mejor 3/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 8  mejor 0.983  media 0.443  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+2x2  generación 9  mejor 0.985  media 0.483  llegadas del mejor 4/4  mejor referencia 0.931  llega en 19/20  sigma 0.2
+La mejor red llega en 19 de 20 rutas de referencia: pasa a la etapa siguiente.
+Llegadas de la mejor red en las referencias: manzana 8/8, 2x2 19/20
+Etapa 3 de 3: 3x3. Guardando en 2026-11-12_08-19-41-018228_semilla0
+3x3  generación 0  mejor 0.990  media 0.584  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 1  mejor 0.995  media 0.666  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 2  mejor 0.978  media 0.603  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 3  mejor 0.989  media 0.721  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 4  mejor 0.994  media 0.715  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 5  mejor 0.996  media 0.674  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 6  mejor 0.988  media 0.625  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 7  mejor 0.987  media 0.589  llegadas del mejor 4/4  mejor referencia 0.905  llega en 17/20  sigma 0.15
+3x3  generación 8  mejor 0.996  media 0.572  llegadas del mejor 4/4  mejor referencia 0.906  llega en 17/20  sigma 0.15
+3x3  generación 9  mejor 0.987  media 0.699  llegadas del mejor 4/4  mejor referencia 0.934  llega en 18/20  sigma 0.15
+3x3  generación 10  mejor 0.999  media 0.814  llegadas del mejor 4/4  mejor referencia 0.934  llega en 18/20  sigma 0.15
+3x3  generación 11  mejor 0.989  media 0.665  llegadas del mejor 4/4  mejor referencia 0.941  llega en 18/20  sigma 0.15
+3x3  generación 12  mejor 0.977  media 0.635  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 13  mejor 0.996  media 0.847  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 14  mejor 0.974  media 0.615  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 15  mejor 0.975  media 0.663  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 16  mejor 0.991  media 0.631  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 17  mejor 0.998  media 0.757  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 18  mejor 0.991  media 0.734  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 19  mejor 0.992  media 0.616  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 20  mejor 0.997  media 0.801  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 21  mejor 0.994  media 0.738  llegadas del mejor 4/4  mejor referencia 0.982  llega en 20/20  sigma 0.15
+3x3  generación 22  mejor 0.985  media 0.734  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 23  mejor 0.997  media 0.809  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 24  mejor 0.997  media 0.825  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 25  mejor 1.000  media 0.809  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 26  mejor 0.997  media 0.761  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 27  mejor 0.997  media 0.759  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 28  mejor 0.993  media 0.831  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 29  mejor 0.995  media 0.780  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 30  mejor 0.995  media 0.701  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 31  mejor 0.996  media 0.662  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 32  mejor 0.998  media 0.752  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 33  mejor 1.000  media 0.836  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 34  mejor 0.991  media 0.763  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 35  mejor 0.999  media 0.762  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 36  mejor 0.994  media 0.690  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 37  mejor 0.994  media 0.769  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 38  mejor 0.997  media 0.892  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 39  mejor 1.000  media 0.900  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 40  mejor 0.995  media 0.796  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 41  mejor 0.997  media 0.737  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 42  mejor 0.989  media 0.691  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 43  mejor 0.993  media 0.742  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 44  mejor 1.000  media 0.834  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 45  mejor 0.998  media 0.694  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 46  mejor 0.981  media 0.744  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 47  mejor 0.997  media 0.751  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 48  mejor 0.999  media 0.876  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+3x3  generación 49  mejor 1.000  media 0.787  llegadas del mejor 4/4  mejor referencia 0.991  llega en 20/20  sigma 0.15
+Llegadas de la mejor red en las referencias: manzana 5/8, 2x2 18/20, 3x3 20/20
+prueba centro (prueba): llega en 15/20

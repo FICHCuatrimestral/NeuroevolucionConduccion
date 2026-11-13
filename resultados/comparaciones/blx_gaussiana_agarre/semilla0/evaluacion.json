@@ -1,0 +1,232 @@
+{
+ "numero": 8477,
+ "combinacion": {
+  "cruce": "blx",
+  "mutacion": "gaussiana",
+  "agarre": true
+ },
+ "semilla": 0,
+ "red": "2026-11-12_08-34-26-231980_semilla0",
+ "rutas": [
+  {
+   "zona": "centro",
+   "ruta": 0,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 80.09999999999972,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 16.350842030353398,
+   "lateral_maxima": 5.6048385257466355
+  },
+  {
+   "zona": "centro",
+   "ruta": 1,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 84.49999999999947,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": 20.24547977895661,
+   "velocidad_lejos": 15.030251729739177,
+   "lateral_maxima": 6.030223967616625
+  },
+  {
+   "zona": "centro",
+   "ruta": 2,
+   "motivo": "llegada",
+   "nota": 0.9861581920903952,
+   "tiempo": 283.1999999999959,
+   "fuera_del_carril": 0.017302259887005896,
+   "velocidad_cerca": 18.09520846424716,
+   "velocidad_lejos": 16.66516158052694,
+   "lateral_maxima": 6.252528806447354
+  },
+  {
+   "zona": "centro",
+   "ruta": 3,
+   "motivo": "llegada",
+   "nota": 0.9925558312655085,
+   "tiempo": 161.19999999999513,
+   "fuera_del_carril": 0.009305210918114426,
+   "velocidad_cerca": 17.35489962602168,
+   "velocidad_lejos": 16.777748422610447,
+   "lateral_maxima": 6.029417846999206
+  },
+  {
+   "zona": "centro",
+   "ruta": 4,
+   "motivo": "llegada",
+   "nota": 0.9676855895196497,
+   "tiempo": 183.19999999999388,
+   "fuera_del_carril": 0.040393013100437976,
+   "velocidad_cerca": 20.171124977019176,
+   "velocidad_lejos": 17.52423307568644,
+   "lateral_maxima": 6.247498789373287
+  },
+  {
+   "zona": "centro",
+   "ruta": 5,
+   "motivo": "llegada",
+   "nota": 0.9824817518248175,
+   "tiempo": 82.1999999999996,
+   "fuera_del_carril": 0.021897810218978214,
+   "velocidad_cerca": 21.360375174266693,
+   "velocidad_lejos": 15.410146057301574,
+   "lateral_maxima": 6.172252418685458
+  },
+  {
+   "zona": "centro",
+   "ruta": 6,
+   "motivo": "llegada",
+   "nota": 0.9852818991097918,
+   "tiempo": 168.4999999999947,
+   "fuera_del_carril": 0.01839762611276023,
+   "velocidad_cerca": 22.026739939556304,
+   "velocidad_lejos": 17.237896810261276,
+   "lateral_maxima": 6.233120219299539
+  },
+  {
+   "zona": "centro",
+   "ruta": 7,
+   "motivo": "llegada",
+   "nota": 0.9937198067632849,
+   "tiempo": 165.59999999999488,
+   "fuera_del_carril": 0.007850241545893963,
+   "velocidad_cerca": 18.526338024220784,
+   "velocidad_lejos": 17.28996602334857,
+   "lateral_maxima": 6.286779396275734
+  },
+  {
+   "zona": "centro",
+   "ruta": 8,
+   "motivo": "llegada",
+   "nota": 0.9963190184049079,
+   "tiempo": 130.39999999999688,
+   "fuera_del_carril": 0.00460122699386514,
+   "velocidad_cerca": 18.079149141391056,
+   "velocidad_lejos": 16.36123618351529,
+   "lateral_maxima": 6.08794331763677
+  },
+  {
+   "zona": "centro",
+   "ruta": 9,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 85.59999999999941,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": 15.754692053943208,
+   "velocidad_lejos": 15.356765564669479,
+   "lateral_maxima": 3.8897995584615144
+  },
+  {
+   "zona": "centro",
+   "ruta": 10,
+   "motivo": "llegada",
+   "nota": 0.9879359095193212,
+   "tiempo": 106.09999999999825,
+   "fuera_del_carril": 0.01508011310084851,
+   "velocidad_cerca": 19.748403101903993,
+   "velocidad_lejos": 15.797169665117385,
+   "lateral_maxima": 6.160586164560952
+  },
+  {
+   "zona": "centro",
+   "ruta": 11,
+   "motivo": "llegada",
+   "nota": 0.9809239940387476,
+   "tiempo": 134.19999999999666,
+   "fuera_del_carril": 0.023845007451565432,
+   "velocidad_cerca": 20.726670816061024,
+   "velocidad_lejos": 17.29158960853439,
+   "lateral_maxima": 6.241828077340218
+  },
+  {
+   "zona": "centro",
+   "ruta": 12,
+   "motivo": "tiempo",
+   "nota": 0.0,
+   "tiempo": 78.39999999999982,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 0.0,
+   "lateral_maxima": 0.0
+  },
+  {
+   "zona": "centro",
+   "ruta": 13,
+   "motivo": "llegada",
+   "nota": 0.9947939262472885,
+   "tiempo": 92.19999999999904,
+   "fuera_del_carril": 0.006507592190889438,
+   "velocidad_cerca": 16.884318523460653,
+   "velocidad_lejos": 14.899522925636946,
+   "lateral_maxima": 5.893078150654223
+  },
+  {
+   "zona": "centro",
+   "ruta": 14,
+   "motivo": "llegada",
+   "nota": 0.9937743190661479,
+   "tiempo": 77.0999999999999,
+   "fuera_del_carril": 0.007782101167315186,
+   "velocidad_cerca": 19.614402931014936,
+   "velocidad_lejos": 16.42265810639841,
+   "lateral_maxima": 6.190244549061257
+  },
+  {
+   "zona": "centro",
+   "ruta": 15,
+   "motivo": "llegada",
+   "nota": 0.9475409836065569,
+   "tiempo": 91.49999999999908,
+   "fuera_del_carril": 0.06557377049180388,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 17.952493676239033,
+   "lateral_maxima": 6.169487048869648
+  },
+  {
+   "zona": "centro",
+   "ruta": 16,
+   "motivo": "llegada",
+   "nota": 0.9956124314442413,
+   "tiempo": 109.39999999999806,
+   "fuera_del_carril": 0.005484460694698452,
+   "velocidad_cerca": 17.471228741054798,
+   "velocidad_lejos": 15.416139559571791,
+   "lateral_maxima": 5.884339461764409
+  },
+  {
+   "zona": "centro",
+   "ruta": 17,
+   "motivo": "llegada",
+   "nota": 0.9951159951159949,
+   "tiempo": 163.79999999999498,
+   "fuera_del_carril": 0.0061050061050062915,
+   "velocidad_cerca": 18.419024213359773,
+   "velocidad_lejos": 16.762163863740128,
+   "lateral_maxima": 5.892504794768371
+  },
+  {
+   "zona": "centro",
+   "ruta": 18,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 106.39999999999823,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": 18.36219408758173,
+   "velocidad_lejos": 16.546059520733035,
+   "lateral_maxima": 5.989014668147323
+  },
+  {
+   "zona": "centro",
+   "ruta": 19,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 132.59999999999675,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 16.70184338447301,
+   "lateral_maxima": 4.119307016210909
+  }
+ ]
+}

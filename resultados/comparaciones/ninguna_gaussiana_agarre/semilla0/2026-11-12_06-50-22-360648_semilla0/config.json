@@ -1,0 +1,82 @@
+{
+ "parametros": {
+  "semilla": 0,
+  "mapa": "manzana",
+  "generaciones": 100,
+  "tamano_poblacion": 50,
+  "tipo_cruce": "ninguna",
+  "tipo_mutacion": "gaussiana",
+  "origen": "2026-11-12_06-38-05-129671_semilla0",
+  "etapa": 1,
+  "nombre_etapa": "manzana",
+  "etapas": [
+   "manzana",
+   "2x2",
+   "3x3"
+  ],
+  "sigma_etapa": 0.3,
+  "umbral_etapa": 1.0
+ },
+ "config": {
+  "ACELERACION_LATERAL_MAXIMA": 6.0,
+  "ACELERACION_MAXIMA": 2.0,
+  "ALCANCE_RAYOS": 30.0,
+  "ALFA_BLX": 0.5,
+  "ANCHO_AUTO": 1.8,
+  "ANCHO_CARRIL": 3.5,
+  "ANGULOS_RAYOS": [
+   -1.5707963267948966,
+   -1.0471975511965976,
+   -0.5235987755982988,
+   0.0,
+   0.5235987755982988,
+   1.0471975511965976,
+   1.5707963267948966
+  ],
+  "ANGULO_GIRO": 30.0,
+  "CANTIDAD_ENTRADAS": 16,
+  "CAPAS": [
+   16,
+   16,
+   2
+  ],
+  "DESVIO_PESOS_INICIALES": 0.1,
+  "DT": 0.1,
+  "ELITE": 2,
+  "FRENADA_MAXIMA": 4.0,
+  "GENERACIONES": 100,
+  "GIRO_VOLANTE_MAXIMO": null,
+  "LARGO_AUTO": 4.5,
+  "LARGO_MINIMO_RUTA": 150.0,
+  "L_F": 1.1,
+  "L_R": 1.7,
+  "MARGEN_CARRIL": 0.05,
+  "MIRADAS_CARRIL": [
+   3.0,
+   6.0
+  ],
+  "NEURONAS_A_MUTAR": 2,
+  "PASO_RAYOS": 0.25,
+  "PENALIZACION_CARRIL": 0.8,
+  "PREMIO_TIEMPO": 0.0,
+  "PROBABILIDAD_CRUCE": 0.8,
+  "PROBABILIDAD_MUTACION": 0.05,
+  "PUNTOS_EN_GIROS": true,
+  "PUNTOS_SALTEABLES": 2,
+  "RADIO_PUNTO": 6.0,
+  "RESOLUCION_MAPA": 0.25,
+  "RUIDO_SENSORES": 0.02,
+  "RUTAS_POR_GENERACION": 3,
+  "RUTAS_REFERENCIA": 20,
+  "SEPARACION_PUNTOS": 10.0,
+  "SIGMA": 0.3,
+  "TAMANO_POBLACION": 50,
+  "TAMANO_TORNEO": 3,
+  "TIEMPO_EXTRA": 10.0,
+  "TIPO_CRUCE": "neurona",
+  "TIPO_MUTACION": "gaussiana",
+  "VELOCIDAD_MAXIMA": 11.0,
+  "VELOCIDAD_REFERENCIA": 4.0,
+  "VOLANTE_MAXIMO": 0.6108652381980153
+ }
+}

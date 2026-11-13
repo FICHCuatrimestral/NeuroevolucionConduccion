@@ -1,0 +1,9 @@
+{
+ "numero": 4743,
+ "combinacion": {
+  "cruce": "neurona",
+  "mutacion": "gaussiana",
+  "agarre": true
+ },
+ "semilla": 0
+}

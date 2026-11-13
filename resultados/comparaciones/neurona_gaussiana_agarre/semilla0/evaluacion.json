@@ -1,0 +1,232 @@
+{
+ "numero": 4743,
+ "combinacion": {
+  "cruce": "neurona",
+  "mutacion": "gaussiana",
+  "agarre": true
+ },
+ "semilla": 0,
+ "red": "2026-11-12_08-19-41-018228_semilla0",
+ "rutas": [
+  {
+   "zona": "centro",
+   "ruta": 0,
+   "motivo": "llegada",
+   "nota": 0.9934336525307798,
+   "tiempo": 73.10000000000012,
+   "fuera_del_carril": 0.008207934336525294,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 17.921474194803476,
+   "lateral_maxima": 6.097283694101906
+  },
+  {
+   "zona": "centro",
+   "ruta": 1,
+   "motivo": "llegada",
+   "nota": 0.9869209809264305,
+   "tiempo": 73.4000000000001,
+   "fuera_del_carril": 0.016348773841961827,
+   "velocidad_cerca": 19.183260830557238,
+   "velocidad_lejos": 17.61673556345901,
+   "lateral_maxima": 6.104380213384525
+  },
+  {
+   "zona": "centro",
+   "ruta": 2,
+   "motivo": "choque",
+   "nota": 0.2798451279203644,
+   "tiempo": 73.5000000000001,
+   "fuera_del_carril": 0.02448979591836732,
+   "velocidad_cerca": 19.012719222597966,
+   "velocidad_lejos": 17.745097853411817,
+   "lateral_maxima": 6.2869435559564435
+  },
+  {
+   "zona": "centro",
+   "ruta": 3,
+   "motivo": "choque",
+   "nota": 0.5147263507999116,
+   "tiempo": 81.79999999999963,
+   "fuera_del_carril": 0.04889975550122274,
+   "velocidad_cerca": 19.041257597660213,
+   "velocidad_lejos": 17.1454284721739,
+   "lateral_maxima": 6.302932499041251
+  },
+  {
+   "zona": "centro",
+   "ruta": 4,
+   "motivo": "llegada",
+   "nota": 0.9165014577259449,
+   "tiempo": 171.49999999999454,
+   "fuera_del_carril": 0.10437317784256883,
+   "velocidad_cerca": 19.502320587917207,
+   "velocidad_lejos": 18.922794016578727,
+   "lateral_maxima": 6.065377350020253
+  },
+  {
+   "zona": "centro",
+   "ruta": 5,
+   "motivo": "llegada",
+   "nota": 0.9770804911323329,
+   "tiempo": 73.30000000000011,
+   "fuera_del_carril": 0.028649386084583867,
+   "velocidad_cerca": 19.103677141956453,
+   "velocidad_lejos": 17.842815460506188,
+   "lateral_maxima": 6.092074003188212
+  },
+  {
+   "zona": "centro",
+   "ruta": 6,
+   "motivo": "llegada",
+   "nota": 0.9704260651629064,
+   "tiempo": 159.59999999999522,
+   "fuera_del_carril": 0.03696741854636699,
+   "velocidad_cerca": 19.27072474415934,
+   "velocidad_lejos": 18.347494073320306,
+   "lateral_maxima": 6.17780938882671
+  },
+  {
+   "zona": "centro",
+   "ruta": 7,
+   "motivo": "llegada",
+   "nota": 0.9823788546255501,
+   "tiempo": 158.89999999999526,
+   "fuera_del_carril": 0.02202643171806234,
+   "velocidad_cerca": 19.222768802523053,
+   "velocidad_lejos": 18.03466695737357,
+   "lateral_maxima": 6.293771478099724
+  },
+  {
+   "zona": "centro",
+   "ruta": 8,
+   "motivo": "llegada",
+   "nota": 0.9952941176470588,
+   "tiempo": 118.99999999999751,
+   "fuera_del_carril": 0.005882352941176593,
+   "velocidad_cerca": 19.635068452279576,
+   "velocidad_lejos": 18.002414393503518,
+   "lateral_maxima": 6.316112888454193
+  },
+  {
+   "zona": "centro",
+   "ruta": 9,
+   "motivo": "llegada",
+   "nota": 0.9893617021276596,
+   "tiempo": 75.2,
+   "fuera_del_carril": 0.01329787234042553,
+   "velocidad_cerca": 18.184634523445915,
+   "velocidad_lejos": 17.46834282289137,
+   "lateral_maxima": 5.128961566773584
+  },
+  {
+   "zona": "centro",
+   "ruta": 10,
+   "motivo": "llegada",
+   "nota": 0.9724713242961415,
+   "tiempo": 95.89999999999883,
+   "fuera_del_carril": 0.03441084462982317,
+   "velocidad_cerca": 19.057440875644435,
+   "velocidad_lejos": 18.016668675955042,
+   "lateral_maxima": 6.138607793628287
+  },
+  {
+   "zona": "centro",
+   "ruta": 11,
+   "motivo": "llegada",
+   "nota": 0.9656518345042927,
+   "tiempo": 128.099999999997,
+   "fuera_del_carril": 0.04293520686963408,
+   "velocidad_cerca": 18.819227439390254,
+   "velocidad_lejos": 18.217894666562458,
+   "lateral_maxima": 6.162523473801109
+  },
+  {
+   "zona": "centro",
+   "ruta": 12,
+   "motivo": "choque",
+   "nota": 0.903945053269031,
+   "tiempo": 50.90000000000045,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": 22.00105280148661,
+   "velocidad_lejos": 17.134939623808744,
+   "lateral_maxima": 6.285656824886079
+  },
+  {
+   "zona": "centro",
+   "ruta": 13,
+   "motivo": "choque",
+   "nota": 0.6243257076911867,
+   "tiempo": 51.60000000000046,
+   "fuera_del_carril": 0.031007751937984225,
+   "velocidad_cerca": 19.14329006218287,
+   "velocidad_lejos": 16.62061141316192,
+   "lateral_maxima": 6.281497297955503
+  },
+  {
+   "zona": "centro",
+   "ruta": 14,
+   "motivo": "llegada",
+   "nota": 0.9945280437756499,
+   "tiempo": 73.10000000000012,
+   "fuera_del_carril": 0.006839945280437745,
+   "velocidad_cerca": 20.225216183340045,
+   "velocidad_lejos": 17.327789630867137,
+   "lateral_maxima": 6.2969585922147795
+  },
+  {
+   "zona": "centro",
+   "ruta": 15,
+   "motivo": "llegada",
+   "nota": 0.9064017660044144,
+   "tiempo": 90.59999999999913,
+   "fuera_del_carril": 0.11699779249448213,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 18.093236492229806,
+   "lateral_maxima": 5.768126726086963
+  },
+  {
+   "zona": "centro",
+   "ruta": 16,
+   "motivo": "choque",
+   "nota": 0.7498838529238262,
+   "tiempo": 73.5000000000001,
+   "fuera_del_carril": 0.02448979591836732,
+   "velocidad_cerca": 19.017775533345976,
+   "velocidad_lejos": 17.745097853411817,
+   "lateral_maxima": 6.28867272047873
+  },
+  {
+   "zona": "centro",
+   "ruta": 17,
+   "motivo": "llegada",
+   "nota": 0.9884210526315786,
+   "tiempo": 151.99999999999565,
+   "fuera_del_carril": 0.014473684210526734,
+   "velocidad_cerca": 19.351961942277118,
+   "velocidad_lejos": 18.123011210596932,
+   "lateral_maxima": 6.280751019053428
+  },
+  {
+   "zona": "centro",
+   "ruta": 18,
+   "motivo": "llegada",
+   "nota": 0.9760577915376674,
+   "tiempo": 96.89999999999877,
+   "fuera_del_carril": 0.02992776057791577,
+   "velocidad_cerca": 18.6668667127656,
+   "velocidad_lejos": 18.440606263118152,
+   "lateral_maxima": 6.1346719474953915
+  },
+  {
+   "zona": "centro",
+   "ruta": 19,
+   "motivo": "llegada",
+   "nota": 1.0,
+   "tiempo": 123.29999999999727,
+   "fuera_del_carril": 0.0,
+   "velocidad_cerca": null,
+   "velocidad_lejos": 17.959988810808067,
+   "lateral_maxima": 4.338592284348661
+  }
+ ]
+}

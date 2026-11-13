@@ -5,10 +5,6 @@ __pycache__/
 cache/
 .checkpoint.tmp
 
-# Entrenamientos: se suben solo los que se eligen para el informe
-resultados/*
-!resultados/.gitkeep
-
 # LaTeX
 *.aux
 *.log

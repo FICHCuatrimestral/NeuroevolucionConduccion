@@ -1,0 +1,102 @@
+[
+ {
+  "generacion": 0,
+  "etapa": "2x2",
+  "mejor_nota": 0.9916448493888879,
+  "nota_media": 0.5116306357139025,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.9904007618634483,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 1,
+  "etapa": "2x2",
+  "mejor_nota": 0.9969348659003832,
+  "nota_media": 0.5031226579237742,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 2,
+  "etapa": "2x2",
+  "mejor_nota": 0.9919043254802595,
+  "nota_media": 0.7568959734963302,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 3,
+  "etapa": "2x2",
+  "mejor_nota": 0.9967345319936541,
+  "nota_media": 0.7134569160770803,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 4,
+  "etapa": "2x2",
+  "mejor_nota": 0.9991525423728813,
+  "nota_media": 0.8663735205159087,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 5,
+  "etapa": "2x2",
+  "mejor_nota": 0.9995584988962473,
+  "nota_media": 0.8293863678065615,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 6,
+  "etapa": "2x2",
+  "mejor_nota": 0.9978890814711711,
+  "nota_media": 0.8414807618733087,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 7,
+  "etapa": "2x2",
+  "mejor_nota": 1.0,
+  "nota_media": 0.8954776866692161,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 8,
+  "etapa": "2x2",
+  "mejor_nota": 0.999581589958159,
+  "nota_media": 0.7458623621081327,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ },
+ {
+  "generacion": 9,
+  "etapa": "2x2",
+  "mejor_nota": 1.0,
+  "nota_media": 0.8548243195005254,
+  "llegadas_del_mejor": 4,
+  "sigma": 0.2,
+  "mejor_referencia": 0.992794779750286,
+  "llegadas_referencia": 20
+ }
+]

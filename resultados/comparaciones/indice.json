@@ -1,0 +1,74 @@
+[
+ {
+  "numero": 8477,
+  "cruce": "blx",
+  "mutacion": "gaussiana",
+  "agarre": true,
+  "semilla": 0,
+  "red": "2026-11-12_08-34-26-231980_semilla0",
+  "carpeta": "blx_gaussiana_agarre/semilla0",
+  "llegadas": 19,
+  "rutas": 20,
+  "centro": 19
+ },
+ {
+  "numero": 4743,
+  "cruce": "neurona",
+  "mutacion": "gaussiana",
+  "agarre": true,
+  "semilla": 0,
+  "red": "2026-11-12_08-19-41-018228_semilla0",
+  "carpeta": "neurona_gaussiana_agarre/semilla0",
+  "llegadas": 15,
+  "rutas": 20,
+  "centro": 15
+ },
+ {
+  "numero": 6841,
+  "cruce": "neurona",
+  "mutacion": "gaussiana",
+  "agarre": false,
+  "semilla": 0,
+  "red": "2026-11-12_07-29-13-827825_semilla0",
+  "carpeta": "neurona_gaussiana_sin-agarre/semilla0",
+  "llegadas": 20,
+  "rutas": 20,
+  "centro": 20
+ },
+ {
+  "numero": 9009,
+  "cruce": "neurona",
+  "mutacion": "neurona",
+  "agarre": true,
+  "semilla": 0,
+  "red": "2026-11-12_08-43-00-571334_semilla0",
+  "carpeta": "neurona_neurona_agarre/semilla0",
+  "llegadas": 17,
+  "rutas": 20,
+  "centro": 17
+ },
+ {
+  "numero": 3623,
+  "cruce": "ninguna",
+  "mutacion": "gaussiana",
+  "agarre": true,
+  "semilla": 0,
+  "red": "2026-11-12_08-40-18-390410_semilla0",
+  "carpeta": "ninguna_gaussiana_agarre/semilla0",
+  "llegadas": 19,
+  "rutas": 20,
+  "centro": 19
+ },
+ {
+  "numero": 9082,
+  "cruce": "pesos",
+  "mutacion": "gaussiana",
+  "agarre": true,
+  "semilla": 0,
+  "red": "2026-11-12_08-22-00-517100_semilla0",
+  "carpeta": "pesos_gaussiana_agarre/semilla0",
+  "llegadas": 20,
+  "rutas": 20,
+  "centro": 20
+ }
+]
