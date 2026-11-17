@@ -188,7 +188,7 @@ def algoritmo():
     fig, ax = plt.subplots(figsize=(16, 5.2))
     arriba, abajo = 3.4, 0.9
     caja(ax, 1.5, arriba, "Inicio", "50 redes al azar", ancho=2.6)
-    caja(ax, 5.1, arriba, "Evaluar", "3 rutas + 1 de una etapa\nanterior; nota = promedio", ancho=3.6)
+    caja(ax, 5.1, arriba, "Evaluar", "3 rutas + 1 de una etapa\nanterior; fitness = promedio", ancho=3.6)
     caja(ax, 9.0, arriba, "Confirmar la mejor", "en las 20 rutas fijas", ancho=3.4)
     caja(ax, 12.5, arriba, "¿Pasa de\netapa?", pregunta=True, ancho=2.6, alto=1.8)
     caja(ax, 15.6, arriba, "¿Última\netapa?", pregunta=True, ancho=2.6, alto=1.8)

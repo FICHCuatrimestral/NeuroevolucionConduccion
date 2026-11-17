@@ -6,6 +6,7 @@ Uso, parado en la carpeta del proyecto:
 Cada figura copia una figura de un paper, con sus mismos números, en castellano y con
 los colores de la presentación. En la diapositiva va "<autor> (<año>), fig. <n>".
   - kong_bicicleta.png      Kong et al. (2015), fig. 1: el modelo cinemático de bicicleta
+  - kong_caja.png           el mismo modelo como una caja: entran volante y aceleración, sale el estado
   - togelius_pista.png      Togelius y Lucas (2005), p. 1911: pista, puntos de control y sensores
   - montana_red.png         Montana y Davis (1989), fig. 1: una red escrita como cromosoma
   - yao_permutacion.png     Yao (1999), figs. 3 y 4: dos redes iguales con cromosomas distintos
@@ -143,6 +144,37 @@ def kong_bicicleta():
     ax.set_xlim(-0.8, 12.2)
     ax.set_ylim(-0.9, max(8.6, centro_giro[1] + 0.5))
     guardar(fig, "kong_bicicleta.png")
+
+
+# -------------------------------------------------------------------------
+# El modelo de Kong como una caja: entran el volante y la aceleración y sale
+# el estado del auto. Las entradas se dibujan como las salidas de la red
+# (puntos negros, letra Times), porque son lo que después decide la red.
+# -------------------------------------------------------------------------
+def kong_caja():
+    with plt.rc_context({"font.family": "serif", "mathtext.fontset": "stix",
+                         "font.serif": ["Times New Roman", "Times", "Liberation Serif", "DejaVu Serif"]}):
+        fig, ax = lienzo(10, 3.4)
+        entradas = [(2.2, r"$\delta$", "volante"), (0.8, r"$a$", "aceleración")]
+        for y, simbolo, nombre in entradas:
+            ax.add_patch(Circle((0, y), 0.22, color=TINTA, zorder=3))
+            ax.text(0.45, y + 0.12, simbolo, fontsize=24, va="bottom")
+            ax.text(-0.45, y, nombre, fontsize=17, ha="right", va="center")
+            flecha(ax, (0.3, y), (2.9, 1.5 + (y - 1.5) * 0.5))
+        ax.add_patch(FancyBboxPatch((3.0, 0.3), 3.4, 2.4, boxstyle="round,pad=0.05,rounding_size=0.25",
+                                    facecolor="#eef3fb", edgecolor=AZ, lw=2.2))
+        ax.text(4.7, 1.75, "modelo de\nbicicleta", fontsize=19, ha="center", va="center", linespacing=1.2)
+        ax.text(4.7, 0.75, "Kong et al. (2015)", fontsize=13, ha="center", va="center", color="#555555")
+        salidas = [(2.4, r"$x,\ y$", "posición"), (1.5, r"$\psi$", "rumbo"), (0.6, r"$v$", "velocidad")]
+        for y, simbolo, nombre in salidas:
+            flecha(ax, (6.5, 1.5 + (y - 1.5) * 0.5), (8.3, y))
+            ax.text(8.45, y, simbolo, fontsize=22, va="center")
+            ax.text(9.55, y, nombre, fontsize=17, va="center")
+        ax.text(-1.0, 3.05, "entra", fontsize=15, color="#555555", ha="center")
+        ax.text(9.3, 3.05, "sale", fontsize=15, color="#555555", ha="center")
+        ax.set_xlim(-2.6, 11.4)
+        ax.set_ylim(0.1, 3.4)
+        guardar(fig, "kong_caja.png")
 
 
 # =========================================================================
@@ -420,6 +452,7 @@ def nelson_aptitud():
 
 if __name__ == "__main__":
     kong_bicicleta()
+    kong_caja()
     togelius_pista()
     montana_red()
     yao_permutacion()
