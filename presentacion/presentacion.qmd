@@ -1,12 +1,12 @@
 ---
 # Presentación armada a partir de idea_presentacion.md: ese archivo es el guion; este, las diapositivas.
-# Partes: 1 La idea · 2 Antecedentes · 3 Nuestro trabajo · 4 Resultados · 5 Cierre.
+# Partes: 1 La idea · 2 Antecedentes · 3 Lo que proponemos · 4 Resultados · 5 Cierre.
 # Regla del hilo: cada diapositiva usa solo lo que ya se presentó antes. El primer auto
 # entrenado aparece recién en los resultados.
 # Estilo sobrio, como el demo de Quarto. Clases propias: .pregunta, .cita, .chico y .arriba (estilo.scss).
 # En las notas (tecla S) va lo que se dice en cada diapositiva.
 # Figuras:  python presentacion/figuras_metodo.py        (problema, mapas de las etapas, esquina)
-#           python presentacion/figuras_antecedentes.py  (figuras de los papers, redibujadas)
+#           python presentacion/figuras_antecedentes.py  (figuras de los papers, redibujadas, y la caja del modelo)
 #           python presentacion/figuras_presentacion.py  (videos y velocidad; necesita las redes guardadas)
 #           python presentacion/video_comparaciones.py   (video de las 6 redes en sus barrios)
 #           python informe/figuras/figuras_informe.py mapas auto presentacion   (red, permutaciones, mapas y auto)
@@ -55,205 +55,93 @@ Queremos que un auto vaya solo de A a B por calles reales de Santa Fe, sin salir
 
 # Antecedentes
 
-## Antecedentes
-
-De la cátedra traemos el **perceptrón multicapa** y el **algoritmo genético**. Lo demás lo sacamos de estos trabajos:
-
-| Trabajo | La pregunta que responde |
-|---|---|
-| Kong et al. (2015) | ¿Cómo se mueve un auto, con las cuentas más simples? |
-| Togelius y Lucas (2005, 2006) | ¿Se puede enseñar a manejar con un algoritmo evolutivo? |
-| Montana y Davis (1989) | ¿Se puede entrenar una red con un algoritmo genético? |
-| Yao (1999) | ¿Cómo se cruzan y se mutan las redes? |
-| Nelson et al. (2009) | ¿Qué nota se le pone a un viaje? |
-| Gomez y Miikkulainen (1996) | ¿Cómo se aprende algo difícil? |
-
-::: notes
-De la cátedra traemos el perceptrón multicapa y el algoritmo genético. Lo demás lo sacamos de estos seis trabajos; cada uno responde una pregunta que vamos a necesitar.
-:::
-
-## Kong et al. (2015)
-
-::: pregunta
-¿Cómo se mueve un auto, con las cuentas más simples?
-:::
+## ¿Cómo se mueve un auto, con las cuentas más simples?
 
 :::: {.columns}
-::: {.column width="50%"}
-![](img/antecedentes/kong_bicicleta.png){width="72%"}
+::: {.column width="36%"}
+![](img/antecedentes/kong_bicicleta.png){width="100%"}
 
 ::: cita
 Kong et al. (2015), fig. 1
 :::
 :::
-::: {.column width="50%"}
-$$
-\begin{aligned}
-\dot x &= v\cos(\psi+\beta) \\
-\dot y &= v\sin(\psi+\beta) \\
-\dot \psi &= \frac{v}{l_r}\sin\beta \\
-\dot v &= a \\
-\beta &= \arctan\!\left(\frac{l_r}{l_f+l_r}\tan\delta_f\right)
-\end{aligned}
-$$
+::: {.column width="64%"}
+![](img/antecedentes/kong_caja.png){width="100%"}
 
-- Une las dos ruedas de cada eje
-- **Estado:** posición, rumbo ψ y velocidad v
-- **Entradas:** volante δ~f~ y aceleración a
+- **Al modelo entran** las dos decisiones de quien maneja: volante y aceleración
+- **Del modelo sale** dónde queda el auto: posición, rumbo y velocidad. Desde ahí, quien maneja vuelve a mirar y decide de nuevo
 :::
 ::::
 
+::: chico
+Modelo cinemático de bicicleta (Kong et al., 2015): $\dot x = v\cos(\psi+\beta)$, $\dot y = v\sin(\psi+\beta)$, $\dot\psi = \frac{v}{\ell_r}\sin\beta$, $\dot v = a$, con $\beta = \arctan\!\left(\frac{\ell_r}{\ell_f+\ell_r}\tan\delta\right)$.
+:::
+
 ::: notes
-Junta las dos ruedas de cada eje en una. El estado es la posición, el rumbo y la velocidad. Tiene dos entradas, el volante y la aceleración: eso es lo que va a tener que decidir quien maneje, así que define las dos salidas de la red. Kong lo compara con datos de un auto real: predice casi tan bien como un modelo con neumáticos, con muchas menos cuentas.
+Para mover el auto usamos el modelo de bicicleta de Kong: junta las dos ruedas de cada eje en una. Lo usamos como una caja. Entran el volante y la aceleración, que es lo que va a decidir la red. Sale el estado del auto: la posición, el rumbo y la velocidad. Las ecuaciones son conocidas y están abajo, con la cita. Kong lo compara con datos de un auto real: predice casi tan bien como un modelo con neumáticos, con muchas menos cuentas.
 :::
 
-## Togelius y Lucas (2005, 2006)
-
-::: pregunta
-¿Se puede enseñar a manejar con un algoritmo evolutivo?
-:::
+## ¿Se puede enseñar a manejar con un algoritmo evolutivo?
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="46%"}
 ![](img/antecedentes/togelius_pista.png){width="100%"}
 
 ::: cita
 Togelius y Lucas (2005), p. 1911
 :::
 :::
-::: {.column width="50%"}
-- Autos de juguete, en pistas con paredes
-- **Red:** una capa oculta, 2 salidas, tanh
-- **Ve:** velocidad, paredes y próximo punto
-- **Nota:** puntos de control pasados
-- **Algoritmo:** estrategia evolutiva, solo mutación
-- Entrenan en unas pistas, prueban en otras
+::: {.column width="54%"}
+- **Sí, sin ejemplos** (Floreano y Mondada, 1994; Togelius y Lucas, 2005): nadie le muestra a la red cómo manejar. Solo se elige, generación tras generación, la que más avanza
+- **Con un perceptrón chico** (Togelius y Lucas, 2005): una capa oculta, que ve desde el auto la velocidad, las paredes y el próximo punto
+- **Y sirve en pistas nuevas** (Togelius y Lucas, 2006): entrenada en unas, maneja en otras que nunca vio
+- **Pero** son pistas de juguete con paredes: sin calles, sin carriles y sin esquinas
 :::
 ::::
-
-::: notes
-Evolucionan redes que manejan autos de juguete simulados. La red es un perceptrón multicapa con una capa oculta, dos salidas y tangente hiperbólica. Nuestra red tiene la misma forma. Ve la velocidad, la distancia a las paredes y el ángulo al próximo punto de control, todo medido desde el auto. La nota cuenta cuántos puntos de control pasó en orden. El algoritmo es una estrategia evolutiva que solo muta: 50 redes, cada una tiene un hijo mutado y de las 100 quedan las 50 mejores. Entrenan en unas pistas y prueban en otras.
-:::
-
-## Montana y Davis (1989)
-
-::: pregunta
-¿Se puede entrenar una red con un algoritmo genético?
-:::
-
-:::: {.columns}
-::: {.column width="50%"}
-![](img/antecedentes/montana_red.png){width="88%"}
-
-::: cita
-Montana y Davis (1989), fig. 1
-:::
-:::
-::: {.column width="50%"}
-- Los pesos en fila, como números reales: un cromosoma
-- Con un genético les va mejor que con retropropagación
-- **La retropropagación** necesita la respuesta correcta en cada paso y una nota derivable
-- **Al manejar** solo hay una nota al final, y salta cuando el auto choca
-- **El genético** solo compara qué red salió mejor
-:::
-::::
-
-::: notes
-Ponen todos los pesos de la red en fila, como números reales, y los buscan con un algoritmo genético. Les va mejor que con retropropagación. La razón: la retropropagación necesita la respuesta correcta en cada paso y una nota derivable. Al manejar no hay volante correcto, solo una nota al final del viaje, y la nota salta cuando el auto choca. El genético solo necesita saber qué red salió mejor.
-:::
-
-## Yao (1999)
-
-::: pregunta
-¿Cómo se cruzan y se mutan las redes?
-:::
-
-:::: {.columns}
-::: {.column width="50%"}
-![](img/antecedentes/yao_permutacion.png){width="100%"}
-
-::: cita
-Yao (1999), figs. 3 y 4
-:::
-:::
-::: {.column width="50%"}
-- **Permutaciones:** dos redes iguales con las neuronas en otro orden tienen cromosomas distintos. Cruzadas peso por peso, el hijo puede no andar
-- **Mutar:** con pesos reales, el operador principal es la mutación gaussiana
-- **No cruzar:** solo mutar sufre menos este problema, como hace Togelius
-- **Cruzar por neurona** (Montana y Davis): cada neurona del hijo viene completa de un padre
-:::
-::::
-
-::: notes
-Dos redes iguales pueden tener las neuronas en otro orden, y entonces sus cromosomas son distintos. Si se cruzan peso por peso, el hijo junta pedazos de neuronas distintas y puede no andar. Con pesos reales, el operador principal es la mutación gaussiana: sumarle a cada peso un poco de ruido normal. Los algoritmos que solo mutan sufren menos este problema; es lo que hace Togelius. Montana y Davis proponen cruzar neuronas enteras.
-:::
-
-## Las opciones que comparamos
-
-| Operador | Qué hace |
-|---|---|
-| Cruce por neurona (Montana y Davis) | Cada neurona del hijo se copia entera de uno de los padres: sus pesos de entrada y su umbral |
-| Cruce por pesos (uniforme) | Cada peso del hijo se copia del padre o de la madre, al azar, uno por uno |
-| Cruce BLX-α (Eshelman y Schaffer, 1993) | Cada peso se sortea entre los de los dos padres, con el intervalo agrandado α = 0,5 hacia cada lado |
-| Sin cruce (como Togelius) | El hijo es una copia de un padre; solo cambia por la mutación |
-| Mutación gaussiana | Cada peso muta con probabilidad 0,05: se le suma un número normal de desvío σ |
-| Mutación por neurona (Montana y Davis) | Se eligen 2 neuronas y se les suma ruido normal a todos sus pesos de entrada y a su umbral |
 
 ::: chico
-Con probabilidad 0,2 no hay cruce y el hijo es una copia de un padre, sea cual sea el tipo de cruce.
+Y no son los únicos: redes que hacen crecer su propia forma (NEAT, Stanley y Miikkulainen, 2002), autos de carrera que manejan mirando la pantalla (Koutník et al., 2013)… y la lista sigue.
 :::
 
 ::: notes
-De ahí salen las opciones que comparamos: cuatro formas de cruzar y dos de mutar.
+Sí, y hace rato. Togelius y Lucas evolucionan redes que manejan autos de juguete simulados, sin darles ningún ejemplo de cómo manejar: en cada generación solo se quedan las redes que más avanzan. La red es un perceptrón multicapa con una capa oculta, dos salidas y tangente hiperbólica; la nuestra tiene la misma forma. Ve la velocidad, la distancia a las paredes y el ángulo al próximo punto de control, todo medido desde el auto. El fitness cuenta cuántos puntos de control pasó en orden. El algoritmo solo muta: 50 redes, cada una tiene un hijo mutado y de las 100 quedan las 50 mejores. Entrenan en unas pistas y prueban en otras, y siguen manejando. Pero son pistas de juguete con paredes: no hay calles, ni carriles, ni esquinas. Eso es lo que agregamos nosotros. Y no son los únicos: la neuroevolución se usa desde los 90 para robots y autos, y la lista de trabajos es larga.
 :::
 
-## Nelson et al. (2009)
+# Lo que proponemos
 
-::: pregunta
-¿Qué nota se le pone a un viaje?
-:::
+## Nuestras seis propuestas
 
-:::: {.columns}
-::: {.column width="50%"}
-![](img/antecedentes/nelson_aptitud.png){width="100%"}
-
-::: cita
-Nelson et al. (2009), tabla 1
-:::
-:::
-::: {.column width="50%"}
-- Ordenan las notas según cuánto le dicen a la evolución de antemano
-- **Poco:** "llegó o no llegó". Al principio ninguna red llega y todas sacan cero: el *bootstrap problem*
-- **Mucho:** premiar comportamientos puntuales le dice a la red cómo hacer la tarea
-- **En el medio, "a medida":** cuánto avanzó y algo de cómo se comportó. Como la de Togelius
-:::
-::::
+1. **Calles reales de Santa Fe:** rutas de A a B, por el carril derecho
+2. **Una red que mira el carril** 3 y 6 m adelante, además de los bordes y el próximo punto
+3. **Un fitness que premia avanzar por su carril**
+4. **Comparar** cuatro formas de cruzar y dos de mutar
+5. **Entrenar por etapas:** de una manzana a mapas cada vez más grandes
+6. **Un límite de agarre,** para que maneje como puede un auto real
 
 ::: notes
-Revisan las notas que se usan en robótica evolutiva y las ordenan según cuánto le dicen a la evolución de antemano. Con poco conocimiento, la nota "llegó o no llegó" deja que la evolución encuentre cualquier solución, pero al principio ninguna red llega, todas sacan cero y no hay a quién elegir: Nelson lo llama bootstrap problem. Con mucho conocimiento, una nota que premia comportamientos puntuales le dice a la red cómo hacer la tarea, y la limita a lo que el diseñador imaginó. En el medio está la nota "a medida": mide cuánto avanzó y algo de cómo se comportó. La de Togelius, por puntos de control, es de este tipo.
+Esto es lo que proponemos, y es lo que vamos a contar. Manejar en calles reales de Santa Fe, de A a B y por su carril. Una red que, además de los bordes y el próximo punto, mira el carril 3 y 6 m adelante. Un fitness que premia avanzar por su carril. Comparar cuatro formas de cruzar y dos de mutar. Entrenar por etapas, de una manzana a mapas más grandes. Y un límite de agarre, para que el auto no pueda doblar a fondo a cualquier velocidad.
 :::
 
-## Gomez y Miikkulainen (1996)
+## 1 · Calles reales, por su carril
 
-::: pregunta
-¿Cómo se aprende algo difícil?
+![](img/fig_mapas.png){fig-align="center" width="48%"}
+
+- **Calles reales de Santa Fe:** el camino más corto de A a B
+- **Puntos de control** sobre el carril derecho
+- **Un punto en cada giro,** para que no corte la esquina
+- **Puntos que se pueden saltear,** para no quedar trabado
+
+::: chico
+Calles de OpenStreetMap, descargadas con OSMnx (Boeing, 2025). Camino más corto con A\* (Hart et al., 1968).
 :::
-
-![](img/antecedentes/gomez_etapas.png){fig-align="center" width="70%"}
-
-::: cita
-Gomez y Miikkulainen (1996), sección 5.3
-:::
-
-Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco.
 
 ::: notes
-Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco: primero escapar de un enemigo lento, después de dos, cada vez más rápidos.
+Usamos calles reales de OpenStreetMap, A* para elegir el camino y puntos de control sobre el carril derecho. Togelius manejaba en pistas de juguete con paredes, sin carriles y sin cruces de calles.
+
+Para que doble bien: antes había un punto cada 15 m, repartidos sin mirar la forma de la ruta, y a veces la esquina quedaba entre dos puntos, lejos de los dos: el auto la cortaba y el fitness no se enteraba. Pasaba en el 11 % de los giros del 2×2, el 16 % del 3×3 y el 18 % del centro. Ahora el carril se corta en cada giro y se reparten puntos cada unos 10 m dentro de cada tramo. Además, dos entradas miran el carril 3 y 6 m adelante del auto, y los puntos se pueden saltear para no quedar trabado al abrirse en un giro.
 :::
 
-# Nuestro trabajo
-
-## La red: qué ve y qué decide
+## 2 · La red: qué ve y qué decide
 
 :::: {.columns}
 ::: {.column width="38%"}
@@ -264,175 +152,112 @@ Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a 
 :::
 ::::
 
-- **16 entradas**, medidas desde el auto, como en Togelius: 7 rayos al borde, velocidad, próximo punto, desvío del carril y el carril 3 y 6 m adelante
-- **2 salidas**, las entradas de Kong: volante = 35° · o₁; acelerador 2 m/s² · o₂ si o₂ > 0, freno 4 m/s² · o₂ si no
+- **16 entradas**, medidas desde el auto: 7 rayos al borde, velocidad, próximo punto, desvío del carril y el carril 3 y 6 m adelante
+- **2 salidas**, las que entran a la caja del modelo del auto: volante = 35° · o₁; acelerador 2 m/s² · o₂ si o₂ > 0, freno 4 m/s² · o₂ si no
 
 ::: notes
-Lo que ve son 16 entradas: 7 rayos al borde de la calle, la velocidad, la dirección y la distancia al próximo punto de control, el desvío del carril y la dirección del carril 3 y 6 m adelante. Todo medido desde el auto, como en Togelius. Lo que decide son 2 salidas, que son las dos entradas del modelo de Kong. La capa oculta tiene 16 neuronas, todas con tangente hiperbólica.
+Lo que ve son 16 entradas: 7 rayos al borde de la calle, la velocidad, la dirección y la distancia al próximo punto de control, el desvío del carril y la dirección del carril 3 y 6 m adelante. Todo medido desde el auto, como en Togelius. Lo que decide son 2 salidas, que son las dos entradas de la caja del modelo del auto: el volante y la aceleración. La capa oculta tiene 16 neuronas, todas con tangente hiperbólica.
 :::
 
-## La red como cromosoma
-
-![](img/cromosoma.png){fig-align="center" width="100%"}
-
-La red en fila, como Montana y Davis: 306 números reales, sin pasar a binario.
-
-::: notes
-El cromosoma es la red en fila, como Montana y Davis: 256 pesos de entrada a la capa oculta, 16 umbrales, 32 pesos a la salida y 2 umbrales. En total, 306 números reales. Los primeros 256 son la matriz de pesos leída fila por fila; cada neurona es una columna, así que sus pesos quedan salteados cada 16 genes. Por eso el cruce y la mutación por neurona eligen por columna, no por posición.
-:::
-
-## Las permutaciones en nuestra red
-
-![](img/permutaciones.png){fig-align="center" width="100%"}
-
-- Nuestra red se puede escribir de 16! · 2^16^ ≈ 1,4 · 10^18^ formas distintas: el orden y el signo de las 16 neuronas ocultas
-- El cruce por neurona no lo resuelve, porque empareja las neuronas por posición: solo evita desarmar cada neurona por dentro
-
-::: notes
-Dos padres buenos pueden tener las neuronas en distinto orden. Con 16 neuronas ocultas, la misma red se puede escribir de unas 1,4 · 10^18 formas. El cruce por neurona no lo arregla: solo evita desarmar cada neurona por dentro.
-:::
-
-## Nuestra nota
+## 3 · El fitness: avanzar por su carril
 
 $$
 F_r = (1-\lambda)\,\frac{k_r + p_r}{K_r}\,\bigl(1 - c\,f_r\bigr) + \lambda\,L_r\left(1 - \frac{t_r}{t_{\max,r}}\right)
 $$
 
-:::: {.columns .arriba}
-::: {.column width="50%"}
-- **Avance:** $k_r$ puntos de control pasados, más $p_r$, el avance hacia el siguiente, sobre el total $K_r$
-- **Carril:** $f_r$, fracción del tiempo fuera de su carril, con descuento $c = 0{,}8$
-- **Tiempo:** $L_r$ vale 1 si llegó; $t_r$ es lo que tardó. Solo premia al que llega
-:::
-::: {.column width="50%"}
-- En nuestras corridas **λ = 0**: el premio por tiempo está apagado
-- La nota de la red es el promedio de sus rutas
-- La nota de Togelius con un descuento por carril: "a medida", según Nelson
-:::
-::::
+- **Avance:** los $k_r$ puntos de control pasados, más lo que avanzó hacia el siguiente ($p_r$), sobre el total $K_r$. Mide cuánto avanzó y no solo si llegó, porque al principio ninguna red llega y todas sacarían cero
+- **Carril (lo nuestro):** se descuenta $c = 0{,}8$ por la fracción $f_r$ del tiempo que anduvo fuera de su carril
+- **Tiempo:** premia llegar rápido, pero solo al que llega ($L_r = 1$). En nuestras corridas está apagado: **λ = 0**
 
 ::: chico
-El viaje termina si llega, si se sale de la calle o si se acaba el tiempo ($t_{\max,r}$ = largo de la ruta / 4 m/s + 10 s). Si alcanza uno de los 2 puntos siguientes al próximo, los que se salteó cuentan como pasados.
+El fitness de la red es el promedio de sus rutas. El viaje termina si llega, si se sale de la calle o si se acaba el tiempo ($t_{\max,r}$ = largo de la ruta / 4 m/s + 10 s).
 :::
 
 ::: notes
-k son los puntos de control pasados; si el auto alcanza uno de los 2 siguientes al próximo, los que se salteó cuentan como pasados, así no queda trabado por abrirse en un giro. p es cuánto avanzó hacia el siguiente. K es el total de puntos: llegar a B vale 1. f es la fracción del tiempo fuera de su carril; se descuenta 0,8 y no 1 para que avanzar por la contramano valga algo más que quedarse quieto. Es la nota de avance de Togelius con un descuento por carril: una nota "a medida", en palabras de Nelson. El segundo término premia llegar rápido, pero solo al que llega: si no, chocar temprano daría premio. Su peso es λ; en nuestras corridas λ = 0, así que la nota es solo avance y carril.
+k son los puntos de control pasados; si el auto alcanza uno de los 2 siguientes al próximo, los que se salteó cuentan como pasados, así no queda trabado por abrirse en un giro. p es cuánto avanzó hacia el siguiente. K es el total de puntos: llegar a B vale 1. f es la fracción del tiempo fuera de su carril; se descuenta 0,8 y no 1 para que avanzar por la contramano valga algo más que quedarse quieto. Es el fitness de avance de Togelius con un descuento por carril. ¿Por qué no premiar solo llegar? Al principio ninguna red llega, todas sacan cero y no hay a quién elegir: Nelson et al. (2009) lo llaman bootstrap problem. Por eso el fitness mide cuánto avanzó, y algo de cómo se comportó: un fitness "a medida", en palabras de Nelson. El segundo término premia llegar rápido, pero solo al que llega: si no, chocar temprano daría premio. Su peso es λ; en nuestras corridas λ = 0, así que el fitness es solo avance y carril.
 :::
 
-## Qué buscamos
+## 4 · La red como cromosoma
 
-Buscamos los pesos de la red que den la mejor nota promedio en todas las rutas. Como no podemos probarlas todas al entrenar, usamos 3 rutas al azar. Esto hace que la nota sea inestable, que tenga **ruido**: depende de qué rutas salgan sorteadas. Lo resolvemos confirmando la mejor red con 20 rutas fijas.
+![](img/cromosoma.png){fig-align="center" width="78%"}
 
-$$
-\mathbf{w}^\ast = \arg\max_{\mathbf{w}} J(\mathbf{w}), \qquad J(\mathbf{w}) = \text{promedio de } F_r(\mathbf{w}) \text{ sobre todas las rutas}
-$$
+- **La red en fila:** 306 números reales, sin pasar a binario
+- **¿Por qué un genético?** No hay un volante correcto en cada paso para la retropropagación: solo un fitness al final del viaje
+
+::: notes
+El cromosoma es la red en fila, como hacen Montana y Davis (1989), que entrenan así una red con un genético y les va mejor que con retropropagación. ¿Por qué no retropropagación? Necesita la respuesta correcta en cada paso y un fitness derivable. Al manejar no hay volante correcto, solo un fitness al final del viaje, y el fitness salta cuando el auto choca. El genético solo necesita saber qué red salió mejor. El cromosoma tiene 256 pesos de entrada a la capa oculta, 16 umbrales, 32 pesos a la salida y 2 umbrales. En total, 306 números reales. Los primeros 256 son la matriz de pesos leída fila por fila; cada neurona es una columna, así que sus pesos quedan salteados cada 16 genes. Por eso el cruce y la mutación por neurona eligen por columna, no por posición.
+:::
+
+## 4 · Las permutaciones en nuestra red
+
+![](img/permutaciones.png){fig-align="center" width="100%"}
+
+- **El problema:** dos redes iguales con las neuronas en otro orden tienen cromosomas distintos. Cruzadas peso por peso, el hijo puede no andar
+- Por eso comparamos varias formas de cruzar, y también no cruzar
+
+::: notes
+Este problema lo describe Yao (1999). Dos padres buenos pueden tener las neuronas en distinto orden; si se cruzan peso por peso, el hijo junta pedazos de neuronas distintas y puede no andar. Con 16 neuronas ocultas, la misma red se puede escribir de unas 1,4 · 10^18 formas. El cruce por neurona no lo arregla: solo evita desarmar cada neurona por dentro.
+:::
+
+## 4 · Las opciones que comparamos
+
+| Operador | Qué hace |
+|---|---|
+| Cruce por neurona | Cada neurona del hijo se copia entera de uno de los padres: sus pesos de entrada y su umbral |
+| Cruce por pesos (uniforme) | Cada peso del hijo se copia del padre o de la madre, al azar, uno por uno |
+| Cruce BLX-α | Cada peso se sortea entre los de los dos padres, con el intervalo agrandado α = 0,5 hacia cada lado |
+| Sin cruce | El hijo es una copia de un padre; solo cambia por la mutación |
+| Mutación gaussiana | Cada peso muta con probabilidad 0,05: se le suma un número normal de desvío σ |
+| Mutación por neurona | Se eligen 2 neuronas y se les suma ruido normal a todos sus pesos de entrada y a su umbral |
 
 ::: chico
-$\mathbf{w}$: los 306 pesos de la red. $F_r(\mathbf{w})$: la nota que saca en la ruta $r$. Cada generación son 50 · (3 + 1) + 20 = 220 viajes simulados; en la manzana, 50 · 2 + 8 = 108.
+Con probabilidad 0,2 no hay cruce y el hijo es una copia de un padre, sea cual sea el tipo de cruce. El cruce por neurona no resuelve las permutaciones, porque empareja las neuronas por posición: solo evita desarmar cada neurona por dentro.
 :::
 
 ::: notes
-Buscamos los 306 pesos que dan la mejor nota promedio en todas las rutas. Como no se pueden probar todas, cada red maneja 3 rutas al azar, y eso le mete ruido a la nota: la misma red saca notas distintas según qué rutas le tocan. Por eso, en el algoritmo, la mejor se confirma con 20 rutas fijas.
+Por eso comparamos cuatro formas de cruzar y dos de mutar. El cruce por neurona, de Montana y Davis, copia neuronas enteras. Sin cruce, como Togelius, el problema casi no aparece. Con pesos reales, la mutación de siempre es la gaussiana: sumarle a cada peso un poco de ruido normal.
 :::
 
-## Nuestro algoritmo
+## 5 · El algoritmo, etapa por etapa
 
 ![](img/algoritmo.png){fig-align="center" width="100%"}
 
-- **La mejor red guardada** es la que llega en más rutas fijas; si empatan, la de mejor nota, y después la más rápida
-- **Pasa de etapa** si la mejor llega en el 90 % de las rutas fijas (en la manzana, en todas) después de al menos 10 generaciones, o si se acaban las generaciones
+- **Ruido en el fitness:** cada red maneja solo 3 rutas al azar, así que la mejor de cada generación se confirma con 20 rutas fijas
+- **La mejor red guardada** es la que llega en más rutas fijas; si empatan, la de mejor fitness, y después la más rápida
 
 ::: notes
-Buscamos los 306 pesos de la red que dan la mejor nota promedio en todas las rutas. Como no se pueden probar todas, cada red maneja 3 rutas al azar, más una de una etapa anterior. Eso le mete ruido a la nota; por eso la de mejor nota de cada generación se confirma con 20 rutas fijas. Después, élite de 2, torneo de 3, cruce con probabilidad 0,8 y mutación con el σ de la etapa.
+Buscamos los 306 pesos de la red que dan el mejor fitness promedio en todas las rutas. Como no se pueden probar todas, cada red maneja 3 rutas al azar, más una de una etapa anterior. Eso le mete ruido al fitness; por eso la de mejor fitness de cada generación se confirma con 20 rutas fijas. Después, élite de 2, torneo de 3, cruce con probabilidad 0,8 y mutación con el σ de la etapa.
 :::
 
-## Nuestras etapas
+## 5 · Las etapas
 
-![](img/mapas_etapas.png){fig-align="center" width="94%"}
+De lo fácil a lo difícil: la población arranca en una manzana y sube a mapas más grandes, sin reiniciarse.
 
-| Etapa | σ de la mutación | Pasa si la mejor llega en | Generaciones |
+![](img/mapas_etapas.png){fig-align="center" width="80%"}
+
+| Etapa | σ de la mutación | Pasa si la mejor llega en (desde la generación 10) | Generaciones |
 |---|---|---|---|
 | Manzana (vueltas a la del medio) | 0,3 | todas las rutas fijas | de 10 a 100 |
 | 2×2 | 0,2 | el 90 % | de 10 a 50 |
 | 3×3 | 0,15 | (última etapa) | 50 |
 
 ::: notes
-Como Gomez, de lo fácil a lo difícil. La población arranca en la manzana, pasa al 2×2 y al 3×3, sin reiniciarse, y σ baja para afinar sin desarmar. El centro no es una etapa: queda para probar. Ojo: contiene a los recortes de entrenamiento, que son cerca del 22 % de sus calles; por eso también probamos en barrios que no se usaron para nada.
+Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco; lo vimos en Gomez y Miikkulainen (1996). La población arranca en la manzana, pasa al 2×2 y al 3×3, sin reiniciarse, y σ baja para afinar sin desarmar. El centro no es una etapa: queda para probar. Ojo: contiene a los recortes de entrenamiento, que son cerca del 22 % de sus calles; por eso también probamos en barrios que no se usaron para nada.
 :::
 
-## Los parámetros
+## 6 · El límite de agarre
 
-| | Parámetro | Valor |
-|---|---|---|
-| Red | capas / desvío de pesos iniciales / ruido de sensores | 16 → 16 → 2 / 0,1 / 0,02 |
-| Algoritmo genético | población / torneo / élite | 50 / 3 / 2 |
-| | cruce / probabilidad | por neurona / 0,8 |
-| | mutación / probabilidad por gen | gaussiana / 0,05 |
-| | rutas por generación / fijas | 3 / 20 |
-| Nota | descuento por carril / premio por tiempo λ | 0,8 / 0 |
-| Auto | límite de agarre | 6 m/s² |
+- **El problema:** la primera versión llegaba rápido a las esquinas y se salía. El modelo del auto deja doblar a fondo a cualquier velocidad
+- **El límite:** $a_y = v^2/R \le 6$ m/s². A más velocidad, menos volante. No frena: frenar antes lo tiene que aprender la red
 
-::: notes
-Los valores de la configuración de base.
-:::
-
-## Lo que agregamos
-
-![](img/fig_mapas.png){fig-align="center" width="62%"}
-
-- **Calles reales** de OpenStreetMap; A\* elige el camino; puntos de control sobre el carril derecho
-- **Un descuento en la nota** por andar fuera del carril
+![](img/fig_auto.png){fig-align="center" width="64%"}
 
 ::: chico
-Togelius maneja en pistas de juguete con paredes, sin carriles y sin cruces de calles. El modelo de Kong supone que las ruedas nunca patinan.
+Trayectorias sin y con límite (b) y volante máximo según la velocidad (c): por debajo de 5,1 m/s dobla a fondo; a 8 m/s, no pasa de 14,9°.
 :::
 
 ::: notes
-Lo que no tenían los antecedentes: Togelius maneja en pistas de juguete con paredes, sin carriles y sin cruces de calles. El modelo de Kong supone que las ruedas nunca patinan: deja doblar a fondo a cualquier velocidad. Nosotros usamos calles reales de OpenStreetMap, A* para elegir el camino y puntos de control sobre el carril derecho, con un descuento en la nota por andar fuera del carril. Y cuatro cambios para que doble bien.
-:::
-
-## Para que doble bien: la esquina y el agarre
-
-:::: {.columns}
-::: {.column width="44%"}
-![](img/esquina.png){width="90%"}
-:::
-::: {.column width="56%"}
-- **El problema:** la primera versión llegaba rápido a las esquinas y se salía
-- **En una esquina** de calles de 7 m, la curva más amplia tiene 17,9 m a la izquierda y 6,0 m a la derecha: con 6 m/s², hasta 37 y 22 km/h. A 40 km/h no entra ninguna
-- **Límite de agarre:** Kong deja doblar a fondo a cualquier velocidad. Ahora la aceleración lateral no pasa de 6 m/s²: a más velocidad, menos volante
-- **El límite no frena:** si llega rápido, se sale. Frenar antes lo tiene que aprender la red
-:::
-::::
-
-::: notes
-La primera versión llegaba rápido a las esquinas y se salía. En un cruce de calles de 7 m, la curva más amplia que entra tiene 17,9 m de radio doblando a la izquierda y 6,0 m a la derecha. Con 6 m/s² de aceleración lateral, eso da unos 37 km/h y unos 22 km/h. A 40 km/h no entra ninguna esquina. Pero el modelo de Kong deja doblar a fondo a cualquier velocidad, y eso ningún auto real lo puede hacer. Kong mismo propone limitar la velocidad para que la aceleración lateral no pase de cierto valor.
-:::
-
-## El límite de agarre, en cuentas
-
-$$a_y = \frac{v^2}{R} \le a_{\max}, \qquad R = \frac{\ell_r}{\sin\beta}$$
-
-$$\sin\beta_{\max} = \frac{a_{\max}\,\ell_r}{v^2}, \qquad \delta_{\max}(v) = \min\!\left(35^\circ,\ \arctan\!\left(\frac{\ell_f+\ell_r}{\ell_r}\tan\beta_{\max}\right)\right)$$
-
-![](img/fig_auto.png){fig-align="center" width="70%"}
-
-::: chico
-Con 6 m/s²: por debajo de 5,1 m/s el auto puede doblar a fondo; a 8 m/s el volante queda limitado a 14,9°. (b) sin y con límite; (c) el volante máximo según la velocidad.
-:::
-
-::: notes
-La aceleración lateral es v al cuadrado sobre el radio, y en el modelo de Kong el radio es l_r sobre el seno de beta. Despejando, a cada velocidad hay un volante máximo. Por debajo de 5,1 m/s se puede doblar a fondo; a 8 m/s, menos de 15°.
-:::
-
-## Para que doble bien: los puntos y la mirada
-
-- **Puntos de control en cada giro.** Antes había uno cada 15 m sin mirar la forma de la ruta, y a veces la esquina quedaba entre dos puntos: el auto la cortaba y la nota no se enteraba. Pasaba en el 11 % de los giros del 2×2, el 16 % del 3×3 y el 18 % del centro. Ahora hay uno cada 10 m y siempre uno justo en el giro
-- **Mirar el carril adelante.** El próximo punto, a hasta 15 m, en una esquina quedaba en diagonal y no decía cómo era la curva. Dos entradas miran el carril 3 y 6 m adelante: hacia dónde va y cuánto dobla
-- **Puntos que se pueden saltear.** Si al abrirse en un giro alcanza uno de los 2 puntos siguientes, los salteados cuentan como pasados y no queda trabado
-
-::: notes
-Antes había un punto cada 15 m, repartidos sin mirar la forma de la ruta, y a veces la esquina quedaba entre dos puntos, lejos de los dos. Ahora el carril se corta en cada giro y se reparten puntos cada unos 10 m dentro de cada tramo. Además, dos entradas miran el carril 3 y 6 m adelante del auto, y los puntos se pueden saltear para no quedar trabado al abrirse en un giro.
+La primera versión llegaba rápido a las esquinas y se salía. En un cruce de calles de 7 m, la curva más amplia que entra tiene 17,9 m de radio doblando a la izquierda y 6,0 m a la derecha. Con 6 m/s² de aceleración lateral, eso da unos 37 km/h y unos 22 km/h; a 40 km/h no entra ninguna esquina. Pero el modelo de Kong deja doblar a fondo a cualquier velocidad, y eso ningún auto real lo puede hacer. Entonces limitamos la aceleración lateral a 6 m/s²: a cada velocidad hay un volante máximo. Con el modelo de Kong, R = l_r / sen β; despejando, sen β_max = a_max · l_r / v², y de ahí sale el volante máximo, con tope de 35°. Por debajo de 5,1 m/s se puede doblar a fondo; a 8 m/s, menos de 15°. El límite no frena: si llega rápido, se sale. Frenar antes lo tiene que aprender la red.
 :::
 
 # Resultados
@@ -441,10 +266,10 @@ Antes había un punto cada 15 m, repartidos sin mirar la forma de la ruta, y a v
 
 1. **¿Qué hace la red si la física no la limita?** Sin límite de agarre contra con límite de 6 m/s².
 2. **¿Importa el operador?** Las seis opciones, una por vez.
-3. **¿Maneja en calles donde nunca entrenó?** Todas se prueban en el centro, que no es una etapa y es más difícil que los mapas de entrenamiento, y en seis barrios que no se usaron para entrenar: 20 rutas fijas en cada uno, sin ruido en los sensores.
+3. **¿Maneja en calles donde nunca entrenó?** En el centro y en seis barrios que no se usaron para entrenar.
 
 ::: chico
-Seis corridas: la base (cruce por neurona, mutación gaussiana, con agarre) y cinco con un solo cambio. Etapas: manzana (hasta 100 generaciones) → 2×2 (hasta 50) → 3×3 (50). Población de 50, una semilla.
+Seis corridas: la base y cinco con un solo cambio. Una semilla. Se prueba con 20 rutas fijas, sin ruido en los sensores.
 :::
 
 ::: notes
@@ -483,34 +308,22 @@ Es la primera vez que se ve un auto entrenado. Sin límite dobla a 40 km/h, con 
 | Sin límite | 20 / 20 | 56 s | 40 / 37 km/h | 27,6 m/s² |
 
 - **Sin límite** llega siempre y en la mitad del tiempo, porque aprovecha una física imposible
-- **Con límite** va lenta todo el viaje, no solo en las esquinas: como la nota no premia el tiempo, ir lento no le cuesta nada
-- La red aprende lo que la nota le pide, y nada más
+- **Con límite** va lenta todo el viaje, no solo en las esquinas: como el fitness no premia el tiempo, ir lento no le cuesta nada
+- La red aprende lo que el fitness le pide, y nada más
 
 ::: notes
-Sin límite llega siempre y en la mitad del tiempo, porque aprovecha una física imposible. Con límite va lenta todo el viaje, no solo en las esquinas: como la nota no premia el tiempo, ir lento no le cuesta nada. La red aprende lo que la nota le pide, y nada más.
-:::
-
-## P1: velocidad y aceleración lateral en la ruta
-
-![](img/velocidad.png){fig-align="center" width="58%"}
-
-::: chico
-La misma ruta de los videos. En pruebas preliminares con premio por tiempo (λ = 0,1), una red aprendió a frenar antes de cada punto de control, no antes de cada giro.
-:::
-
-::: notes
-Arriba, la velocidad; abajo, la aceleración lateral, con los giros marcados. Sin límite va a 40 km/h todo el viaje y en los giros llega hasta 27,6 m/s². Con límite va a unos 19 km/h todo el viaje y nunca pasa de 6,3 m/s²: no frena en las esquinas, va lenta siempre. En pruebas preliminares con premio por tiempo, una red aprendió a frenar antes de cada punto de control, no antes de cada giro: premiar el tiempo cambia cómo maneja, y diseñar bien ese premio es lo que sigue.
+Sin límite llega siempre y en la mitad del tiempo, porque aprovecha una física imposible. Con límite va lenta todo el viaje, no solo en las esquinas: como el fitness no premia el tiempo, ir lento no le cuesta nada. La red aprende lo que el fitness le pide, y nada más. En pruebas preliminares con premio por tiempo, una red aprendió a frenar antes de cada punto de control, no antes de cada giro: diseñar bien ese premio es lo que sigue.
 :::
 
 ## P2 y P3: operadores y calles nuevas
 
-| Corrida | Qué cambia | Llega en el centro | Tiempo medio |
-|---|---|---|---|
-| 4743 | nada (la base) | 15 / 20 | 111 s |
-| 9082 | cruce por pesos | 20 / 20 | 142 s |
-| 8477 | cruce BLX-α | 19 / 20 | 128 s |
-| 3623 | sin cruce | 19 / 20 | 135 s |
-| 9009 | mutación por neurona | 17 / 20 | 129 s |
+| Qué cambia | Llega en el centro | Tiempo medio |
+|---|---|---|
+| nada (la base) | 15 / 20 | 111 s |
+| cruce por pesos | 20 / 20 | 142 s |
+| cruce BLX-α | 19 / 20 | 128 s |
+| sin cruce | 19 / 20 | 135 s |
+| mutación por neurona | 17 / 20 | 129 s |
 
 - **P3:** todas aprendieron en la manzana, el 2×2 y el 3×3, y llegan en 15 a 20 de 20 rutas del centro, con diagonales, una avenida curva y cruces que no estaban en esos mapas
 - **P2:** con una sola semilla, esas diferencias pueden ser suerte. Todos los operadores aprenden; para ordenarlos hacen falta más semillas
@@ -535,16 +348,31 @@ Cada red, en un barrio que nunca vio. Todas manejan. Ojo: como cada una está en
 
 ## Conclusiones
 
+**Lo que propusimos:** entrenar por etapas, en calles reales, una red que maneja por su carril, con un límite de agarre que la obliga a manejar como un auto real.
+
 1. Sin límite de agarre, la red aprovecha la física. Con el límite maneja dentro de lo posible, pero lento.
 2. Todos los operadores aprenden; con una semilla no alcanza para ordenarlos.
-3. Lo aprendido en recortes chicos sirve en el centro.
-
-**Lo nuestro:** juntar las piezas de estos trabajos en calles reales y agregar el límite de agarre.
+3. Lo aprendido en recortes chicos sirve en el centro y en barrios que nunca vio.
 
 ::: chico
 Lo que sigue: más semillas, premio por tiempo para que aprenda a frenar antes de las esquinas, tráfico y semáforos.
 :::
 
 ::: notes
-Lo nuestro fue juntar las piezas de estos trabajos en calles reales y agregar el límite de agarre. Las redes manejan en calles que nunca vieron, y el límite las obliga a manejar dentro de lo que un auto real puede hacer.
+Propusimos entrenar por etapas, en calles reales de Santa Fe, una red que maneja por su carril, con un límite de agarre. Las redes manejan en calles que nunca vieron, y el límite las obliga a manejar dentro de lo que un auto real puede hacer.
+:::
+## Respaldo: los parámetros
+
+| | Parámetro | Valor |
+|---|---|---|
+| Red | capas / desvío de pesos iniciales / ruido de sensores | 16 → 16 → 2 / 0,1 / 0,02 |
+| Algoritmo genético | población / torneo / élite | 50 / 3 / 2 |
+| | cruce / probabilidad | por neurona / 0,8 |
+| | mutación / probabilidad por gen | gaussiana / 0,05 |
+| | rutas por generación / fijas | 3 / 20 |
+| Fitness | descuento por carril / premio por tiempo λ | 0,8 / 0 |
+| Auto | límite de agarre | 6 m/s² |
+
+::: notes
+Los valores de la configuración de base.
 :::
