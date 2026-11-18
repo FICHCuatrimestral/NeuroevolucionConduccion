@@ -9,6 +9,7 @@
 #           python presentacion/figuras_antecedentes.py  (figuras de los papers, redibujadas, y la caja del modelo)
 #           python presentacion/figuras_presentacion.py  (videos y velocidad; necesita las redes guardadas)
 #           python presentacion/video_comparaciones.py   (video de las 6 redes en sus barrios)
+#           python presentacion/video_entrenamiento.py grabar, después video   (entrenamiento; grabar repite la corrida base, ~2 h)
 #           python informe/figuras/figuras_informe.py mapas auto presentacion   (red, permutaciones, mapas y auto)
 # Generar el HTML:   quarto render presentacion/presentacion.qmd
 title: "Conducción autónoma en calles de Santa Fe mediante neuroevolución"
@@ -188,18 +189,9 @@ k son los puntos de control pasados; si el auto alcanza uno de los 2 siguientes 
 El cromosoma es la red en fila, como hacen Montana y Davis (1989), que entrenan así una red con un genético y les va mejor que con retropropagación. ¿Por qué no retropropagación? Necesita la respuesta correcta en cada paso y un fitness derivable. Al manejar no hay volante correcto, solo un fitness al final del viaje, y el fitness salta cuando el auto choca. El genético solo necesita saber qué red salió mejor. El cromosoma tiene 256 pesos de entrada a la capa oculta, 16 umbrales, 32 pesos a la salida y 2 umbrales. En total, 306 números reales. Los primeros 256 son la matriz de pesos leída fila por fila; cada neurona es una columna, así que sus pesos quedan salteados cada 16 genes. Por eso el cruce y la mutación por neurona eligen por columna, no por posición.
 :::
 
-## 4 · Las permutaciones en nuestra red
-
-![](img/permutaciones.png){fig-align="center" width="100%"}
-
-- **El problema:** dos redes iguales con las neuronas en otro orden tienen cromosomas distintos. Cruzadas peso por peso, el hijo puede no andar
-- Por eso comparamos varias formas de cruzar, y también no cruzar
-
-::: notes
-Este problema lo describe Yao (1999). Dos padres buenos pueden tener las neuronas en distinto orden; si se cruzan peso por peso, el hijo junta pedazos de neuronas distintas y puede no andar. Con 16 neuronas ocultas, la misma red se puede escribir de unas 1,4 · 10^18 formas. El cruce por neurona no lo arregla: solo evita desarmar cada neurona por dentro.
-:::
-
 ## 4 · Las opciones que comparamos
+
+**¿Por qué comparar?** Dos redes iguales con las neuronas en otro orden tienen cromosomas distintos: cruzadas peso por peso, el hijo puede no andar.
 
 | Operador | Qué hace |
 |---|---|
@@ -211,11 +203,11 @@ Este problema lo describe Yao (1999). Dos padres buenos pueden tener las neurona
 | Mutación por neurona | Se eligen 2 neuronas y se les suma ruido normal a todos sus pesos de entrada y a su umbral |
 
 ::: chico
-Con probabilidad 0,2 no hay cruce y el hijo es una copia de un padre, sea cual sea el tipo de cruce. El cruce por neurona no resuelve las permutaciones, porque empareja las neuronas por posición: solo evita desarmar cada neurona por dentro.
+Con probabilidad 0,2 no hay cruce y el hijo es una copia de un padre, sea cual sea el tipo de cruce. El cruce por neurona no resuelve ese problema, porque empareja las neuronas por posición: solo evita desarmar cada neurona por dentro.
 :::
 
 ::: notes
-Por eso comparamos cuatro formas de cruzar y dos de mutar. El cruce por neurona, de Montana y Davis, copia neuronas enteras. Sin cruce, como Togelius, el problema casi no aparece. Con pesos reales, la mutación de siempre es la gaussiana: sumarle a cada peso un poco de ruido normal.
+El problema de las permutaciones lo describe Yao (1999). Dos padres buenos pueden tener las neuronas en distinto orden; si se cruzan peso por peso, el hijo junta pedazos de neuronas distintas y puede no andar. Con 16 neuronas ocultas, la misma red se puede escribir de unas 1,4 · 10^18 formas. Por eso comparamos cuatro formas de cruzar y dos de mutar. El cruce por neurona, de Montana y Davis, copia neuronas enteras. Sin cruce, como Togelius, el problema casi no aparece. Con pesos reales, la mutación de siempre es la gaussiana: sumarle a cada peso un poco de ruido normal.
 :::
 
 ## 5 · El algoritmo, etapa por etapa
@@ -243,6 +235,18 @@ De lo fácil a lo difícil: la población arranca en una manzana y sube a mapas 
 
 ::: notes
 Una tarea difícil se aprende mejor si se arranca por una fácil y se sube de a poco; lo vimos en Gomez y Miikkulainen (1996). La población arranca en la manzana, pasa al 2×2 y al 3×3, sin reiniciarse, y σ baja para afinar sin desarmar. El centro no es una etapa: queda para probar. Ojo: contiene a los recortes de entrenamiento, que son cerca del 22 % de sus calles; por eso también probamos en barrios que no se usaron para nada.
+:::
+
+## 5 · Así se ve entrenar
+
+<video data-autoplay loop muted playsinline src="img/entrenamiento.mp4" style="width:88%; display:block; margin:0 auto"></video>
+
+::: chico
+Las 50 redes de una generación manejan a la vez la misma ruta. En azul, la de mejor fitness.
+:::
+
+::: notes
+Esto es una corrida real, la misma de los resultados. En cada generación las 50 redes manejan la misma ruta a la vez; en azul la de mejor fitness, en gris el resto y en rojo las que chocan o se salen. En la manzana, al principio ninguna llega; a la generación 62 algunas ya dan la vuelta y pasan al 2×2. Ahí arrancan sabiendo algo, y en el 3×3 hacen rutas largas, con varias esquinas. Mostramos solo algunas generaciones de cada etapa, cada una en una ruta distinta. Los autos están dibujados más grandes que en la realidad, para que se vean.
 :::
 
 ## 6 · El límite de agarre
