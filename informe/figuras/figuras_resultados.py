@@ -4,9 +4,12 @@ Uso, parado en la carpeta del proyecto (hacen falta las corridas de resultados/c
 y, para los barrios, presentacion/img/barrios.json, que arma presentacion/video_comparaciones.py):
     python informe/figuras/figuras_resultados.py
 
-Muestra los números de las tablas del informe y guarda dos figuras, en PDF y en PNG:
+Muestra los números de las tablas del informe y guarda cuatro figuras, en PDF y en PNG:
   - fig_entrenamiento   llegadas de la mejor red en las rutas fijas, generación por generación
   - fig_velocidad       velocidad y aceleración lateral a lo largo de una ruta del centro, con y sin agarre
+  - fig_rutas           cómo terminó cada red cada una de las 20 rutas fijas del centro
+  - fig_poblacion       las 50 redes de una generación manejando, en tres momentos del entrenamiento
+                        (usa la grabación de presentacion/video_entrenamiento.py grabar)
 """
 import json
 import math
@@ -51,7 +54,7 @@ plt.rcParams.update({
 AZ, NA, TINTA, GRIS = "#2a78d6", "#eb6834", "#222222", "#8a8a85"
 
 # Las seis corridas: carpeta, nombre y color
-CORRIDAS = [("neurona_gaussiana_agarre", "Base (cruce por neurona)", "#2a78d6"),
+CORRIDAS = [("neurona_gaussiana_agarre", "Cruce por neurona", "#2a78d6"),
             ("pesos_gaussiana_agarre", "Cruce por pesos", "#1baf7a"),
             ("blx_gaussiana_agarre", "Cruce BLX-α", "#8e5bd0"),
             ("ninguna_gaussiana_agarre", "Sin cruce", "#b8960a"),
@@ -184,7 +187,7 @@ def manejar(identificador, mapa, ruta):
 
 # -------------------------------------------------------------------------
 # Velocidad y aceleración lateral a lo largo de una ruta del centro, para la
-# base (con agarre) y la red sin límite. La ruta es, de las 20 fijas del centro,
+# red con cruce por neurona, con y sin límite de agarre. La ruta es, de las 20 fijas del centro,
 # la de más giros a la que llegan las dos.
 # -------------------------------------------------------------------------
 def fig_velocidad():
@@ -202,7 +205,7 @@ def fig_velocidad():
 
     fig, (arriba, abajo) = plt.subplots(2, 1, figsize=(ANCHO, 3.0), sharex=True)
     for nombre, titulo, color in (("neurona_gaussiana_sin-agarre", "Sin límite de agarre", NA),
-                                  ("neurona_gaussiana_agarre", "Con límite de 6 m/s² (base)", AZ)):
+                                  ("neurona_gaussiana_agarre", "Con límite de 6 m/s²", AZ)):
         metros, velocidad, lateral, motivo = manejar(redes[nombre][1], centro, ruta)
         arriba.plot(metros, velocidad, color=color, label=f"{titulo}: {len(metros) * config.DT:.0f} s")
         abajo.plot(metros, lateral, color=color, lw=0.9)
@@ -219,7 +222,106 @@ def fig_velocidad():
     guardar(fig, "fig_velocidad")
 
 
+# -------------------------------------------------------------------------
+# Cómo terminó cada red cada una de las 20 rutas fijas del centro: una fila por
+# red y una columna por ruta. Si llegó, el tiempo en segundos; si no, una cruz
+# (choque) o una t (se le acabó el tiempo). Arriba se marcan las rutas que pasan
+# por el cruce de siete calles, la esquina del mapa con más calles.
+# -------------------------------------------------------------------------
+def fig_rutas():
+    centro = santa_fe("centro")
+    rutas = rutas_de_referencia(centro, 0)
+    grados = dict(centro.grafo.to_undirected().degree())
+    cruce = max(grados, key=grados.get)
+    por_el_cruce = [i for i, ruta in enumerate(rutas) if cruce in ruta.esquinas]
+    print(f"rutas por el cruce de {grados[cruce]} calles: {por_el_cruce}")
+
+    fig, ax = plt.subplots(figsize=(ANCHO, 2.0))
+    for fila, (nombre, titulo, color) in enumerate(CORRIDAS):
+        _, evaluacion, _ = corrida(nombre)
+        for columna, r in enumerate(evaluacion["rutas"]):
+            if r["motivo"] == "llegada":
+                ax.add_patch(plt.Rectangle((columna, fila), 1, 1, color="#dbe8f8", lw=0))
+                ax.text(columna + 0.5, fila + 0.5, f"{r['tiempo']:.0f}", ha="center", va="center", fontsize=5.5,
+                        color=TINTA)
+            else:
+                ax.add_patch(plt.Rectangle((columna, fila), 1, 1, color="#fbd9c9", lw=0))
+                ax.text(columna + 0.5, fila + 0.5, "×" if r["motivo"] == "choque" else "t", ha="center",
+                        va="center", fontsize=7, color=NA, fontweight="bold")
+        ax.text(-0.3, fila + 0.5, titulo, ha="right", va="center", fontsize=7, color=color)
+    for columna in range(len(rutas)):
+        ax.text(columna + 0.5, -0.25, str(columna + 1), ha="center", va="bottom", fontsize=6, color=GRIS)
+        if columna in por_el_cruce:
+            ax.plot(columna + 0.5, -1.05, "v", color=TINTA, ms=3.5)
+    for x in range(len(rutas) + 1):
+        ax.axvline(x, color="white", lw=0.8)
+    for y in range(len(CORRIDAS) + 1):
+        ax.axhline(y, color="white", lw=0.8)
+    ax.text(len(rutas) / 2, -1.6, "ruta del centro (▼: pasa por el cruce de siete calles)", ha="center",
+            va="bottom", fontsize=7)
+    ax.set_xlim(0, len(rutas))
+    ax.set_ylim(len(CORRIDAS), -1.7)
+    ax.axis("off")
+    guardar(fig, "fig_rutas")
+
+
+# -------------------------------------------------------------------------
+# La población entera manejando, en tres momentos de la corrida de cruce por
+# neurona y mutación gaussiana: el principio y el final de la manzana, y el final
+# del 3×3. Cada línea es el recorrido de una de las 50 redes; en azul, la de mayor
+# aptitud de la generación, y con una cruz, dónde terminaron las que se salieron.
+# Usa la grabación de presentacion/video_entrenamiento.py (python ... grabar).
+# -------------------------------------------------------------------------
+def fig_poblacion():
+    # El script del video cambia el estilo de matplotlib al importarse: se aísla
+    with plt.rc_context():
+        sys.path.insert(0, str(RAIZ / "presentacion"))
+        import video_entrenamiento as video
+        from figuras_informe import dibujar_calles
+    video.configurar()
+    grabado = np.load(video.GRABACION)
+    poblaciones, aptitudes, nombres = grabado["poblaciones"], grabado["fitness"], list(grabado["etapas"])
+    from conduccion.aprendizaje.etapas import etapas_santa_fe
+    from conduccion.aprendizaje.comparaciones import ETAPAS
+    etapas = {etapa.nombre: etapa for etapa in etapas_santa_fe(0, ETAPAS)}
+
+    def indice(etapa, cual):
+        generaciones = [i for i, n in enumerate(nombres) if n == etapa]
+        return generaciones[cual], generaciones.index(generaciones[cual]) + 1, len(generaciones)
+
+    momentos = [("manzana", 0, 0, "Manzana"), ("manzana", -1, 0, "Manzana"), ("3x3", -1, 4, "3×3")]
+    fig, ejes = plt.subplots(1, 3, figsize=(ANCHO, 2.1), gridspec_kw={"width_ratios": [1, 1, 1.25]})
+    for ax, (etapa, cual, numero_ruta, titulo) in zip(ejes, momentos):
+        i, generacion, total = indice(etapa, cual)
+        mapa = etapas[etapa].mapa
+        ruta = etapas[etapa].referencia[numero_ruta]
+        _, recorridos, motivos, _ = video.manejar_todos(poblaciones[i], mapa, ruta)
+        mejor = int(np.argmax(aptitudes[i]))
+        dibujar_calles(ax, mapa)
+        for j, (recorrido, motivo) in enumerate(zip(recorridos, motivos)):
+            xs, ys = zip(*recorrido)
+            if j == mejor:
+                continue
+            ax.plot(xs, ys, color=GRIS, lw=0.6, alpha=0.6, zorder=2)
+            if motivo == "choque":
+                ax.plot(xs[-1], ys[-1], "x", color=NA, ms=2.5, mew=0.7, zorder=3)
+        xs, ys = zip(*recorridos[mejor])
+        ax.plot(xs, ys, color=AZ, lw=1.2, zorder=4)
+        llegan = sum(m == "llegada" for m in motivos)
+        ax.set_title(f"{titulo}, generación {generacion} de {total}\nllegan {llegan} de 50", fontsize=7)
+        x0, y0, x1, y1 = ruta.carril.bounds
+        margen = 25
+        ax.set_xlim(x0 - margen, x1 + margen)
+        ax.set_ylim(y0 - margen, y1 + margen)
+        ax.set_aspect("equal")
+        ax.axis("off")
+        print(f"población: {titulo} generación {generacion}/{total}, llegan {llegan} de 50")
+    guardar(fig, "fig_poblacion")
+
+
 if __name__ == "__main__":
     tablas()
     fig_entrenamiento()
     fig_velocidad()
+    fig_rutas()
+    fig_poblacion()
