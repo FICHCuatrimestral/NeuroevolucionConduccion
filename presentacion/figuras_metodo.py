@@ -145,6 +145,61 @@ def esquina():
 
 
 # -------------------------------------------------------------------------
+# La misma esquina, doblando a la derecha, a dos velocidades y con el límite de
+# agarre. El radio más chico posible es v² / a_max:
+#   a 15 km/h: R = 2,9 m, entra con más de 1 m de sobra (la esquina admite hasta 6,0 m)
+#   a 40 km/h: R = 20,6 m, no entra: se mete en la manzana
+# La de 15 km/h dobla para terminar en el medio de su carril; la de 40 km/h empieza a
+# doblar donde empieza la curva más cerrada que entra (R = 6,0 m), y aun así se sale.
+# Va como panel d) de la figura del auto, con su misma letra.
+# -------------------------------------------------------------------------
+def esquina_rapida():
+    medio = ANCHO_CALLE / 2
+    carril = medio / 2
+    justa = carril * math.sqrt(2) / (math.sqrt(2) - 1)
+    y0 = -carril - justa
+
+    with plt.rc_context({"font.family": "serif", "mathtext.fontset": "stix",
+                         "font.serif": ["Times New Roman", "Times", "Liberation Serif", "DejaVu Serif"]}):
+        fig, ax = plt.subplots(figsize=(4.2, 4.6))
+        largo = 11
+        ax.add_patch(Rectangle((-largo, -medio), 2 * largo, ANCHO_CALLE, color=CALLE, lw=0))
+        ax.add_patch(Rectangle((-medio, -largo), ANCHO_CALLE, 2 * largo, color=CALLE, lw=0))
+        ax.plot([0, 0], [-largo, -medio], color="white", lw=1.2, ls="--")
+        ax.plot([medio, largo], [0, 0], color="white", lw=1.2, ls="--")
+
+        for kmh, color, sale in ((15, AZ, False), (40, NA, True)):
+            v = kmh / 3.6
+            radio = v ** 2 / ACELERACION_LATERAL
+            inicio = y0 if sale else -carril - radio
+            centro = (carril + radio, inicio)
+            # Ángulo desde el centro: 180° es el punto de partida; baja hacia 90° al doblar a la derecha
+            hasta = 90 if not sale else 180 - math.degrees(math.asin((largo - y0) / radio)) if radio > largo - y0 else 120
+            angulos = np.radians(np.linspace(180, hasta, 200))
+            ax.plot([carril, carril], [-largo, inicio], color=color, lw=2.5, zorder=2 if sale else 3)
+            xs = centro[0] + radio * np.cos(angulos)
+            ys = centro[1] + radio * np.sin(angulos)
+            if not sale:
+                xs = np.append(xs, largo)
+                ys = np.append(ys, ys[-1])
+            dentro = (xs <= largo) & (ys <= largo)
+            ax.plot(xs[dentro], ys[dentro], color=color, lw=2.5, zorder=2 if sale else 3)
+            if sale:
+                # Dónde sale de la calle: el primer punto que no está en ninguna de las dos
+                fuera = ~((np.abs(xs) <= medio) | (np.abs(ys) <= medio))
+                k = int(np.argmax(fuera))
+                ax.plot(xs[k], ys[k], "X", color=NA, ms=13, mec="white", mew=1.2, zorder=5)
+        ax.text(-largo + 0.6, largo - 1.6, "15 km/h: dobla", color=AZ, fontsize=20)
+        ax.text(-largo + 0.6, largo - 4.4, "40 km/h: se sale", color=NA, fontsize=20)
+        ax.text(-largo, largo + 0.7, "d)", fontsize=15, fontweight="bold", va="bottom")
+        ax.set_xlim(-largo, largo)
+        ax.set_ylim(-largo, largo)
+        ax.set_aspect("equal")
+        ax.axis("off")
+        guardar(fig, "esquina_rapida.png")
+
+
+# -------------------------------------------------------------------------
 # Una caja del diagrama, centrada en (x, y), con un título en negrita y un
 # texto debajo. Las preguntas van en un rombo.
 # -------------------------------------------------------------------------
@@ -299,6 +354,7 @@ if __name__ == "__main__":
     cromosoma()
     algoritmo()
     esquina()
+    esquina_rapida()
     centro = santa_fe("centro")
     problema(centro)
     mapas_etapas(centro)
