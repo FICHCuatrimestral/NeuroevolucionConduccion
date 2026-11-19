@@ -136,7 +136,7 @@ El límite no frena al auto: si la red llega rápido a una esquina, se sale, as�
 \subsection{Red, aptitud y operadores genéticos}
 
 La red recibe 16 entradas, todas medidas desde el auto (Fig.~\ref{fig:red}).
-Son siete rayos hasta el borde de la calle, la velocidad, la dirección y la distancia al próximo punto, el desvío del carril y la dirección del carril 3\,m y 6\,m adelante.
+Son siete rayos hasta el borde de la calle y la velocidad; la dirección del próximo punto, como seno y coseno, y su distancia; el desvío del carril; y la dirección del carril 3\,m y 6\,m adelante, también como seno y coseno.
 Al entrenar se suma a cada entrada un ruido gaussiano de desvío 0,02, como hacen Togelius y Lucas \cite[p.~1189]{togelius2006}.
 La red es un perceptrón $16\to16\to2$ con tangente hiperbólica: una salida es el volante y la otra el acelerador, que frena si es negativo.
 Sus 306 pesos y umbrales forman el cromosoma, con un gen real por peso \cite[p.~764]{montana1989}.
@@ -174,7 +174,7 @@ El cuarto es no cruzar: el hijo es una copia de un padre.
 
 También se comparan dos mutaciones.
 La \emph{gaussiana} suma a cada gen, con probabilidad 0,05, un ruido normal de desvío $\sigma$ \cite[p.~1427]{yao1999}.
-La \emph{mutación por neurona} suma ese ruido a todos los pesos de dos neuronas elegidas al azar \cite[p.~766]{montana1989}.
+La \emph{mutación por neurona} suma ese ruido a los 16 pesos y al umbral de dos neuronas elegidas al azar \cite[p.~766]{montana1989}.
 Cualquiera sea el operador, con probabilidad 0,2 no hay cruce y el hijo solo se muta.
 
 \begin{figure}[!htb]
@@ -190,15 +190,15 @@ Cualquiera sea el operador, con probabilidad 0,2 no hay cruce y el hijo solo se 
 La población empieza dando vueltas a una manzana y pasa a mapas cada vez más grandes.
 Gomez y Miikkulainen arman una población nueva en cada tarea \cite[pp.~6--7]{gomez1996}; aquí, en cambio, la población sigue de una etapa a la otra.
 El desvío $\sigma_e$ de la mutación baja en cada etapa, para afinar sin desarmar lo aprendido.
-Se pasa de etapa cuando la mejor red llega en una fracción $u_e$ de las rutas de referencia, tras al menos $g_{\min}$ generaciones, o cuando se agotan las $g_{\max,e}$.
+Se pasa de etapa cuando la mejor red llega en una fracción $u_e$ de las rutas fijas, tras al menos $g_{\min}$ generaciones, o cuando se agotan las $g_{\max,e}$.
 La última etapa usa todas sus generaciones.
 
 En cada generación, toda la población maneja las mismas rutas al azar, y con su aptitud se eligen los padres.
 En la manzana son 2 vueltas, una hacia cada lado; en los otros mapas, 3 rutas más 1 de una etapa anterior, para no olvidarla.
 Con tan pocas rutas, una red puede tener una aptitud alta solo porque le tocaron rutas fáciles.
-Por eso la red de mayor aptitud de cada generación maneja además rutas de referencia fijas: las 8 vueltas posibles en la manzana y 20 rutas en los otros mapas.
+Por eso la red de mayor aptitud de cada generación maneja además rutas fijas: las 8 vueltas posibles en la manzana y 20 rutas en los otros mapas.
 Solo se prueba esa red, porque probar a las 50 en 20 rutas sería muy lento.
-Reemplaza a la mejor guardada si llega en más rutas de referencia; si empatan, decide la aptitud.
+Reemplaza a la mejor guardada si llega en más rutas fijas; si empatan, decide la aptitud, y después el tiempo.
 La mejor guardada vuelve a la población si se pierde, así una mala tirada de rutas no la borra.
 
 % =====================================================================
@@ -234,7 +234,7 @@ Capas de la red & $16\to16\to2$ & Castigo de carril, $c$ & 0,8 \\
 Desvío de los pesos iniciales & 0,1 & Límite de agarre, $a_{\max}$ & 6\,m/s$^2$ \\
 Desvío del ruido de los sensores & 0,02 & Paso de simulación & 0,1\,s \\
 Tamaño de la población, $N$ & 50 & Rutas por generación (manzana / resto) & 2 / 3 + 1 \\
-Torneo / élite & 3 / 2 & Rutas de referencia (manzana / resto) & 8 / 20 \\
+Torneo / élite & 3 / 2 & Rutas fijas (manzana / resto) & 8 / 20 \\
 Probabilidad de cruce, $p_c$ & 0,8 & $\sigma_e$ (manzana, 2$\times$2, 3$\times$3) & 0,3 / 0,2 / 0,15 \\
 Probabilidad de mutar cada gen & 0,05 & $u_e$ (manzana, 2$\times$2) & 1 / 0,9 \\
 Neuronas por mutación & 2 & $g_{\min}$ / $g_{\max,e}$ (manzana, 2$\times$2, 3$\times$3) & 10 / 100, 50, 50 \\
@@ -260,7 +260,7 @@ La población no es una copia de la mejor: la mutación mantiene variantes que e
 
 La Figura~\ref{fig:entrenamiento} muestra cómo aprende la mejor red de cada corrida.
 Todas aprenden la manzana en 48 a 70 generaciones y pasan el 2$\times$2 en 10 a 25.
-En la manzana, todas pasan primero por la mitad de las vueltas de referencia: aprenden a doblar hacia un lado antes que hacia el otro.
+En la manzana, todas pasan primero por la mitad de las vueltas fijas: aprenden a doblar hacia un lado antes que hacia el otro.
 Al pasar al 2$\times$2 y al 3$\times$3, la mejor red ya llega en la mayoría de las rutas desde las primeras generaciones.
 Lo aprendido en la manzana, entonces, sirve en mapas más grandes, como proponen Gomez y Miikkulainen \cite[p.~11]{gomez1996}.
 La red sin límite de agarre aprende la manzana más rápido, en 36 generaciones, porque puede doblar a cualquier velocidad.
@@ -268,7 +268,7 @@ La red sin límite de agarre aprende la manzana más rápido, en 36 generaciones
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.68\linewidth]{figuras/fig_entrenamiento.pdf}
-\caption{Llegadas de la mejor red guardada en las rutas de referencia de su etapa, generación por generación: 8 vueltas en la manzana y 20 rutas en el 2$\times$2 y en el 3$\times$3. Las líneas punteadas verticales marcan, con el color de cada red, el paso a la etapa siguiente.}
+\caption{Llegadas de la mejor red guardada en las rutas fijas de su etapa, generación por generación: 8 vueltas en la manzana y 20 rutas en el 2$\times$2 y en el 3$\times$3. Las líneas punteadas verticales marcan, con el color de cada red, el paso a la etapa siguiente.}
 \label{fig:entrenamiento}
 \end{figure}
 
