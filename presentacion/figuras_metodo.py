@@ -7,7 +7,7 @@ Uso, parado en la carpeta del proyecto:
   - mapas_etapas.png   los mapas de las etapas: manzana, 2x2, 3x3 y el centro
   - esquina.png        la curva más amplia que entra en un cruce, doblando a la izquierda y a la derecha
   - algoritmo.png      el diagrama de flujo del entrenamiento por etapas
-  - cromosoma.png      la red en fila y la matriz de pesos de entrada a la capa oculta
+  - cromosoma.png      la red y su cromosoma de 306 genes, con una neurona marcada
 """
 import math
 import sys
@@ -189,7 +189,7 @@ def algoritmo():
     arriba, abajo = 3.4, 0.9
     caja(ax, 1.5, arriba, "Inicio", "50 redes al azar", ancho=2.6)
     caja(ax, 5.1, arriba, "Evaluar", "3 rutas + 1 de una etapa\nanterior; fitness = promedio", ancho=3.6)
-    caja(ax, 9.0, arriba, "Confirmar la mejor", "en las 20 rutas fijas", ancho=3.4)
+    caja(ax, 9.0, arriba, "Confirmar la mejor", "en las rutas fijas\n(20; 8 en la manzana)", ancho=3.4)
     caja(ax, 12.5, arriba, "¿Pasa de\netapa?", pregunta=True, ancho=2.6, alto=1.8)
     caja(ax, 15.6, arriba, "¿Última\netapa?", pregunta=True, ancho=2.6, alto=1.8)
     caja(ax, 18.8, arriba, "Mejor red", "guardada", ancho=2.4)
@@ -213,64 +213,83 @@ def algoritmo():
     guardar(fig, "algoritmo.png")
 
 
+# Partes del cromosoma, en orden: nombre, cantidad de genes, color claro (barra) y fuerte (red)
+PARTES_CROMOSOMA = [("pesos entrada → oculta", 256, "#9cc3ef", "#7fb0e8"),
+                    ("umbrales ocultos", 16, "#a6dcc6", "#1baf7a"),
+                    ("pesos oculta → salida", 32, "#f6b99c", "#ee8a5c"),
+                    ("umbrales de salida", 2, "#f2d27a", "#d9a800")]
+
+
 # -------------------------------------------------------------------------
-# El cromosoma de nuestra red, 16 → 16 → 2. Arriba, los 306 genes en fila con
-# sus cuatro partes. Abajo, los primeros 256 armados como la matriz de pesos de
-# entrada a la capa oculta: una fila por entrada y una columna por neurona.
-# El cromosoma lee la matriz fila por fila, así que los 16 pesos de una neurona
-# (una columna) quedan salteados cada 16 genes. Se marca la neurona 3 en los dos.
+# Dibuja la red 16 → 16 → 2 con los colores de las partes del cromosoma. Si se
+# pasa una neurona oculta, sus pesos de entrada van en azul fuerte.
+# -------------------------------------------------------------------------
+def dibujar_red(ax, x0, y0, alto, ancho, marcar=None, entradas=16, ocultas=16, salidas=2):
+    def alturas(n):
+        return [y0 + alto * (1 - (i + 0.5) / n) for i in range(n)]
+    xe, xo, xs = x0, x0 + ancho / 2, x0 + ancho
+    ye, yo, ys = alturas(entradas), alturas(ocultas), alturas(salidas)
+    for j, b in enumerate(yo):
+        for a in ye:
+            fuerte = marcar == j
+            ax.plot([xe, xo], [a, b], color=AZ if fuerte else PARTES_CROMOSOMA[0][3], lw=1.6 if fuerte else 0.5,
+                    alpha=1 if fuerte else 0.8, zorder=3 if fuerte else 1)
+    for a in yo:
+        for b in ys:
+            ax.plot([xo, xs], [a, b], color=PARTES_CROMOSOMA[2][3], lw=0.6, alpha=0.7, zorder=1)
+    ax.scatter([xe] * entradas, ye, s=28, color=GRIS, zorder=4)
+    ax.scatter([xo] * ocultas, yo, s=40, zorder=4,
+               color=[AZ if marcar == j else PARTES_CROMOSOMA[1][3] for j in range(ocultas)],
+               edgecolor=TINTA, linewidth=[1.2 if marcar == j else 0 for j in range(ocultas)])
+    ax.scatter([xs] * salidas, ys, s=90, color=PARTES_CROMOSOMA[3][3], zorder=4)
+    for x, texto in [(xe, f"{entradas} entradas"), (xo, f"{ocultas} ocultas"), (xs, f"{salidas} salidas")]:
+        ax.text(x, y0 + alto + 0.25, texto, ha="center", va="bottom", fontsize=13, color=TINTA)
+
+
+# -------------------------------------------------------------------------
+# Dibuja el cromosoma como una barra de genes, con cada parte de su color. Los
+# genes de `marcar` van en azul fuerte.
+# -------------------------------------------------------------------------
+def dibujar_barra(ax, x0, y, largo, alto, marcar=frozenset(), tam=11.5):
+    total = sum(cantidad for _, cantidad, _, _ in PARTES_CROMOSOMA)
+    g = largo / total
+    gen = 0
+    for nombre, cantidad, claro, _ in PARTES_CROMOSOMA:
+        inicio = gen
+        for _ in range(cantidad):
+            ax.add_patch(Rectangle((x0 + gen * g, y), g, alto, lw=0, color=AZ if gen in marcar else claro))
+            gen += 1
+        ax.plot([x0 + gen * g] * 2, [y - 0.05, y + alto + 0.05], color="white", lw=1.5)
+        medio = x0 + (inicio + gen) / 2 * g
+        if cantidad >= 32:
+            ax.text(medio, y - 0.15, f"{cantidad}\n{nombre}", ha="center", va="top", fontsize=tam, color=TINTA)
+        else:
+            # Las partes angostas llevan el rótulo arriba, cada una a otra altura
+            altura = y + alto + (0.25 if cantidad == 16 else 0.75)
+            ax.text(medio, altura, f"{cantidad} {nombre}", ha="center", va="bottom", fontsize=tam, color=TINTA)
+            ax.plot([medio] * 2, [y + alto, altura], color=GRIS, lw=0.8)
+    ax.text(x0 + largo + 0.15, y + alto / 2, f"{total} genes", va="center", fontsize=tam + 1.5, fontweight="bold",
+            color=TINTA)
+
+
+# -------------------------------------------------------------------------
+# El cromosoma de nuestra red, 16 → 16 → 2: a la izquierda la red, a la derecha
+# sus 306 genes en fila, con cada parte del mismo color. Se marca la neurona 3:
+# el cromosoma lee la matriz de pesos fila por fila, así que sus 16 pesos de
+# entrada quedan salteados cada 16 genes, y su umbral va aparte.
 # -------------------------------------------------------------------------
 def cromosoma():
-    entradas, ocultas, salidas = 16, 16, 2
-    partes = [("pesos entrada → oculta", entradas * ocultas, "#9cc3ef"), ("umbrales ocultos", ocultas, "#a6dcc6"),
-              ("pesos oculta → salida", ocultas * salidas, "#f6b99c"), ("umbrales de salida", salidas, "#f2d27a")]
-    neurona = 2
+    entradas, ocultas, neurona = 16, 16, 2
+    # Los genes de una neurona oculta: su columna de la matriz de pesos (uno cada 16) y su umbral
     marcados = {fila * ocultas + neurona for fila in range(entradas)} | {entradas * ocultas + neurona}
-    colores_fuertes = {"#9cc3ef": AZ, "#a6dcc6": "#1baf7a"}
-
-    fig, ax = plt.subplots(figsize=(16, 6.6))
-    ancho = 0.052
-    gen = 0
-    for nombre, cantidad, color in partes:
-        x0 = gen * ancho
-        for k in range(cantidad):
-            fuerte = gen in marcados
-            ax.add_patch(Rectangle(((gen) * ancho, 5.2), ancho, 0.7, lw=0,
-                                   color=colores_fuertes.get(color, color) if fuerte else color))
-            gen += 1
-        ax.plot([gen * ancho, gen * ancho], [5.1, 6.0], color="white", lw=2)
-        # Los umbrales son partes angostas: su rótulo va arriba de la barra, cada uno a otra altura
-        if nombre.startswith("umbrales"):
-            altura = 6.05 if nombre == "umbrales ocultos" else 6.5
-            ax.text((x0 + gen * ancho) / 2, altura, f"{nombre}: {cantidad}", ha="center", va="bottom", fontsize=12.5,
-                    color=TINTA)
-            ax.plot([(x0 + gen * ancho) / 2] * 2, [5.95, altura], color=GRIS, lw=0.8)
-        else:
-            ax.text((x0 + gen * ancho) / 2, 4.9, f"{nombre}\n{cantidad}", ha="center", va="top", fontsize=12.5,
-                    color=TINTA)
-    ax.text(gen * ancho + 0.15, 5.55, "306 genes", va="center", fontsize=14, fontweight="bold", color=TINTA)
-
-    # La matriz de 16 × 16: cada fila es una entrada; cada columna, una neurona oculta
-    lado, x0, y0 = 0.2, 1.2, 0.2
-    for fila in range(entradas):
-        for columna in range(ocultas):
-            color = AZ if columna == neurona else "#9cc3ef"
-            ax.add_patch(Rectangle((x0 + columna * lado, y0 + (entradas - 1 - fila) * lado), lado * 0.92, lado * 0.92,
-                                   color=color, lw=0))
-    ax.text(x0 + ocultas * lado / 2, y0 + entradas * lado + 0.12, "neuronas ocultas (columnas)", ha="center",
-            va="bottom", fontsize=12.5, color=TINTA)
-    ax.text(x0 - 0.15, y0 + entradas * lado / 2, "entradas\n(filas)", ha="right", va="center", fontsize=12.5,
-            color=TINTA)
-    ax.annotate("", xy=(x0 + ocultas * lado / 2, y0 + entradas * lado + 0.55), xytext=(3.0, 5.15),
-                arrowprops={"arrowstyle": "-|>", "color": GRIS, "lw": 1.2, "connectionstyle": "arc3,rad=0.15"})
-    ax.text(5.0, 2.9, "Los primeros 256 genes son la matriz de pesos de entrada a la capa oculta,\n"
-                      "leída fila por fila.\n\n"
-                      "Una neurona es una columna: sus 16 pesos de entrada\n"
-                      "quedan salteados cada 16 genes, y su umbral va aparte.\n"
-                      "El cruce y la mutación por neurona eligen por columna, no por posición.",
-            fontsize=13.5, color=TINTA, va="center", linespacing=1.4)
-    ax.set_xlim(0, 17.8)
-    ax.set_ylim(0, 6.9)
+    fig, ax = plt.subplots(figsize=(16, 4.2))
+    dibujar_red(ax, 0.3, 0.2, 3.4, 3.2, marcar=neurona)
+    ax.annotate("", xy=(5.0, 1.9), xytext=(3.9, 1.9), arrowprops={"arrowstyle": "-|>", "color": TINTA, "lw": 2})
+    dibujar_barra(ax, 5.2, 1.55, 8.6, 0.7, marcar=marcados)
+    ax.text(5.2, 0.15, "Una neurona (en azul) son sus 16 pesos de entrada y su umbral: 17 genes salteados.",
+            fontsize=12.5, color=TINTA, va="center")
+    ax.set_xlim(0, 15.6)
+    ax.set_ylim(-0.1, 4.2)
     ax.set_aspect("equal")
     ax.axis("off")
     guardar(fig, "cromosoma.png")
