@@ -36,7 +36,7 @@ CARPETA = RAIZ / "resultados" / "comparaciones"
 RESUMEN = SALIDA / "barrios.json"
 
 # Cada corrida: su carpeta, su nombre en el video, su color, el barrio y su nombre
-CORRIDAS = [("neurona_gaussiana_agarre", "Base: cruce por neurona", "#2a78d6", "guadalupe", "Guadalupe"),
+CORRIDAS = [("neurona_gaussiana_agarre", "Cruce por neurona", "#2a78d6", "guadalupe", "Guadalupe"),
             ("pesos_gaussiana_agarre", "Cruce por pesos", "#1baf7a", "n2_02_roma", "Roma"),
             ("blx_gaussiana_agarre", "Cruce BLX-α", "#8e5bd0", "n3_09_schneider", "Schneider"),
             ("ninguna_gaussiana_agarre", "Sin cruce", "#b8960a", "n1_02_12_de_octubre", "12 de Octubre"),
