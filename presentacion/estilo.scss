@@ -29,3 +29,8 @@ $presentation-h2-font-size: 1.4em;
 .reveal table { font-size: 0.7em; border-collapse: collapse; border-top: 1.5px solid #333; border-bottom: 1.5px solid #333; }
 .reveal table th { border-bottom: 1px solid #333; }
 .reveal table td { border-bottom: none; }
+
+/* Antecedentes como preguntas: la pregunta en negrita, la respuesta debajo y el autor chico y gris */
+.reveal .preguntas { font-size: 0.82em; }
+.reveal .preguntas p { margin: 0 0 0.75em 0; line-height: 1.35; }
+.reveal .autor { font-size: 0.8em; color: #666; margin-left: 0.4em; }
