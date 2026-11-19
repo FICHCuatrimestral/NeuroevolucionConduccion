@@ -306,22 +306,25 @@ Las 50 redes de una generación manejan a la vez la misma ruta. En azul, la de m
 
 ## 6 · El límite de agarre
 
-- **El problema:** la primera versión llegaba rápido a las esquinas y se salía. El modelo del auto deja doblar a fondo a cualquier velocidad
-- **El límite:** $a_y = v^2/R \le 6$ m/s². A más velocidad, menos volante. No frena: frenar antes lo tiene que aprender la red
+- **El problema:** el modelo del auto deja doblar a fondo a cualquier velocidad. La primera versión llegaba rápido a las esquinas y se salía
+- **El límite:** para doblar hace falta una aceleración centrípeta, $v^2/R$: la que se siente de costado en una curva. La limitamos a 6 m/s², algo más de media g, lo que aguantan las gomas. A más velocidad, menos volante
+- **No frena:** frenar antes de la esquina lo tiene que aprender la red
 
-![](img/fig_auto.png){fig-align="center" width="64%"}
+![](img/fig_auto.png){height="250px"} ![](img/esquina_rapida.png){height="250px"}
 
 ::: chico
-Trayectorias sin y con límite (b) y volante máximo según la velocidad (c): por debajo de 5,1 m/s dobla a fondo; a 8 m/s, no pasa de 14,9°.
+Trayectorias sin y con límite (b), volante máximo según la velocidad (c) y la misma esquina a dos velocidades, con el límite (d): hasta 5,1 m/s (18 km/h) dobla a fondo; a 40 km/h no entra en la esquina.
 :::
 
 ::: notes
-**Decir:** La primera versión llegaba rápido a las esquinas y se salía. El problema: el modelo del auto deja doblar a fondo a cualquier velocidad, y eso ningún auto real lo puede hacer. Entonces pusimos un límite: la aceleración lateral no pasa de 6 m/s². A más velocidad, menos volante. El límite no frena: si llega rápido a la esquina, se sale. Frenar antes lo tiene que aprender la red.
+**Decir:** La primera versión llegaba rápido a las esquinas y se salía. El problema: el modelo del auto deja doblar a fondo a cualquier velocidad, y eso ningún auto real lo puede hacer. Entonces pusimos un límite a la aceleración centrípeta, la que se siente de costado al doblar: no pasa de 6 m/s², algo más de media g. A más velocidad, menos volante. El límite no frena: si llega rápido a la esquina, se sale. Frenar antes lo tiene que aprender la red.
 
 **Si preguntan:**
 
 - En un cruce de calles de 7 m, la curva más amplia tiene 17,9 m de radio doblando a la izquierda y 6,0 m a la derecha. Con 6 m/s², eso da unos 37 y 22 km/h. A 40 km/h no entra ninguna esquina.
-- Por debajo de 5,1 m/s (18 km/h) dobla a fondo, hasta 35°. A 8 m/s no pasa de 14,9°.
+- Por debajo de 5,1 m/s (18 km/h) dobla a fondo, hasta 35°. A 8 m/s (29 km/h) no pasa de 14,9°.
+- Figura d): con 6 m/s², la curva más cerrada mide v²/6. A 15 km/h son 2,9 m y entra con más de 1 m de sobra (la esquina a la derecha admite hasta 6,0 m). A 40 km/h son 20,6 m: se sale.
+- Centrípeta y lateral son lo mismo acá: la aceleración hacia el centro de la curva, v²/R. En los resultados la llamamos lateral.
 - La cuenta: con el modelo de Kong, R = l_r / sen β, así que sen β_max = a_max · l_r / v².
 :::
 
