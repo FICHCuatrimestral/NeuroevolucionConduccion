@@ -30,7 +30,7 @@ El auto se simula con un modelo cinemático de bicicleta, al que se agregó un l
 La red recibe solo información medida desde el propio auto, y su aptitud (\emph{fitness}) premia avanzar por su carril.
 Se entrena por etapas, desde una manzana hasta un recorte de tres por tres manzanas.
 Se comparan cuatro operadores de cruce, dos de mutación y el efecto del límite de agarre.
-Todas las redes llegan a destino en 15 a 20 de 20 rutas del centro, y también manejan en barrios nuevos.
+Todas las redes llegan a destino en 15 a 20 de 20 rutas del centro, y en barrios nuevos llegan en 7 a 20 de 20.
 Sin el límite, la red dobla las esquinas a la velocidad máxima, con aceleraciones imposibles para un auto real.
 Con el límite, maneja despacio y dentro de lo físicamente posible.
 La red aprende lo que la física y la función de aptitud le piden, y eso permite guiar su comportamiento.
@@ -39,9 +39,8 @@ La red aprende lo que la física y la función de aptitud le piden, y eso permit
 % =====================================================================
 \section{Introducción}
 
-La conducción autónoma es uno de los problemas de control más estudiados de los últimos años.
-Un auto tiene que llegar a destino, mantenerse en la calzada y respetar su carril.
-Las soluciones clásicas separan el problema: un planificador elige el camino y un controlador lo sigue.
+En la conducción autónoma, un auto tiene que llegar a destino, mantenerse en la calzada y respetar su carril.
+Una forma común de resolverlo es separarlo: un planificador elige el camino y un controlador lo sigue.
 El controlador suele diseñarse con un modelo del vehículo, por ejemplo con control predictivo \cite[p.~1097]{kong2015}.
 Otra opción es aprender el controlador a partir de la experiencia, sin programar sus reglas.
 
@@ -50,7 +49,7 @@ Solo se sabe, al final del viaje, qué tan bien salió.
 Además, la aptitud de un viaje cambia a saltos, por ejemplo cuando el auto choca.
 Por eso la retropropagación, que necesita la salida deseada y una función derivable, no se aplica de forma directa \cite[p.~763]{montana1989}, \cite[p.~1425]{yao1999}.
 La neuroevolución resuelve esto: busca los pesos de la red con un algoritmo genético que solo compara viajes \cite[p.~762]{montana1989}, \cite[p.~1439]{yao1999}.
-Montana y Davis, por ejemplo, entrenaron así una red que superó a la retropropagación en su problema.
+Montana y Davis, por ejemplo, entrenaron así una red que superó a la retropropagación en su problema \cite[p.~762]{montana1989}.
 
 Togelius y Lucas aplicaron la neuroevolución a autos de carrera simulados.
 Mostraron que la red debe recibir información medida desde el propio auto \cite[pp.~1906 y 1912]{togelius2005}.
@@ -139,7 +138,7 @@ El límite no frena al auto: si la red llega rápido a una esquina, se sale, as�
 La red recibe 16 entradas, todas medidas desde el auto (Fig.~\ref{fig:red}).
 Son siete rayos hasta el borde de la calle, la velocidad, la dirección y la distancia al próximo punto, el desvío del carril y la dirección del carril 3\,m y 6\,m adelante.
 Al entrenar se suma a cada entrada un ruido gaussiano de desvío 0,02, como hacen Togelius y Lucas \cite[p.~1189]{togelius2006}.
-La red es un perceptrón $16\to16\to2$ con tangente hiperbólica: una salida es el volante y la otra el acelerador, que frena si es negativa.
+La red es un perceptrón $16\to16\to2$ con tangente hiperbólica: una salida es el volante y la otra el acelerador, que frena si es negativo.
 Sus 306 pesos y umbrales forman el cromosoma, con un gen real por peso \cite[p.~764]{montana1989}.
 
 \begin{figure}[!htb]
@@ -149,7 +148,7 @@ Sus 306 pesos y umbrales forman el cromosoma, con un gen real por peso \cite[p.~
 \label{fig:red}
 \end{figure}
 
-La aptitud de un viaje por la ruta $r$ mide el avance y castiga el tiempo fuera del carril:
+La aptitud (\emph{fitness}) de un viaje por la ruta $r$ mide el avance y castiga el tiempo fuera del carril:
 \begin{equation}
   F_r = \frac{k_r + p_r}{K_r}\,\bigl(1 - c\,f_r\bigr).
   \label{eq:aptitud}
@@ -163,7 +162,8 @@ Con $c=0{,}8$, ir por la mano contraria vale más que quedarse quieto.
 La aptitud no premia el tiempo: dos viajes que llegan valen lo mismo, sean lentos o rápidos.
 La aptitud de una red es el promedio de $F_r$ en las rutas que manejó.
 
-El algoritmo genético usa reemplazo generacional, torneo de 3 y elitismo de 2 \cite[p.~1908]{togelius2005}.
+El algoritmo genético usa reemplazo generacional, torneo de 3 y elitismo de 2.
+El elitismo de 2 es el de Togelius y Lucas \cite[p.~1908]{togelius2005}; el torneo es una elección propia.
 Dos neuronas ocultas intercambiadas dan la misma red con otro cromosoma: es el problema de las permutaciones \cite[p.~1426]{yao1999}.
 Además, un cruce que separa los pesos de una neurona puede romperla \cite[p.~765]{montana1989}.
 Por eso se comparan cuatro cruces (Fig.~\ref{fig:operadores}).
@@ -208,9 +208,10 @@ La mejor guardada vuelve a la población si se pierde, así una mala tirada de r
 \subsection{Diseño experimental}
 
 La Tabla~\ref{tab:parametros} reúne los parámetros comunes a todas las corridas.
-Se entrenaron seis redes, que difieren en un solo factor a la vez.
+Se entrenaron seis redes.
+La de referencia usa cruce por neurona, mutación gaussiana y límite de agarre, y cada una de las otras cambia un solo factor.
 Cuatro usan mutación gaussiana y cambian el cruce: por neurona, por pesos, BLX-$\alpha$ o sin cruce.
-Una usa cruce y mutación por neurona, y la última repite la de cruce por neurona sin límite de agarre.
+Una cambia la mutación gaussiana por la mutación por neurona, y la última es la de referencia sin límite de agarre.
 Todas se entrenan por etapas en la manzana, el 2$\times$2 y el 3$\times$3, con la misma semilla.
 
 Cada red final maneja, sin ruido en los sensores, las mismas 20 rutas fijas del centro.
@@ -277,7 +278,7 @@ La red sin límite de agarre aprende la manzana más rápido, en 36 generaciones
 
 La Tabla~\ref{tab:redes} reúne las seis redes; la última fila es la red entrenada sin límite de agarre.
 Cada fila muestra cuántas generaciones usó en la manzana y en el 2$\times$2, y cómo manejó las 20 rutas del centro.
-Sin límite, la red llega en las 20 rutas y en la mitad del tiempo que la misma red con límite.
+Sin límite, la red llega en las 20 rutas y en la mitad del tiempo que la red de cruce por neurona con límite.
 Pero no maneja mejor: va a la velocidad máxima, 11\,m/s, durante todo el viaje (Fig.~\ref{fig:velocidad}).
 En los giros llega a 27,6\,m/s$^2$ de aceleración lateral, casi tres veces la gravedad.
 La red aprendió a aprovechar la falla del modelo, y el límite de agarre resultó necesario para que el problema tenga sentido físico.
@@ -315,7 +316,7 @@ Sin límite de agarre & 36 & 10 & 20 / 20 \; [83--100\,\%] & 0 & 56\,s & 11,0 / 
 
 Con el límite, la aceleración lateral llega como máximo a 6,45\,m/s$^2$.
 Pasa apenas el tope porque se mide con la velocidad al final de cada paso, y el límite usa la del comienzo.
-La red no frena antes de las esquinas: va a unos 5\,m/s durante todo el viaje, cerca y lejos de los giros.
+Las redes con límite no frenan antes de las esquinas: van a entre 4 y 5,4\,m/s todo el viaje, cerca y lejos de los giros.
 Como la aptitud no premia el tiempo, ir despacio no le cuesta nada.
 Manejar lento todo el viaje es, entonces, la forma más simple de doblar sin salirse.
 Es lo que señalan Nelson y colaboradores: la aptitud gobierna el comportamiento que se obtiene \cite[p.~365]{nelson2009}.
@@ -323,7 +324,7 @@ Para que la red aprenda a frenar solo antes de cada esquina, la aptitud tendría
 
 El carril, en cambio, sí se respeta.
 Las seis redes pasan entre el 0,3 y el 3,1\,\% del tiempo fuera de su carril en el centro.
-Es poco tiempo: aun sin premio por la velocidad, las redes manejan casi siempre por su mano.
+Es poco tiempo: las redes manejan casi siempre por su mano.
 No hay una corrida sin castigo de carril para comparar, así que su efecto exacto queda por medir.
 
 % ---------------------------------------------------------------------
@@ -338,7 +339,8 @@ Todos los operadores, entonces, permiten aprender la tarea.
 
 La Figura~\ref{fig:rutas} muestra cada viaje por separado, en las mismas 20 rutas para todas las redes.
 Aparece un compromiso entre rapidez y seguridad.
-El cruce por neurona es el más rápido cuando llega, con 111\,s de media, y el que va más rápido cerca de los giros.
+En las rutas a las que llegan todas, el cruce por neurona es el más rápido en casi todas, y es el que va más rápido cerca de los giros.
+Su media de 111\,s no se compara directo con las otras, porque promedia solo las 15 rutas a las que llegó.
 Pero es también el que más choca: 5 de las 20 rutas.
 El cruce por pesos y el sin cruce van más despacio cerca de los giros, a 4,3\,m/s, y casi no fallan.
 Con una sola semilla esto es una observación, no una regla, pero coincide con lo que pide el límite de agarre.
@@ -361,9 +363,9 @@ Por él pasan 8 de las 20 rutas, y ahí ocurren 7 de las 10 fallas de las redes 
 Algunas de esas rutas son también las más largas: la ruta 3 lleva entre 283 y 315\,s a las redes con límite que llegan.
 
 Para probar en calles que nunca vieron, cada red manejó además las 20 rutas fijas de un barrio de prueba (Tabla~\ref{tab:barrios}).
-Todas manejan en esos barrios, con entre 7 y 20 llegadas.
+Todas llegan en algunas rutas de barrios que nunca vieron, entre 7 y 20 de 20.
 Cada red se probó en un barrio distinto, así que esta tabla no compara operadores: para eso está la del centro.
-Lo que muestra es que redes entrenadas en una manzana y dos recortes chicos manejan en barrios nuevos.
+Lo que muestra es que redes entrenadas en una manzana y dos recortes chicos llegan también en barrios nuevos, aunque no en todas las rutas.
 Una explicación es que sus sensores miden todo desde el auto, y así una esquina se ve parecida en cualquier mapa.
 
 \begin{table}[!htb]
@@ -391,7 +393,7 @@ Sin límite de agarre & Arenales & 13 / 20 \; [41--85\,\%] & 7 & 0 \\
 
 En este trabajo, un algoritmo genético entrenó un perceptrón multicapa de 306 pesos que maneja por calles reales de Santa Fe.
 El aporte fue juntar piezas de trabajos anteriores en mapas reales, con una aptitud que premia avanzar por el carril y un límite de agarre en el modelo del vehículo.
-El entrenamiento por etapas permitió aprender en una manzana y manejar después en el centro y en barrios nuevos.
+Con el entrenamiento por etapas, redes que aprendieron en mapas chicos manejan en el centro y llegan en parte de las rutas de barrios nuevos.
 Con una sola semilla, las diferencias entre operadores no alcanzaron para ordenarlos, y todos resultaron capaces de aprender la tarea.
 El límite de agarre resultó necesario: sin él, la red aprovecha una física imposible, y con él maneja dentro de lo que un auto real puede hacer.
 La red aprende lo que la física y la aptitud le piden, y eso permite guiar su comportamiento.
